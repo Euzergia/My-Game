@@ -14,6 +14,8 @@ private:
     int m_gold;
     int m_silver;
     int m_copper;
+    int m_adv = 0;
+    string m_start;
 public:
     Character(int gold, int silver, int copper){
         srand((unsigned)time(0));
@@ -54,10 +56,23 @@ public:
     void getMoney(){
         cout << m_gold << " gold/s, " << m_silver << " silver/s, " << m_copper << " copper/s" << endl;
     }
+    void setStart(string start){
+        m_start = start;
+    }
+    string getStart(){
+        if (m_start == "Start"){
+            cout << "Your adventure is beginning!" << endl;
+            m_adv++;
+        }else{
+            cout << "Learn to write the right word!" << endl;
+        }
+        }
+
 };
 
 int main() {
     string name;
+    string start;
     Character* newChar = new Character(0,0,0);
     cout << "Enter your name: ";
     getline(cin,name);
@@ -68,5 +83,11 @@ int main() {
     newChar->printInfo();
     cout << "You have this much money!" << endl;
     newChar->getMoney();
+    cout << "Are you ready? Write \"Start\"." << endl;
+    getline(cin,start);
+    newChar->setStart(start);
+    newChar->getStart();
+
+    
     return 0;
 }
