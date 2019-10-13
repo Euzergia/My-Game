@@ -33,6 +33,7 @@ public:
 
 
     }
+
     // God mode
     void setGodMode(){
         if (m_name == "God"){
@@ -49,26 +50,32 @@ public:
         m_name = newName;
         setGodMode();
     }
+
     string getName(){
         return m_name;
     }
+
     void printInfo(){
         cout << "Vitality: " << m_vitality << endl;
         cout << "Intelligence: " << m_intelligence << endl;
         cout << "Strength: " << m_strength << endl;
         cout << "Agility: " << m_agility << endl;
     }
+
     // Money
     void getMoney(){
         cout << m_gold << " gold/s, " << m_silver << " silver/s, " << m_copper << " copper/s" << endl;
     }
+
     // set Start for the adventure
     void setStart(string start){
         m_start = start;
     }
+
     // Set continue
     void setContinue(string continuee){
         m_continue = continuee;
+
     }
     // Adventure Trigger
     void getStart(){
@@ -79,26 +86,51 @@ public:
             cout << "Learn to write the right word!" << endl;
         }
     }
-    // Adventure Choice Adv == 1
-    void getContinue(){
-        if (m_continue == "A"){
+
+    // Adventure Choice Adv == 2
+    void getContinue2(){
+        if (m_continue == "A" && m_adv == 2){
             cout << "You have stepped outside. The only thing you see is dark. After a while, you hear something growl not so far from you. What is your next move?" << endl;
             cout << "Press:" << endl;
             cout << "A: I am going to try to find a weapon." << endl;
             cout << "B: I am going to call for help." << endl;
             cout << "C: I am going to check my pockets." << endl;
-        }else if(m_continue == "B"){
+            m_adv++;
+        }else if(m_continue == "B" && m_adv == 2){
             cout << "You are looking around the room. The only things in the room is a bed and a table. After proper searching, you have noticed a letter lying on the table. What is your next move?" << endl;
             cout << "Press:" << endl;
             cout << "A: I am going to open it. " << endl;
             cout << "B: I am not interested in the letter, I am searching for other things." << endl;
             cout << "C: I am going to head out, because I didn't find anything useful." << endl;
-        }else{
+        }else if(m_continue == "C" && m_adv == 3){
             cout << "You have lied down and started thinking about your meaningless life and your entire existence. What is your next move?" << endl;
             cout << "Press:" << endl;
             cout << "A: I am going to commit suicide." << endl;
             cout << "B: I am going to pray to Jesus." << endl;
             cout << "C: I am going to think about something nice." << endl;
+        }
+    }
+
+    // Continue 3(Adv == 3), A(Adv == 2) == Continue21A
+    void getContinue3A(){
+        if (m_continue == "A" && m_adv == 3){
+            cout << "You are trying to find a weapon, but it's dark.. GRROOOOOWLL.. Suddenly you are feeling chills all over your body. \"Something\" is getting closer.. What is your next move? " << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am going to panic and scream for help." << endl;
+            cout << "B: I am determined to fight it." << endl;
+            cout << "C: I am starting to have seizure." << endl;
+        }else if(m_continue == "B" && m_adv == 3){
+            cout << "You are calling for help, but there is no response. \"Something\" has heard you, and it's running fast towards you.  What is your next move?" << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am determined to fight. " << endl;
+            cout << "B: I am going to use magic, even though I don't know any." << endl;
+            cout << "C: I feel like I am going to die." << endl;
+        }else if(m_continue == "C" && m_adv == 3){
+            cout << "You are checking your pockets just to find a key in them. The key has a weird shape like a dragon's shape. You feel some magic power coming out from it. What is your next move?" << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am going to look for any keyhole." << endl;
+            cout << "B: I am going to try absorb the magic from it. " << endl;
+            cout << "C: I am going to throw it away." << endl;
         }
     }
     // Adventure begins
@@ -109,6 +141,7 @@ public:
             cout << "A: I am going to head outside." << endl;
             cout << "B: I am going to inspect the room in details." << endl;
             cout << "C: I am not planning to do anything." << endl;
+            m_adv++;
 
         }else{
             cout << "You are not allowed to play. Restart the game!" << endl;
@@ -146,8 +179,11 @@ int main() {
 
     // Adventure continues
     getline(cin,continuee);
-    newChar->setStart(continuee);
-    newChar->getContinue();
+    newChar->setContinue(continuee);
+    newChar->getContinue2();
+    getline(cin,continuee);
+    newChar->setContinue(continuee);
+    newChar->getContinue3A();
 
     return 0;
 }
