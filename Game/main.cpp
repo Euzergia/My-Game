@@ -16,7 +16,9 @@ private:
     int m_copper;
     int m_adv = 0;
     string m_start;
+    string m_continue;
 public:
+    // Constructor
     Character(int gold, int silver, int copper){
         srand((unsigned)time(0));
 
@@ -31,6 +33,7 @@ public:
 
 
     }
+    // God mode
     void setGodMode(){
         if (m_name == "God"){
             m_strength += 100;
@@ -40,6 +43,8 @@ public:
             m_gold = 999999;
         }
     }
+
+    // Player's name
     void setName(string newName) {
         m_name = newName;
         setGodMode();
@@ -53,41 +58,96 @@ public:
         cout << "Strength: " << m_strength << endl;
         cout << "Agility: " << m_agility << endl;
     }
+    // Money
     void getMoney(){
         cout << m_gold << " gold/s, " << m_silver << " silver/s, " << m_copper << " copper/s" << endl;
     }
+    // set Start for the adventure
     void setStart(string start){
         m_start = start;
     }
-    string getStart(){
+    // Set continue
+    void setContinue(string continuee){
+        m_continue = continuee;
+    }
+    // Adventure Trigger
+    void getStart(){
         if (m_start == "Start"){
             cout << "Your adventure is beginning!" << endl;
             m_adv++;
         }else{
             cout << "Learn to write the right word!" << endl;
         }
+    }
+    // Adventure Choice Adv == 1
+    void getContinue(){
+        if (m_continue == "A"){
+            cout << "You have stepped outside. The only thing you see is dark. After a while, you hear something growl not so far from you. What is your next move?" << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am going to try to find a weapon." << endl;
+            cout << "B: I am going to call for help." << endl;
+            cout << "C: I am going to check my pockets." << endl;
+        }else if(m_continue == "B"){
+            cout << "You are looking around the room. The only things in the room is a bed and a table. After proper searching, you have noticed a letter lying on the table. What is your next move?" << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am going to open it. " << endl;
+            cout << "B: I am not interested in the letter, I am searching for other things." << endl;
+            cout << "C: I am going to head out, because I didn't find anything useful." << endl;
+        }else{
+            cout << "You have lied down and started thinking about your meaningless life and your entire existence. What is your next move?" << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am going to commit suicide." << endl;
+            cout << "B: I am going to pray to Jesus." << endl;
+            cout << "C: I am going to think about something nice." << endl;
         }
+    }
+    // Adventure begins
+    void getBegin(){
+        if(m_adv == 1) {
+            cout << "You have woken up in an unknown room. You are looking around, but you don't see anything interesting. What are you going to do?" << endl;
+            cout << "Press:" << endl;
+            cout << "A: I am going to head outside." << endl;
+            cout << "B: I am going to inspect the room in details." << endl;
+            cout << "C: I am not planning to do anything." << endl;
+
+        }else{
+            cout << "You are not allowed to play. Restart the game!" << endl;
+        }
+
+    }
+
 
 };
 
 int main() {
     string name;
     string start;
+    string continuee;
+
+    // Create character
     Character* newChar = new Character(0,0,0);
     cout << "Enter your name: ";
     getline(cin,name);
     newChar->setName(name);
 
+    // Character's info
     cout << "Welcome to the game, " << newChar->getName() << '!' << endl;
     cout << "These are your base stats!" << endl;
     newChar->printInfo();
     cout << "You have this much money!" << endl;
     newChar->getMoney();
+
+    // Adventure - Beginning
     cout << "Are you ready? Write \"Start\"." << endl;
     getline(cin,start);
     newChar->setStart(start);
     newChar->getStart();
+    newChar->getBegin();
 
-    
+    // Adventure continues
+    getline(cin,continuee);
+    newChar->setStart(continuee);
+    newChar->getContinue();
+
     return 0;
 }
