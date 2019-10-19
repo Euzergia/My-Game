@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Fight.dir/main.cpp.o  -o Fight.exe -Wl,--out-implib,libFight.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
