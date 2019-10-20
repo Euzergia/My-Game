@@ -42,6 +42,8 @@ public:
             m_endurance += 100;
             m_vitality += 100;
             m_agility += 100;
+            m_hp = m_vitality * 15;
+            m_mp = m_intelligence * 10;
             m_gold = 999999;
         }
     }
