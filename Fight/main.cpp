@@ -17,6 +17,7 @@ private:
     int m_mhp = (rand() % 250) + 1;
     int m_hp;
     int m_mp;
+    int m_potions = 2;
 
 public:
 
@@ -32,7 +33,6 @@ public:
         m_mp = m_intelligence * 10;
         m_hp = m_vitality * 15;
         m_gold = gold;
-
     }
 
     void setGodMode() {
@@ -78,7 +78,7 @@ public:
     void getStart() {
         if (m_start == "S" || m_start == "s") {
             cout << "Your adventure is beginning!" << endl;
-        } else {
+        }else {
             cout << "" << endl;
         }
     }
@@ -89,7 +89,7 @@ public:
             cout << "Press:" << endl;
             cout << "A: Fight." << endl;
             cout << "B: Run." << endl;
-        } else {
+        }else {
             cout << "GAME OVER! Restart the game, retard!!" << endl;
             exit(0);
         }
@@ -98,12 +98,13 @@ public:
     int getStartDmg() {
         if (m_continue == "A" || m_continue == "a") {
             cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-            cout << "Player: " << m_name << "  " << m_hp << endl;
+            cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
             cout << "A: Punch" << endl;
             cout << "B: Fireball" << endl;
+            cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
 
             return m_mhp;
-        } else {
+        }else {
             cout << "You ran away. Restart the game, coward!!" << endl;
 
             exit(0);
@@ -116,77 +117,89 @@ public:
                 m_hp = 0;
                 m_mhp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "Randalf is dead. You died." << endl;
-            } else if (m_hp <= 0) {
+            }else if (m_hp <= 0) {
                 m_hp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "You have died." << endl;
-            } else if (m_mhp <= 0) {
+            }else if (m_mhp <= 0) {
                 m_mhp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "Randalf is dead." << endl;
-            } else if (m_mhp > 0 && m_mp > 0) {
+            }else if (m_mhp > 0 && m_mp > 0) {
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
-            } else {
+                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+            }else {
+                m_mp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
+                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
             }
             return m_mhp;
-        } else if (m_continue == "B" || m_continue == "b") {
+        }else if (m_continue == "B" || m_continue == "b") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "Randalf is dead. You died." << endl;
-            } else if (m_hp <= 0) {
+            }else if (m_hp <= 0) {
                 m_hp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "You have died." << endl;
-            } else if (m_mhp <= 0) {
+            }else if (m_mhp <= 0) {
                 m_mhp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "Randalf is dead." << endl;
-            } else if (m_mp > 0) {
+            }else if (m_mp > 0) {
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
-            } else {
+                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+            }else {
+                m_mp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
+                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
             }
 
         }
     }
-
-
-
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
             m_mhp -= m_strength * 3;
             m_hp -= (rand() % 10) + 1;
 
             return m_mhp;
-        } else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
+        }else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
                 m_mhp -= m_intelligence * 5;
                 m_mp -= m_intelligence * 4;
                 m_hp -= (rand() % 6) + 1;
 
                 return m_mhp;
-            } else if((m_continue == "B" || m_continue == "b") && m_mp <= 0){
+            }else if((m_continue == "B" || m_continue == "b") && m_mp <= 0){
                 cout << "You don't have enough mp!" << endl;
             }
+        else if(m_continue == "C" || m_continue == "c"){
+            getPotion();
+        }
+    }
+    int getPotion(){
+        if(m_potions > 0) {
+            m_hp += 50;
+            m_potions--;
+        }
     }
     int getHp(){
 
@@ -231,6 +244,7 @@ int main() {
         newChar->getFight();
     }
 
+    delete newChar;
 
     return 0;
 }
