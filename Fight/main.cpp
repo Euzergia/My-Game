@@ -114,18 +114,24 @@ public:
             if (m_mhp <= 0) {
                 m_mhp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                 cout << "Randalf is dead." << endl;
+            }
+            else if(m_hp <= 0){
+                m_hp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "You died." << endl;
             }
             else if(m_mhp > 0 && m_mp > 0) {
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
             }
             else {
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                 cout << "A: Punch" << endl;
             }
             return m_mhp;
@@ -133,18 +139,24 @@ public:
         else if((m_continue == "B" || m_continue == "b") && m_mhp <= 0) {
                     m_mhp = 0;
                     cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << endl;
+                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                     cout << "Randalf is dead." << endl;
                 }
-                else if((m_continue == "B" || m_continue == "b") && m_mp > 0){
+                else if(m_hp <= 0){
+                    m_hp = 0;
                     cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << endl;
+                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                    cout << "You died." << endl;
+                }
+                else if(m_mp > 0){
+                    cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                     cout << "A: Punch" << endl;
                     cout << "B: Fireball" << endl;
                     }
-                else if(m_continue == "B" || m_continue == "b"){
+                else {
                     cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << endl;
+                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                     cout << "A: Punch" << endl;
                 }
 
@@ -171,6 +183,10 @@ public:
     int getHp(){
 
         return m_mhp;
+    }
+    int getHp2(){
+
+        return m_hp;
     }
 };
 int main() {
@@ -200,7 +216,7 @@ int main() {
     newChar->setContinue(cont);
     newChar->getStartDmg();
 
-    while (newChar->getHp() > 0) {
+    while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
         getline(cin, cont);
         newChar->setContinue(cont);
         newChar->getDmg();
