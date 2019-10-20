@@ -36,7 +36,7 @@ public:
     }
 
     void setGodMode() {
-        if (m_name == "God") {
+        if (m_name == "God" || m_name == "god") {
             m_strength += 100;
             m_intelligence += 100;
             m_endurance += 100;
@@ -91,6 +91,7 @@ public:
             cout << "B: Run." << endl;
         } else {
             cout << "GAME OVER! Restart the game, retard!!" << endl;
+            exit(0);
         }
     }
 
@@ -105,7 +106,7 @@ public:
         } else {
             cout << "You ran away. Restart the game, coward!!" << endl;
 
-            return 0;
+            exit(0);
         }
     }
 
