@@ -175,6 +175,22 @@ public:
             }
 
         }
+        else if(m_continue == "C" || m_continue == "c"){
+            if (m_mhp > 0 && m_mp > 0) {
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "B: Fireball" << endl;
+                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+            }else if(m_mp <= 0) {
+                m_mp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+            }
+            return m_mhp;
+        }
     }
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
@@ -188,9 +204,9 @@ public:
                 m_hp -= (rand() % 6) + 1;
 
                 return m_mhp;
-            }else if((m_continue == "B" || m_continue == "b") && m_mp <= 0){
+        }else if((m_continue == "B" || m_continue == "b") && m_mp <= 0){
                 cout << "You don't have enough mp!" << endl;
-            }
+        }
         else if(m_continue == "C" || m_continue == "c"){
             getPotion();
         }
@@ -199,7 +215,10 @@ public:
         if(m_potions > 0) {
             m_hp += 50;
             m_potions--;
+        }else{
+            cout << "You don't have any potions!" << endl;
         }
+        return m_hp;
     }
     int getHp(){
 
