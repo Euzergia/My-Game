@@ -30,7 +30,7 @@ public:
         m_strength = (rand() % 10) + 1;
         m_agility = (rand() % 10) + 1;
         m_mp = m_intelligence * 10;
-        m_hp = m_vitality * 20;
+        m_hp = m_vitality * 15;
         m_gold = gold;
 
     }
@@ -111,63 +111,70 @@ public:
 
     int getFight() {
         if (m_continue == "A" || m_continue == "a") {
-            if (m_mhp <= 0) {
+            if (m_hp <= 0 && m_mhp <= 0) {
+                m_hp = 0;
+                m_mhp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Randalf is dead. You died." << endl;
+            } else if (m_hp <= 0) {
+                m_hp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "You have died." << endl;
+            } else if (m_mhp <= 0) {
                 m_mhp = 0;
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                 cout << "Randalf is dead." << endl;
-            }
-            else if(m_hp <= 0){
-                m_hp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
-                cout << "You died." << endl;
-            }
-            else if(m_mhp > 0 && m_mp > 0) {
+            } else if (m_mhp > 0 && m_mp > 0) {
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
-            }
-            else {
+            } else {
                 cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
                 cout << "A: Punch" << endl;
             }
             return m_mhp;
-        }
-        else if((m_continue == "B" || m_continue == "b") && m_mhp <= 0) {
-                    m_mhp = 0;
-                    cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
-                    cout << "Randalf is dead." << endl;
-                }
-                else if(m_hp <= 0){
-                    m_hp = 0;
-                    cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
-                    cout << "You died." << endl;
-                }
-                else if(m_mp > 0){
-                    cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
-                    cout << "A: Punch" << endl;
-                    cout << "B: Fireball" << endl;
-                    }
-                else {
-                    cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
-                    cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
-                    cout << "A: Punch" << endl;
-                }
+        } else if (m_continue == "B" || m_continue == "b") {
+            if (m_hp <= 0 && m_mhp <= 0) {
+                m_hp = 0;
+                m_mhp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Randalf is dead. You died." << endl;
+            } else if (m_hp <= 0) {
+                m_hp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "You have died." << endl;
+            } else if (m_mhp <= 0) {
+                m_mhp = 0;
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "Randalf is dead." << endl;
+            } else if (m_mp > 0) {
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "B: Fireball" << endl;
+            } else {
+                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp" << endl;
+                cout << "A: Punch" << endl;
+            }
 
         }
+    }
 
 
 
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
             m_mhp -= m_strength * 3;
-            m_hp -= (rand() % 6) + 1;
+            m_hp -= (rand() % 10) + 1;
 
             return m_mhp;
         } else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
