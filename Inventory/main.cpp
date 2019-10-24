@@ -23,26 +23,26 @@ class Inventory{
 public:
     int m_inventorySize;
     int m_itemCount;
-    string m_itemList[99];
+    Item* m_itemList[99];
 
 public:
     Inventory(int inventorySize){
         m_inventorySize = inventorySize;
         m_itemCount = 0;
         for(int i = 0; i <= inventorySize; i++){
-            m_itemList[i] = "";
+            m_itemList[i] = nullptr;
         }
     }
     ~Inventory()= default;
 
-    void addItemToInventory(string selectedItem){
+    void addItemToInventory(Item* selectedItem){
         m_itemList[getEmptyIndex()] = selectedItem;
         m_itemCount++;
     }
 
     void dropItemFromInventory(int itemIndex){
-            if (m_itemList[itemIndex - 1] != ""){
-                m_itemList[itemIndex - 1] = "";
+            if (m_itemList[itemIndex - 1] != nullptr){
+                m_itemList[itemIndex - 1] = nullptr;
             }
             else{
                 cout << "You can't drop emptiness... yet" << endl;
@@ -67,7 +67,7 @@ private:
         bool emptyPlace = false;
         int emptyIndex = 0;
         while(!emptyPlace){
-            if(m_itemList[emptyIndex].empty()){
+            if(m_itemList[emptyIndex]== nullptr){
                 emptyPlace = true;
             }
             else{
@@ -77,9 +77,9 @@ private:
         return emptyIndex;
     }
 
-    static string emptyItemChecker(string indexToCheck){
-        if(!indexToCheck.empty()){
-            return indexToCheck;
+    static string emptyItemChecker(Item* indexToCheck){
+        if(indexToCheck != nullptr){
+            return indexToCheck->getName();
         }
         else{
             return "---";
@@ -97,12 +97,13 @@ Item* pytel = new Item("Pytel",250);
     Item* vetev = new Item("vetev",250);
 
 Inventory* mujInventar = new Inventory(10);
-mujInventar ->addItemToInventory(pytel->getName());
-    mujInventar ->addItemToInventory(pastelka->getName());
-    mujInventar ->addItemToInventory(nuz->getName());
-    mujInventar ->addItemToInventory(vidle->getName());
-    mujInventar ->addItemToInventory(vetev->getName());
-    mujInventar ->addItemToInventory(lednice->getName());
+mujInventar ->addItemToInventory(pytel);
+    mujInventar ->addItemToInventory(nuz);
+    mujInventar ->addItemToInventory(pastelka);
+    mujInventar ->addItemToInventory(lednice);
+    mujInventar ->addItemToInventory(vidle);
+
+
 
 mujInventar ->viewInventory();
     return 0;
