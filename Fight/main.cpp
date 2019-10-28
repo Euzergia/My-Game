@@ -1,6 +1,8 @@
 #include <iostream>
 #include <ctime>
 #include <random>
+#include <cstdlib>
+#include <string>
 using namespace std;
 
 class Character {
@@ -14,10 +16,12 @@ private:
     int m_gold;
     string m_start;
     string m_continue;
-    int m_mhp = (rand() % 250) + 1;
+    int m_mhp;
     int m_hp;
     int m_mp;
-    int m_potions = 2;
+    int m_potions;
+    int RandIndex;
+    string arrayString[10] = {"Slime", "Lizard", "Skeleton", "Dragon", "Goblin", "Troll", "Whisp", "Demon", "Ape", "Wolf"};
 
 public:
 
@@ -32,7 +36,12 @@ public:
         m_agility = (rand() % 10) + 1;
         m_mp = m_intelligence * 10;
         m_hp = m_vitality * 15;
+        m_mhp  = (rand() % 250) + 1;
+        m_start = "";
+        m_continue = "";
         m_gold = gold;
+        m_potions = 2;
+        RandIndex = rand() % 10;
     }
 
     void setGodMode() {
@@ -99,7 +108,7 @@ public:
 
     int getStartDmg() {
         if (m_continue == "A" || m_continue == "a") {
-            cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+            cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
             cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
             cout << "A: Punch" << endl;
             cout << "B: Fireball" << endl;
@@ -107,7 +116,7 @@ public:
 
             return m_mhp;
         }else {
-            cout << "You ran away. Restart the game, coward!!" << endl;
+            cout << "You have run away. Restart the game, coward!!" << endl;
 
             exit(0);
         }
@@ -118,28 +127,28 @@ public:
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
-                cout << "Randalf is dead. You died." << endl;
+                cout << arrayString[RandIndex] << " is dead. You died." << endl;
             }else if (m_hp <= 0) {
                 m_hp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "You have died." << endl;
             }else if (m_mhp <= 0) {
                 m_mhp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
-                cout << "Randalf is dead." << endl;
+                cout << arrayString[RandIndex] << " is dead." << endl;
             }else if (m_mhp > 0 && m_mp > 0) {
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
                 cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
             }else {
                 m_mp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
@@ -149,28 +158,34 @@ public:
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
-                cout << "Randalf is dead. You died." << endl;
+                cout << arrayString[RandIndex] << " is dead. You died." << endl;
             }else if (m_hp <= 0) {
                 m_hp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "You have died." << endl;
+            }else if (m_mhp <= 0 && m_mp <= 0) {
+                m_mhp = 0;
+                m_mp = 0;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << arrayString[RandIndex] << " is dead." << endl;
             }else if (m_mhp <= 0) {
                 m_mhp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
-                cout << "Randalf is dead." << endl;
+                cout << arrayString[RandIndex] << " is dead." << endl;
             }else if (m_mp > 0) {
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
                 cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
             }else {
                 m_mp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
@@ -179,14 +194,14 @@ public:
         }
         else if(m_continue == "C" || m_continue == "c"){
             if (m_mhp > 0 && m_mp > 0) {
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
                 cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
             }else if(m_mp <= 0) {
                 m_mp = 0;
-                cout << "Enemy: Randalf  " << m_mhp << " hp" << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
@@ -235,6 +250,7 @@ int main() {
     string name;
     string start;
     string cont;
+    string a;
 
     Character* newChar = new Character(0);
     cout << "Enter your name: ";
@@ -264,6 +280,23 @@ int main() {
         newChar->getDmg();
         newChar->getFight();
     }
+    cout << "You have finished the fight!" << endl;
+    cout << "A: Fight new monster" << endl;
+    cout << "B: Exit the game" << endl;
+    cin >> a;
+    if (a == "A" || a == "a"){
+        newChar->getStartDmg();
+
+        while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
+            getline(cin, cont);
+            newChar->setContinue(cont);
+            newChar->getDmg();
+            newChar->getFight();
+        }
+    }else if(a == "B" || a == "b"){
+        exit(0);
+    }
+
 
     delete newChar;
 
