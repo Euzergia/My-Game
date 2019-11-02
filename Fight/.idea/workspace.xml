@@ -64,7 +64,13 @@
       <workItem from="1571337315069" duration="4487000" />
       <workItem from="1571492502825" duration="14945000" />
       <workItem from="1571567062684" duration="8080000" />
-      <workItem from="1571575289953" duration="270000" />
+      <workItem from="1571575289953" duration="405000" />
+      <workItem from="1571597253985" duration="1979000" />
+      <workItem from="1571933362610" duration="880000" />
+      <workItem from="1571940275158" duration="1292000" />
+      <workItem from="1572207019202" duration="4304000" />
+      <workItem from="1572258671459" duration="4290000" />
+      <workItem from="1572524647371" duration="4497000" />
     </task>
     <servers />
   </component>
@@ -83,5 +89,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="Adam -&gt; m_hp" language="ObjectiveC" />
+        <watch expression="Adam -&gt; m_hp" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
