@@ -9,4 +9,6 @@
 /var/git/My-Game/Inventory/main.cpp
 iostream
 -
+vector
+-
 
