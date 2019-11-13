@@ -40,7 +40,7 @@ public:
         m_start = "";
         m_continue = "";
         m_gold = gold;
-        m_potions = 2;
+        m_potions = 10;
         RandIndex = rand() % 10;
     }
 
@@ -118,7 +118,7 @@ public:
             cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
             cout << "A: Punch" << endl;
             cout << "B: Fireball" << endl;
-            cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+            potions();
 
             line();
             return m_mhp;
@@ -170,7 +170,7 @@ public:
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
-                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+                potions();
 
                 line();
             }else {
@@ -178,7 +178,7 @@ public:
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
-                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+                potions();
 
                 line();
             }
@@ -221,7 +221,7 @@ public:
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
-                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+                potions();
 
                 line();
             }else {
@@ -229,7 +229,7 @@ public:
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
-                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+                potions();
 
                 line();
             }
@@ -241,7 +241,7 @@ public:
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
                 cout << "B: Fireball" << endl;
-                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+                potions();
 
                 line();
             }else if(m_mp <= 0) {
@@ -249,23 +249,28 @@ public:
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
-                cout << "C: Heal Potion (" << m_potions << "/2)" << endl;
+                potions();
 
                 line();
             }
             return m_mhp;
         }
     }
+    void potions(){
+        cout << "C: Heal Potion (" << m_potions << "/10)" << endl;
+    }
+
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
-            m_mhp -= m_strength * 3;
-            m_hp -= (rand() % 10) + 1;
+             m_mhp -= m_strength * 3;
+             m_hp -= (rand() % 10) + 1;
 
             return m_mhp;
         }else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
                 m_mhp -= m_intelligence * 5;
                 m_mp -= m_intelligence * 4;
-                m_hp -= (rand() % 6) + 1;
+                m_hp -= (rand() % 12) + 1;
+
 
                 return m_mhp;
         }else if((m_continue == "B" || m_continue == "b") && m_mp <= 0){
@@ -292,64 +297,78 @@ public:
 
         return m_hp;
     }
+
+    int monsterStats() {
+        m_mhp = (rand() % 250) + 1;
+        RandIndex = rand() % 10;
+
+        return m_mhp, RandIndex;
+    }
 };
+
+
 int main() {
-    string name;
-    string start;
-    string cont;
-    string a;
+        string name;
+        string start;
+        string cont;
+        string a;
+        int x = 0;
 
-    Character* newChar = new Character(0);
-    cout << "Enter your name: ";
-    getline(cin,name);
-    newChar->setName(name);
+        Character *newChar = new Character(0);
+        cout << "Enter your name: ";
+        getline(cin, name);
+        newChar->setName(name);
 
-    // Character's info
-    cout << "Welcome to the game, " << newChar->getName() << '!' << endl;
-    cout << "These are your base stats!" << endl;
-    newChar->printInfo();
-    cout << "You have this much money!" << endl;
-    newChar->getMoney();
-    newChar->line();
+        // Character's info
+        cout << "Welcome to the game, " << newChar->getName() << '!' << endl;
+        cout << "These are your base stats!" << endl;
+        newChar->printInfo();
+        cout << "You have this much money!" << endl;
+        newChar->getMoney();
+        newChar->line();
 
-    cout << "Are you ready? Write \"S\"." << endl;
-    newChar->line();
-    getline(cin,start);
-    newChar->setStart(start);
-    newChar->getStart();
-    newChar->getBegin();
+        cout << "Are you ready? Write \"S\"." << endl;
+        newChar->line();
+        getline(cin, start);
+        newChar->setStart(start);
+        newChar->getStart();
+        newChar->getBegin();
 
-    getline(cin,cont);
-    newChar->setContinue(cont);
-    newChar->getStartDmg();
-
-    while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
         getline(cin, cont);
         newChar->setContinue(cont);
-        newChar->getDmg();
-        newChar->getFight();
-    }
-    delete newChar;
+        newChar->getStartDmg();
 
-    cout << "You have finished the fight!" << endl;
-    cout << "A: Fight new monster" << endl;
-    cout << "B: Exit the game" << endl;
-    cin >> a;
-    if (a == "A" || a == "a"){
-        Character* newChar2 = new Character(0);
-        newChar2->setContinue(cont);
-        newChar2->getStartDmg();
-
-        while (newChar2->getHp() > 0 && newChar2->getHp2() > 0) {
+        while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
             getline(cin, cont);
-            newChar2->setContinue(cont);
-            newChar2->getDmg();
-            newChar2->getFight();
+            newChar->setContinue(cont);
+            newChar->getDmg();
+            newChar->getFight();
         }
-        delete newChar2;
-    }else if(a == "B" || a == "b"){
-        exit(0);
-    }
+        if(newChar->getHp2() > 0) {
+            while (x == 0) {
+                cout << "You have finished the fight!" << endl;
+                cout << "A: Fight new monster" << endl;
+                cout << "B: Exit the game" << endl;
+                newChar->line();
+                getline(cin, cont);
+                newChar->setContinue(cont);
+                newChar->monsterStats();
+                if (cont == "A" || cont == "a") {
+                    newChar->getFight();
+                    while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
+                        getline(cin, cont);
+                        newChar->setContinue(cont);
+                        newChar->getDmg();
+                        newChar->getFight();
+                        if (newChar->getHp2() <= 0) {
+                            x = 1;
+                        }
+                    }
+                } else if (cont == "B" || cont == "b") {
+                    x = 1;
+                }
+            }
+        }
 
     return 0;
 }
