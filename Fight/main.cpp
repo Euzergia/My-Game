@@ -40,7 +40,7 @@ public:
         m_start = "";
         m_continue = "";
         m_gold = gold;
-        m_potions = 10;
+        m_potions = 3;
         RandIndex = rand() % 10;
     }
 
@@ -97,6 +97,13 @@ public:
             cout << "" << endl;
         }
     }
+    void helpMenu(){
+        cout << "------Name------   ------Action------   ------Command------" << endl;
+        cout << "God's Blessing     Restore Full HP      gb/GB" << endl;
+        cout << "" << endl;
+        cout << "Write 'Esc/esc' to go back." << endl;
+        line();
+    }
 
     void getBegin() {
         if (m_start == "S" || m_start == "s") {
@@ -122,6 +129,8 @@ public:
 
             line();
             return m_mhp;
+        }else if(m_continue == "Help" || m_continue == "help"){
+            helpMenu();
         }else {
             cout << "You have run away. Restart the game, coward!!" << endl;
 
@@ -141,7 +150,7 @@ public:
     }
 
     int getFight() {
-        if (m_continue == "A" || m_continue == "a") {
+        if (m_continue == "A" || m_continue == "a" || m_continue == "Esc" || m_continue == "esc") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
@@ -183,6 +192,8 @@ public:
                 line();
             }
             return m_mhp;
+        }else if(m_continue == "Help" || m_continue == "help"){
+            helpMenu();
         }else if (m_continue == "B" || m_continue == "b") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
@@ -257,7 +268,7 @@ public:
         }
     }
     void potions(){
-        cout << "C: Heal Potion (" << m_potions << "/10)" << endl;
+        cout << "C: Heal Potion (" << m_potions << "/3)" << endl;
     }
 
     int getDmg() {
@@ -303,6 +314,10 @@ public:
         RandIndex = rand() % 10;
 
         return m_mhp, RandIndex;
+    }
+
+    int godBlessing(){
+        m_hp = m_vitality * 15;
     }
 };
 
