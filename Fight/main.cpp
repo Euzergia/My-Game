@@ -22,6 +22,7 @@ private:
     int m_potions;
     int RandIndex;
     string arrayString[10] = {"Slime", "Lizard", "Skeleton", "Dragon", "Goblin", "Troll", "Whisp", "Demon", "Ape", "Wolf"};
+    int y;
 
 public:
 
@@ -42,6 +43,7 @@ public:
         m_gold = gold;
         m_potions = 3;
         RandIndex = rand() % 10;
+        y = 0;
     }
 
     void setGodMode() {
@@ -98,11 +100,17 @@ public:
         }
     }
     void helpMenu(){
-        cout << "------Name------   ------Action------   ------Command------" << endl;
-        cout << "God's Blessing     Restore Full HP      gb/GB" << endl;
-        cout << "" << endl;
-        cout << "Write 'Esc/esc' to go back." << endl;
-        line();
+        while(y == 1) {
+            cout << "------Name------   ------Action------   ------Command------" << endl;
+            cout << "God's Blessing     Restore Full HP      gb/GB" << endl;
+            cout << "" << endl;
+            cout << "Write 'Esc/esc' to go back." << endl;
+            line();
+            cin >> m_continue;
+            if(m_continue == "Esc" || m_continue == "esc") {
+                y = 0;
+            }
+        }
     }
 
     void getBegin() {
@@ -131,6 +139,8 @@ public:
             return m_mhp;
         }else if(m_continue == "Help" || m_continue == "help"){
             helpMenu();
+            y = 1;
+
         }else {
             cout << "You have run away. Restart the game, coward!!" << endl;
 
@@ -150,7 +160,7 @@ public:
     }
 
     int getFight() {
-        if (m_continue == "A" || m_continue == "a" || m_continue == "Esc" || m_continue == "esc") {
+        if (m_continue == "A" || m_continue == "a") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
@@ -194,6 +204,7 @@ public:
             return m_mhp;
         }else if(m_continue == "Help" || m_continue == "help"){
             helpMenu();
+            y = 1;
         }else if (m_continue == "B" || m_continue == "b") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
@@ -352,12 +363,14 @@ int main() {
         getline(cin, cont);
         newChar->setContinue(cont);
         newChar->getStartDmg();
+        newChar->setContinue(cont);
 
         while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
             getline(cin, cont);
             newChar->setContinue(cont);
             newChar->getDmg();
             newChar->getFight();
+            newChar->setContinue(cont);
         }
         if(newChar->getHp2() > 0) {
             while (x == 0) {
@@ -375,6 +388,7 @@ int main() {
                         newChar->setContinue(cont);
                         newChar->getDmg();
                         newChar->getFight();
+                        newChar->setContinue(cont);
                         if (newChar->getHp2() <= 0) {
                             x = 1;
                         }
