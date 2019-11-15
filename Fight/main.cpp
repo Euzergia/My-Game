@@ -108,6 +108,13 @@ public:
             line();
             cin >> m_continue;
             if(m_continue == "Esc" || m_continue == "esc") {
+                cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "B: Fireball" << endl;
+                potions();
+
+                line();
                 y = 0;
             }
         }
@@ -137,10 +144,19 @@ public:
 
             line();
             return m_mhp;
-        }else if(m_continue == "Help" || m_continue == "help"){
+        }else if(m_continue == "Help" || m_continue == "help") {
             helpMenu();
             y = 1;
+        }else if(m_continue == "gb" || m_continue == "GB" || m_continue == "Gb"){
+            godBlessing();
+            cout << "You were blessed." << endl;
+            cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
+            cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+            cout << "A: Punch" << endl;
+            cout << "B: Fireball" << endl;
+            potions();
 
+            line();
         }else {
             cout << "You have run away. Restart the game, coward!!" << endl;
 
@@ -169,14 +185,14 @@ public:
                 cout << arrayString[RandIndex] << " is dead. You died." << endl;
 
                 line();
-            }else if (m_hp <= 0) {
+            } else if (m_hp <= 0) {
                 m_hp = 0;
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "You have died." << endl;
 
                 line();
-            }else if (m_mhp <= 0) {
+            } else if (m_mhp <= 0) {
                 m_mhp = 0;
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
@@ -184,7 +200,7 @@ public:
 
                 reward();
                 line();
-            }else if (m_mhp > 0 && m_mp > 0) {
+            } else if (m_mhp > 0 && m_mp > 0) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -192,7 +208,7 @@ public:
                 potions();
 
                 line();
-            }else {
+            } else {
                 m_mp = 0;
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
@@ -202,7 +218,17 @@ public:
                 line();
             }
             return m_mhp;
-        }else if(m_continue == "Help" || m_continue == "help"){
+        }else if(m_continue == "gb" || m_continue == "GB" || m_continue == "Gb"){
+                godBlessing();
+                cout << "You were blessed." << endl;
+                cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "B: Fireball" << endl;
+                potions();
+
+                line();
+        }else if (m_continue == "Help" || m_continue == "help") {
             helpMenu();
             y = 1;
         }else if (m_continue == "B" || m_continue == "b") {
@@ -284,22 +310,24 @@ public:
 
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
-             m_mhp -= m_strength * 3;
-             m_hp -= (rand() % 10) + 1;
+            m_mhp -= m_strength * 3;
+            m_hp -= (rand() % 10) + 1;
 
             return m_mhp;
-        }else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
-                m_mhp -= m_intelligence * 5;
-                m_mp -= m_intelligence * 4;
-                m_hp -= (rand() % 12) + 1;
+        } else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
+            m_mhp -= m_intelligence * 5;
+            m_mp -= m_intelligence * 4;
+            m_hp -= (rand() % 12) + 1;
 
 
-                return m_mhp;
-        }else if((m_continue == "B" || m_continue == "b") && m_mp <= 0){
-                cout << "You don't have enough mp!" << endl;
-        }
-        else if(m_continue == "C" || m_continue == "c"){
+            return m_mhp;
+        } else if ((m_continue == "B" || m_continue == "b") && m_mp <= 0) {
+            cout << "You don't have enough mp!" << endl;
+        } else if (m_continue == "C" || m_continue == "c") {
             getPotion();
+        } else if (m_continue == "Help" || m_continue == "help") {
+            helpMenu();
+            y = 1;
         }
     }
     int getPotion(){
@@ -329,6 +357,8 @@ public:
 
     int godBlessing(){
         m_hp = m_vitality * 15;
+
+        return m_hp;
     }
 };
 
@@ -363,7 +393,6 @@ int main() {
         getline(cin, cont);
         newChar->setContinue(cont);
         newChar->getStartDmg();
-        newChar->setContinue(cont);
 
         while (newChar->getHp() > 0 && newChar->getHp2() > 0) {
             getline(cin, cont);
