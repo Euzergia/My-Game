@@ -24,6 +24,8 @@ private:
     int RandIndex;
     string arrayString[10] = {"Slime", "Lizard", "Skeleton", "Dragon", "Goblin", "Troll", "Whisp", "Demon", "Ape", "Wolf"};
     int y;
+    int m_lvl;
+    int m_exp;
 
 public:
 
@@ -46,6 +48,8 @@ public:
         m_potions = 3;
         RandIndex = rand() % 10;
         y = 0;
+        m_lvl = 1;
+        m_exp = 0;
     }
 
     void setGodMode() {
@@ -128,8 +132,8 @@ public:
     void statusWindow(){
         while(y == 1) {
             cout << "Name:           " << m_name << endl;
-            cout << "Level:          " << endl;
-            cout << "Exp:            " << endl;
+            cout << "Level:          " << m_lvl << endl;
+            cout << "Exp:            " << m_exp << endl;
             cout << "HP:             " << m_hp << endl;
             cout << "MP:             " << m_mp << endl;
             cout << "Vitality:       " << m_vitality << endl;
@@ -363,12 +367,22 @@ public:
 
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
-            m_mhp -= m_strength * 3;
+            if((rand() % 15) > 10){
+                cout << "Critical Hit!!" << endl;
+                m_mhp -= m_strength * 3 + (rand() % 20);
+            }else {
+                m_mhp -= m_strength * 3 + (rand() % 5);
+            }
             m_hp -= (rand() % 10) + 1;
 
             return m_mhp;
         } else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
-            m_mhp -= m_intelligence * 5;
+            if((rand() % 15) > 10){
+                cout << "Critical Hit!!" << endl;
+                m_mhp -= m_intelligence * 5 + (rand() % 20);
+            }else {
+                m_mhp -= m_intelligence * 5 + (rand() % 5);
+            }
             m_mp -= m_intelligence * 4;
             m_hp -= (rand() % 12) + 1;
 
@@ -416,6 +430,13 @@ public:
         m_mp = m_intelligence * 10;
     }
 
+    void levelUp(){
+
+    }
+
+    int getExp(){
+
+    }
 
 };
 
