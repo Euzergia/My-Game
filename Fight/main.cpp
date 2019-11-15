@@ -26,6 +26,9 @@ private:
     int y;
     int m_lvl;
     int m_exp;
+    int m_maxHp;
+    int m_maxMp;
+    int m_maxPotions;
 
 public:
 
@@ -38,18 +41,22 @@ public:
         m_endurance = (rand() % 10) + 1;
         m_strength = (rand() % 10) + 1;
         m_agility = (rand() % 10) + 1;
-        m_mp = m_intelligence * 10;
-        m_hp = m_vitality * 15;
+        m_maxHp = m_vitality * 15;
+        m_maxMp = m_intelligence * 10;
+        m_hp = m_maxHp;
+        m_mp = m_maxMp;
         m_mhp  = (rand() % 250) + 1;
         m_start = "";
         m_continue = "";
         m_gold = 0;
         m_currency = 0;
-        m_potions = 3;
+        m_maxPotions = 3;
+        m_potions = m_maxPotions;
         RandIndex = rand() % 10;
         y = 0;
         m_lvl = 1;
         m_exp = 0;
+
     }
 
     void setGodMode() {
@@ -62,6 +69,7 @@ public:
             m_hp = m_vitality * 15;
             m_mp = m_intelligence * 10;
             m_gold = 999999;
+            m_currency = m_gold;
         }
     }
 
@@ -398,11 +406,20 @@ public:
         } else if (m_continue == "Stat" || m_continue == "stat") {
             statusWindow();
             y = 1;
+        }
     }
-    }
+
     int getPotion(){
+        int a = 50;
         if(m_potions > 0) {
-            m_hp += 50;
+            if((a + m_hp) > m_maxHp){
+                while((a + m_hp) % m_maxHp != 0){
+                    a--;
+                }
+                m_hp += a;
+            }else {
+                m_hp += a;
+            }
             m_potions--;
         }else{
             cout << "You don't have any potions!" << endl;
@@ -426,12 +443,14 @@ public:
     }
 
     void godBlessing(){
-        m_hp = m_vitality * 15;
-        m_mp = m_intelligence * 10;
+        m_hp = m_maxHp;
+        m_mp = m_maxMp;
+        m_potions = m_maxPotions;
+
     }
 
     void levelUp(){
-
+        m_lvl++;
     }
 
     int getExp(){
@@ -452,11 +471,14 @@ int main() {
         cout << "Enter your name: ";
         getline(cin, name);
         newChar->setName(name);
+        newChar->line();
 
         // Character's info
         cout << "Welcome to the game, " << newChar->getName() << '!' << endl;
+        cout << "" << endl;
         cout << "These are your base stats!" << endl;
         newChar->printInfo();
+        cout << "" << endl;
         cout << "You have this much money!" << endl;
         newChar->getMoney();
         newChar->line();
