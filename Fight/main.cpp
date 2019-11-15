@@ -134,6 +134,9 @@ public:
                 line();
                 y = 0;
             }
+            else if(m_continue == "Exit" || m_continue == "exit"){
+                exit(0);
+            }
         }
     }
 
@@ -165,6 +168,8 @@ public:
 
                 line();
                 y = 0;
+            }else if(m_continue == "Exit" || m_continue == "exit"){
+                exit(0);
             }
         }
     }
@@ -258,7 +263,7 @@ public:
                 reward();
                 currency();
                 line();
-            } else if (m_mhp > 0 && m_mp > 0) {
+            } else if (m_mhp > 0 && m_mp > manaDrain()) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -267,7 +272,6 @@ public:
 
                 line();
             } else {
-                m_mp = 0;
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -310,9 +314,8 @@ public:
                 cout << "You have died." << endl;
 
                 line();
-            }else if (m_mhp <= 0 && m_mp <= 0) {
+            }else if (m_mhp <= 0 && m_mp <= manaDrain()) {
                 m_mhp = 0;
-                m_mp = 0;
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << arrayString[RandIndex] << " is dead." << endl;
@@ -329,7 +332,7 @@ public:
                 reward();
                 currency();
                 line();
-            }else if (m_mp > 0) {
+            }else if (m_mp > manaDrain()) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -338,7 +341,6 @@ public:
 
                 line();
             }else {
-                m_mp = 0;
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -349,7 +351,7 @@ public:
 
         }
         else if(m_continue == "C" || m_continue == "c"){
-            if (m_mhp > 0 && m_mp > 0) {
+            if (m_mhp > 0 && m_mp > manaDrain()) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -357,8 +359,7 @@ public:
                 potions();
 
                 line();
-            }else if(m_mp <= 0) {
-                m_mp = 0;
+            }else if(m_mp < manaDrain()) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -372,33 +373,37 @@ public:
     void potions(){
         cout << "C: Heal Potion (" << m_potions << "/3)" << endl;
     }
+    int manaDrain(){       //Fireball = -mana
+        int drain = m_intelligence * 4;
+        return drain;
+    }
 
     int getDmg() {
         if (m_continue == "A" || m_continue == "a") {
-            if((rand() % 15) > 10){
+            if ((rand() % 15) > 10) {
                 cout << "Critical Hit!!" << endl;
                 m_mhp -= m_strength * 3 + (rand() % 20);
-            }else {
+            } else {
                 m_mhp -= m_strength * 3 + (rand() % 5);
             }
             m_hp -= (rand() % 10) + 1;
 
             return m_mhp;
-        } else if ((m_continue == "B" || m_continue == "b") && m_mp > 0) {
-            if((rand() % 15) > 10){
-                cout << "Critical Hit!!" << endl;
-                m_mhp -= m_intelligence * 5 + (rand() % 20);
-            }else {
-                m_mhp -= m_intelligence * 5 + (rand() % 5);
+        } else if (m_continue == "B" || m_continue == "b") {
+            if (m_mp >= manaDrain()) {
+                if ((rand() % 15) > 10) {
+                    cout << "Critical Hit!!" << endl;
+                    m_mhp -= m_intelligence * 5 + (rand() % 20);
+                } else {
+                    m_mhp -= m_intelligence * 5 + (rand() % 5);
+                }
+                m_mp -= manaDrain();
+                m_hp -= (rand() % 12) + 1;
+            } else if (m_mp < manaDrain()) {
+                cout << "You don't have enough mp!" << endl;
             }
-            m_mp -= m_intelligence * 4;
-            m_hp -= (rand() % 12) + 1;
-
-
             return m_mhp;
-        } else if ((m_continue == "B" || m_continue == "b") && m_mp <= 0) {
-            cout << "You don't have enough mp!" << endl;
-        } else if (m_continue == "C" || m_continue == "c") {
+        }else if (m_continue == "C" || m_continue == "c") {
             getPotion();
         } else if (m_continue == "Help" || m_continue == "help") {
             helpMenu();
@@ -413,8 +418,12 @@ public:
         int a = 50;
         if(m_potions > 0) {
             if((a + m_hp) > m_maxHp){
-                while((a + m_hp) % m_maxHp != 0){
-                    a--;
+                while((a + m_hp) != m_maxHp){
+                    if((a + m_hp) > m_maxHp) {
+                        a--;
+                    }else{
+                        break;
+                    }
                 }
                 m_hp += a;
             }else {
