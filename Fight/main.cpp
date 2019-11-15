@@ -102,12 +102,44 @@ public:
     void helpMenu(){
         while(y == 1) {
             cout << "------Name------   ------Action------   ------Command------" << endl;
-            cout << "God's Blessing     Restore Full HP      gb/GB" << endl;
+            cout << "God's Blessing     Restore Full HP      gb/Gb/GB" << endl;
+            cout << "Status Window      Open Status Win.     stat/Stat" << endl;
+            cout << "Exit               Exit game            exit/Exit" << endl;
+
             cout << "" << endl;
             cout << "Write 'Esc/esc' to go back." << endl;
             line();
             cin >> m_continue;
             if(m_continue == "Esc" || m_continue == "esc") {
+                cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "B: Fireball" << endl;
+                potions();
+
+                line();
+                y = 0;
+            }
+        }
+    }
+
+    void statusWindow(){
+        while(y == 1) {
+            cout << "Name:           " << m_name << endl;
+            cout << "Level:          " << endl;
+            cout << "Exp:            " << endl;
+            cout << "HP:             " << m_hp << endl;
+            cout << "MP:             " << m_mp << endl;
+            cout << "Vitality:       " << m_vitality << endl;
+            cout << "Intelligence:   " << m_intelligence << endl;
+            cout << "Strength:       " << m_strength << endl;
+            cout << "Endurance:      " << m_endurance << endl;
+            cout << "Agility:        " << m_agility << endl;
+            cout << "" << endl;
+            cout << "Write \"Esc/esc\" to go back." << endl;
+            line();
+            cin >> m_continue;
+            if(m_continue == "Esc" || m_continue == "esc"){
                 cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -146,6 +178,9 @@ public:
             return m_mhp;
         }else if(m_continue == "Help" || m_continue == "help") {
             helpMenu();
+            y = 1;
+        }else if(m_continue == "Stat" || m_continue == "stat") {
+            statusWindow();
             y = 1;
         }else if(m_continue == "gb" || m_continue == "GB" || m_continue == "Gb"){
             godBlessing();
@@ -231,6 +266,11 @@ public:
         }else if (m_continue == "Help" || m_continue == "help") {
             helpMenu();
             y = 1;
+        }else if(m_continue == "Stat" || m_continue == "stat") {
+                statusWindow();
+                y = 1;
+        }else if(m_continue == "exit" || m_continue == "Exit") {
+            exit(0);
         }else if (m_continue == "B" || m_continue == "b") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
