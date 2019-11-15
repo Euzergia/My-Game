@@ -14,6 +14,7 @@ private:
     int m_strength;
     int m_agility;
     int m_gold;
+    int m_currency;
     string m_start;
     string m_continue;
     int m_mhp;
@@ -26,7 +27,7 @@ private:
 
 public:
 
-    Character(int gold) {
+    Character() {
         srand((unsigned) time(0));
 
         m_name = "";
@@ -40,7 +41,8 @@ public:
         m_mhp  = (rand() % 250) + 1;
         m_start = "";
         m_continue = "";
-        m_gold = gold;
+        m_gold = 0;
+        m_currency = 0;
         m_potions = 3;
         RandIndex = rand() % 10;
         y = 0;
@@ -136,6 +138,9 @@ public:
             cout << "Endurance:      " << m_endurance << endl;
             cout << "Agility:        " << m_agility << endl;
             cout << "" << endl;
+            cout << "Gold/s:         " << m_currency << endl;
+
+            cout << "" << endl;
             cout << "Write \"Esc/esc\" to go back." << endl;
             line();
             cin >> m_continue;
@@ -201,13 +206,18 @@ public:
 
     int getGold(){
         m_gold = (rand() % 5) + 1;
-
         return m_gold;
     }
 
     void reward(){
         cout << "You have acquired these items: " << endl;
         cout << getGold() << " gold/s" << endl;
+    }
+
+    int currency(){
+        m_currency += m_gold;
+
+        return m_currency;
     }
 
     int getFight() {
@@ -234,6 +244,7 @@ public:
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
                 reward();
+                currency();
                 line();
             } else if (m_mhp > 0 && m_mp > 0) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
@@ -295,6 +306,7 @@ public:
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
                 reward();
+                currency();
                 line();
             }else if (m_mhp <= 0) {
                 m_mhp = 0;
@@ -303,6 +315,7 @@ public:
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
                 reward();
+                currency();
                 line();
             }else if (m_mp > 0) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
@@ -368,7 +381,10 @@ public:
         } else if (m_continue == "Help" || m_continue == "help") {
             helpMenu();
             y = 1;
-        }
+        } else if (m_continue == "Stat" || m_continue == "stat") {
+            statusWindow();
+            y = 1;
+    }
     }
     int getPotion(){
         if(m_potions > 0) {
@@ -395,11 +411,12 @@ public:
         return m_mhp, RandIndex;
     }
 
-    int godBlessing(){
+    void godBlessing(){
         m_hp = m_vitality * 15;
-
-        return m_hp;
+        m_mp = m_intelligence * 10;
     }
+
+
 };
 
 
@@ -410,7 +427,7 @@ int main() {
         string a;
         int x = 0;
 
-        Character *newChar = new Character(0);
+        Character *newChar = new Character();
         cout << "Enter your name: ";
         getline(cin, name);
         newChar->setName(name);
@@ -467,6 +484,6 @@ int main() {
                 }
             }
         }
-
+    delete newChar;
     return 0;
 }
