@@ -31,6 +31,7 @@ private:
     int m_maxMp;
     int m_maxPotions;
     int m_lvlcap;
+    int m_skillpoint;
 
 public:
 
@@ -59,7 +60,8 @@ public:
         w = 0;
         m_lvl = 1;
         m_exp = 0;
-        m_lvlcap = 1000;
+        m_lvlcap = 400;
+        m_skillpoint = 0;
 
     }
 
@@ -124,6 +126,8 @@ public:
             cout << "Test Mode ON             Full HP, MP, potions        test/Test" << endl;
             cout << "Test mode OFF            Cancel test mode            canc/Canc" << endl;
             cout << "Status Window            Open Status Win.            stat/Stat" << endl;
+            cout << "Stats Up *               Use skill point/s           str/vit/int/agi/end" << endl;
+            cout <<         " * - must be used in Status Window" << endl;
             cout << "Clear                    Clear                       clear/Clear" << endl;
             cout << "Exit                     Exit game                   exit/Exit" << endl;
 
@@ -193,7 +197,8 @@ public:
             cout << "Strength:       " << m_strength << endl;
             cout << "Endurance:      " << m_endurance << endl;
             cout << "Agility:        " << m_agility << endl;
-            cout << "" << endl;
+            cout << endl;
+            cout << "Skill point/s:  " << m_skillpoint << endl;
             cout << "Gold/s:         " << m_currency << endl;
 
             cout << "" << endl;
@@ -219,6 +224,26 @@ public:
                 y = 0;
             }else if(m_continue == "Exit" || m_continue == "exit"){
                 exit(0);
+            }else if(m_skillpoint > 0) {
+                if(m_continue == "str" || m_continue == "Str" || m_continue == "Strength" || m_continue == "strength")
+                {
+                    m_skillpoint--;
+                    m_strength++;
+                }else if (m_continue == "vit" || m_continue == "Vit" || m_continue == "Vitality" || m_continue == "vitality"){
+                    m_skillpoint--;
+                    m_vitality++;
+                } else if (m_continue == "int" || m_continue == "Int" || m_continue == "Intelligence" || m_continue == "intelligence"){
+                    m_skillpoint--;
+                    m_intelligence++;
+                } else if (m_continue == "agi" || m_continue == "Agi" || m_continue == "Agility" || m_continue == "agility") {
+                    m_skillpoint--;
+                    m_agility++;
+                } else if (m_continue == "end" || m_continue == "End" || m_continue == "Endurance" || m_continue == "endurance") {
+                    m_skillpoint--;
+                    m_endurance++;
+                }
+            }else if(m_skillpoint == 0){
+                cout << "You do not have skill points." << endl;
             }
         }
     }
@@ -315,8 +340,8 @@ public:
     }
 
     void reward(){
-        cout << "You have acquired these items: " << endl;
-        cout << getGold() << " gold/s" << endl;
+        cout << "You have gained: " << getExp() << " Exp" << endl;
+        cout << "You have acquired these items: " << getGold() << " gold/s" << endl;
     }
 
     int currency(){
@@ -348,6 +373,7 @@ public:
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
+                space();
                 levelUp();
                 reward();
                 currency();
@@ -411,6 +437,7 @@ public:
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
+                space();
                 levelUp();
                 reward();
                 currency();
@@ -421,6 +448,7 @@ public:
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
+                space();
                 levelUp();
                 reward();
                 currency();
@@ -463,6 +491,11 @@ public:
             return m_mhp;
         }
     }
+
+    void space(){
+        cout << endl;
+    }
+
     void potions(){
         cout << "C: Heal Potion (" << m_potions << "/3)" << endl;
     }
@@ -564,12 +597,16 @@ public:
             m_exp -= m_lvlcap;
             m_lvl++;
             m_lvlcap += 400;
-            cout << "Level Up!!" << endl;
-            m_strength += 2;
-            m_vitality += 2;
-            m_intelligence += 2;
-            m_endurance += 2;
-            m_agility += 2;
+            m_skillpoint++;
+            if(m_lvlcap < m_exp){
+                m_exp -= m_lvlcap;
+                m_lvl++;
+                m_lvlcap += 300;
+                cout << "Level Up!!   +2 skill point" << endl;
+                m_skillpoint++;
+            }else {
+                cout << "Level Up!!   +1 skill point" << endl;
+            }
         }
     }
 
