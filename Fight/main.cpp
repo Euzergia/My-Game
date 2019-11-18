@@ -32,6 +32,7 @@ private:
     int m_maxPotions;
     int m_lvlcap;
     int m_skillpoint;
+    int lvl;
 
 public:
 
@@ -62,6 +63,7 @@ public:
         m_exp = 0;
         m_lvlcap = 400;
         m_skillpoint = 0;
+        lvl = 0;
 
     }
 
@@ -159,6 +161,7 @@ public:
     }
 
     void clear(){
+        cout << endl;cout << endl;cout << endl;cout << endl;cout << endl;
         cout << endl;cout << endl;cout << endl;cout << endl;cout << endl;
         cout << endl;cout << endl;cout << endl;cout << endl;cout << endl;
         cout << endl;cout << endl;cout << endl;cout << endl;cout << endl;
@@ -341,7 +344,7 @@ public:
     }
 
     void reward(){
-        cout << "You have gained: " << getExp() << " Exp" << endl;
+        cout << "You have gained: " << lvl << " Exp" << endl;
         cout << "You have acquired these items: " << getGold() << " gold/s" << endl;
     }
 
@@ -375,6 +378,7 @@ public:
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
                 space();
+                getExp();
                 levelUp();
                 reward();
                 currency();
@@ -439,6 +443,7 @@ public:
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
                 space();
+                getExp();
                 levelUp();
                 reward();
                 currency();
@@ -450,11 +455,12 @@ public:
                 cout << arrayString[RandIndex] << " is dead." << endl;
 
                 space();
+                getExp();
                 levelUp();
                 reward();
                 currency();
                 line();
-            }else if (m_mp > manaDrain()) {
+            }else if (m_mp >= manaDrain()) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -505,12 +511,29 @@ public:
         cout << "C: Heal Potion (" << m_potions << "/3)" << endl;
     }
     int manaDrain(){       //Fireball = -mana
-        int drain = m_intelligence * 4 - (m_intelligence + 5);
+        int drain;
+        if(m_intelligence >= 5) {
+            drain = m_intelligence * 4 - (m_intelligence + 5);
+        }else{
+            drain = 2;
+        }
         return drain;
     }
 
     int getDmg() {
-        int dodge = m_agility - 10;
+        int dodge;
+        int def;
+        int a = (rand() % 21);
+        if(m_agility >= 10) {
+            dodge = m_agility - 10;
+        }else {
+            dodge = 0;
+        }
+        if(m_endurance >= 5){
+            def = m_endurance - 5;
+        }else {
+            def = 0;
+        }
         if(w == 0) {
             if (m_continue == "A" || m_continue == "a") {
                 if ((rand() % 15) > 10) {
@@ -519,15 +542,21 @@ public:
                 } else {
                     m_mhp -= m_strength * 3 + (rand() % 5);
                 }
-                if(m_agility > (rand() % 11) + dodge){
-                    if(rand() % 11 > 5){
-                    cout << "You have dodged." << endl;
+                if(m_agility > (rand() % 11) + dodge) {
+                    if ((rand() % 11) > 5) {
+                        cout << "You have dodged." << endl;
+                    } else {
+                        if (a > def) {
+                            m_hp -= (a - def);
+                        } else {
+                            cout << "Monster was't able to scratch you." << endl;
+                        }
                     }
+                }else if (a > def) {
+                    m_hp -= (a - def);
+                } else {
+                    cout << "Monster was't able to scratch you." << endl;
                 }
-                else {
-                    m_hp -= (rand() % 10) + 1;
-                }
-                return m_mhp;
             } else if (m_continue == "B" || m_continue == "b") {
                 if (m_mp >= manaDrain()) {
                     if ((rand() % 15) > 10) {
@@ -536,12 +565,25 @@ public:
                     } else {
                         m_mhp -= m_intelligence * 5 + (rand() % 5);
                     }
+                        if(m_agility > (rand() % 11) + dodge) {
+                            if ((rand() % 11) > 5) {
+                                cout << "You have dodged." << endl;
+                            } else {
+                                if (a > def) {
+                                    m_hp -= (a - def);
+                                } else {
+                                    cout << "Monster was't able to scratch you." << endl;
+                                }
+                            }
+                        }else if (a > def) {
+                            m_hp -= (a - def);
+                        } else {
+                            cout << "Monster was't able to scratch you." << endl;
+                        }
                     m_mp -= manaDrain();
-                    m_hp -= (rand() % 12) + 1;
                 } else if (m_mp < manaDrain()) {
                     cout << "You don't have enough mp!" << endl;
                 }
-                return m_mhp;
             } else if (m_continue == "C" || m_continue == "c") {
                 getPotion();
             } else if (m_continue == "Help" || m_continue == "help") {
@@ -557,6 +599,7 @@ public:
                 clear();
             }
         }
+        return m_mhp;
     }
 
     int getPotion(){
@@ -603,9 +646,15 @@ public:
 
     }
 
-    void levelUp(){
-        m_exp += getExp();
-        if(m_lvlcap < m_exp){
+    int getExp(){
+        lvl = (rand() % 1000);
+
+        return lvl;
+    }
+
+    int levelUp(){
+        m_exp += lvl;
+        if(m_lvlcap <= m_exp){
             m_exp -= m_lvlcap;
             m_lvl++;
             m_lvlcap += 400;
@@ -620,12 +669,7 @@ public:
                 cout << "Level Up!!   +1 skill point" << endl;
             }
         }
-    }
-
-    int getExp(){
-        int lvl = (rand() % 1000);
-
-        return lvl;
+        return m_exp;
     }
 
 };
