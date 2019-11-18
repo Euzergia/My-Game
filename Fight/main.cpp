@@ -126,8 +126,8 @@ public:
             cout << "Test Mode ON             Full HP, MP, potions        test/Test" << endl;
             cout << "Test mode OFF            Cancel test mode            canc/Canc" << endl;
             cout << "Status Window            Open Status Win.            stat/Stat" << endl;
-            cout << "Stats Up *               Use skill point/s           str/vit/int/agi/end" << endl;
-            cout <<         " * - must be used in Status Window" << endl;
+            cout << "Stats Up *               Use skill point/s           str/1, vit/2, int/3, agi/4, end/5" << endl;
+            cout << "         * - must be used in Status Window" << endl;
             cout << "Clear                    Clear                       clear/Clear" << endl;
             cout << "Exit                     Exit game                   exit/Exit" << endl;
 
@@ -225,21 +225,21 @@ public:
             }else if(m_continue == "Exit" || m_continue == "exit"){
                 exit(0);
             }else if(m_skillpoint > 0) {
-                if(m_continue == "str" || m_continue == "Str" || m_continue == "Strength" || m_continue == "strength")
+                if(m_continue == "str" || m_continue == "Str" || m_continue == "1")
                 {
                     m_skillpoint--;
                     m_strength++;
-                }else if (m_continue == "vit" || m_continue == "Vit" || m_continue == "Vitality" || m_continue == "vitality"){
+                }else if (m_continue == "vit" || m_continue == "Vit" || m_continue == "2"){
                     m_skillpoint--;
                     m_vitality++;
                     m_hp += 15;
-                } else if (m_continue == "int" || m_continue == "Int" || m_continue == "Intelligence" || m_continue == "intelligence"){
+                } else if (m_continue == "int" || m_continue == "Int" || m_continue == "3"){
                     m_skillpoint--;
                     m_intelligence++;
-                } else if (m_continue == "agi" || m_continue == "Agi" || m_continue == "Agility" || m_continue == "agility") {
+                } else if (m_continue == "agi" || m_continue == "Agi" || m_continue == "4") {
                     m_skillpoint--;
                     m_agility++;
-                } else if (m_continue == "end" || m_continue == "End" || m_continue == "Endurance" || m_continue == "endurance") {
+                } else if (m_continue == "end" || m_continue == "End" || m_continue == "5") {
                     m_skillpoint--;
                     m_endurance++;
                 }
@@ -497,6 +497,10 @@ public:
         cout << endl;
     }
 
+    void shop(){
+        cout << "Weapons" << endl;
+    }
+
     void potions(){
         cout << "C: Heal Potion (" << m_potions << "/3)" << endl;
     }
@@ -506,6 +510,7 @@ public:
     }
 
     int getDmg() {
+        int dodge = m_agility - 10;
         if(w == 0) {
             if (m_continue == "A" || m_continue == "a") {
                 if ((rand() % 15) > 10) {
@@ -514,8 +519,14 @@ public:
                 } else {
                     m_mhp -= m_strength * 3 + (rand() % 5);
                 }
-                m_hp -= (rand() % 10) + 1;
-
+                if(m_agility > (rand() % 11) + dodge){
+                    if(rand() % 11 > 5){
+                    cout << "You have dodged." << endl;
+                    }
+                }
+                else {
+                    m_hp -= (rand() % 10) + 1;
+                }
                 return m_mhp;
             } else if (m_continue == "B" || m_continue == "b") {
                 if (m_mp >= manaDrain()) {
