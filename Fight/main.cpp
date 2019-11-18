@@ -232,6 +232,7 @@ public:
                 }else if (m_continue == "vit" || m_continue == "Vit" || m_continue == "Vitality" || m_continue == "vitality"){
                     m_skillpoint--;
                     m_vitality++;
+                    m_hp += 15;
                 } else if (m_continue == "int" || m_continue == "Int" || m_continue == "Intelligence" || m_continue == "intelligence"){
                     m_skillpoint--;
                     m_intelligence++;
@@ -500,7 +501,7 @@ public:
         cout << "C: Heal Potion (" << m_potions << "/3)" << endl;
     }
     int manaDrain(){       //Fireball = -mana
-        int drain = m_intelligence * 4;
+        int drain = m_intelligence * 4 - (m_intelligence + 5);
         return drain;
     }
 
