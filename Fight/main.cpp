@@ -124,7 +124,6 @@ public:
         }
     }
     void helpMenu(){
-        space();
         while(y == 1) {
             cout << "---------Name---------   ---------Action----------   ---------Command---------" << endl;
             cout << "God's Blessing           Restore Full HP             gb/Gb/GB" << endl;
@@ -142,6 +141,7 @@ public:
             line();
             cin >> m_continue;
             if((m_continue == "Esc" || m_continue == "esc") && m_mp <= 0) {
+                space();
                 cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -150,6 +150,7 @@ public:
                 line();
                 y = 0;
             }else if(m_continue == "Esc" || m_continue == "esc") {
+                space();
                 cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -194,25 +195,26 @@ public:
 
     void statusWindow(){
         while(y == 1) {
-            cout << "Name:           " << m_name << endl;
-            cout << "Level:          " << m_lvl << endl;
-            cout << "Exp:            " << m_exp << "/" << m_lvlcap << endl;
-            cout << "HP:             " << m_hp << endl;
-            cout << "MP:             " << m_mp << endl;
+            cout << "Name:              " << m_name << endl;
+            cout << "Level:             " << m_lvl << endl;
+            cout << "Exp:               " << m_exp << "/" << m_lvlcap << endl;
+            cout << "HP:                " << m_hp << endl;
+            cout << "MP:                " << m_mp << endl;
             cout << "Vitality(1):       " << m_vitality << endl;
             cout << "Intelligence(2):   " << m_intelligence << endl;
             cout << "Strength(3):       " << m_strength << endl;
             cout << "Endurance(4):      " << m_endurance << endl;
             cout << "Agility(5):        " << m_agility << endl;
             cout << endl;
-            cout << "Skill point/s:  " << m_skillpoint << endl;
-            cout << "Gold/s:         " << m_currency << endl;
+            cout << "Skill point/s:     " << m_skillpoint << endl;
+            cout << "Gold/s:            " << m_currency << endl;
 
-            cout << "" << endl;
+            cout << endl;
             cout << "Write \"Esc/esc\" to go back." << endl;
             line();
             cin >> m_continue;
             if((m_continue == "Esc" || m_continue == "esc") && m_mp <= 0){
+                space();
                 cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -221,6 +223,7 @@ public:
                 line();
                 y = 0;
                 }else if(m_continue == "Esc" || m_continue == "esc"){
+                space();
                 cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -251,6 +254,7 @@ public:
                     m_endurance++;
                 }
             }else if(m_skillpoint == 0){
+                space();
                 cout << "You do not have skill points." << endl;
             }
         }
@@ -279,9 +283,11 @@ public:
             } else if (m_continue == "C" || m_continue == "c") {
                 getPotion();
             } else if (m_continue == "Help" || m_continue == "help") {
+                space();
                 helpMenu();
                 y = 1;
             } else if (m_continue == "Stat" || m_continue == "stat") {
+                space();
                 statusWindow();
                 y = 1;
             } else if ((m_continue == "canc" || m_continue == "Canc") && w == 1) {
@@ -289,12 +295,17 @@ public:
                 cout << "Test mode OFF." << endl;
             } else if(m_continue == "Clear" || m_continue == "clear") {
                 clear();
+            } else if(m_continue == "Shop" || m_continue == "shop"){
+                space();
+                shop();
+                y = 1;
             }
         }
     }
 
     void getBegin() {
         if (m_start == "S" || m_start == "s") {
+            space();
             cout << "You have met a monster!" << endl;
             cout << "Press:" << endl;
             cout << "A: Fight." << endl;
@@ -309,6 +320,7 @@ public:
 
     int getStartDmg() {
         if (m_continue == "A" || m_continue == "a") {
+            space();
             cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
             cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
             cout << "A: Punch" << endl;
@@ -317,27 +329,6 @@ public:
 
             line();
             return m_mhp;
-        }else if(m_continue == "Help" || m_continue == "help") {
-            helpMenu();
-            y = 1;
-        }else if(m_continue == "Stat" || m_continue == "stat") {
-            statusWindow();
-            y = 1;
-        }else if(m_continue == "Shop" || m_continue == "shop") {
-            shop();
-            y = 1;
-        }else if(m_continue == "gb" || m_continue == "GB" || m_continue == "Gb"){
-            godBlessing();
-            cout << "You were blessed." << endl;
-            cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
-            cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
-            cout << "A: Punch" << endl;
-            cout << "B: Fireball" << endl;
-            potions();
-
-            line();
-        }else if (m_continue == "test" || m_continue == "Test"){
-            w = 1;
         }else {
             cout << "You have run away. Restart the game, coward!!" << endl;
 
@@ -363,6 +354,7 @@ public:
 
     int getFight() {
         if (m_continue == "A" || m_continue == "a") {
+            space();
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
@@ -410,6 +402,7 @@ public:
         }else if(m_continue == "gb" || m_continue == "GB" || m_continue == "Gb"){
                 godBlessing();
                 cout << "You were blessed." << endl;
+                space();
                 cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
                 cout << "A: Punch" << endl;
@@ -424,13 +417,14 @@ public:
             statusWindow();
             y = 1;
         }else if(m_continue == "Clear" || m_continue == "clear") {
-                clear();
+            clear();
         }else if(m_continue == "exit" || m_continue == "Exit") {
             exit(0);
         }else if(m_continue == "Shop" || m_continue == "shop") {
             shop();
             y = 1;
         }else if (m_continue == "B" || m_continue == "b") {
+            space();
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
                 m_mhp = 0;
@@ -489,6 +483,7 @@ public:
 
         }
         else if(m_continue == "C" || m_continue == "c"){
+            space();
             if (m_mhp > 0 && m_mp > manaDrain()) {
                 cout << "Enemy: " << arrayString[RandIndex] << " " << m_mhp << " hp" << endl;
                 cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
@@ -514,7 +509,6 @@ public:
     }
 
     void shop(){
-        space();
         while(y == 1) {
             cout << "A: Weapons" << endl;
             cout << "B: Armors" << endl;
@@ -560,13 +554,13 @@ public:
     }
 
     void weaponsShop() {
-        space();
         string a1 = "Classic Sword";
         string a2 = "Bloodsucking Sword";
         string a3 = "Excalibur";
         string a4 = "Heaven's Sword";
         string a5 = "Hellfire Sword";
         while (x == 1) {
+            space();
             cout << "Name:                           Price" << endl;
             cout << "1: Classic Sword                3 golds" << endl;
             cout << "2: Bloodsucking Sword           10 golds" << endl;
@@ -691,7 +685,7 @@ public:
                     m_mhp -= m_strength * 3 + (rand() % 5);
                 }
                 if(m_agility > (rand() % 11) + dodge) {
-                    if ((rand() % 11) > 5) {
+                    if ((rand() % 11) > 6) {
                         cout << "You have dodged." << endl;
                     } else {
                         if (a > def) {
@@ -735,9 +729,11 @@ public:
             } else if (m_continue == "C" || m_continue == "c") {
                 getPotion();
             } else if (m_continue == "Help" || m_continue == "help") {
+                space();
                 helpMenu();
                 y = 1;
             } else if (m_continue == "Stat" || m_continue == "stat") {
+                space();
                 statusWindow();
                 y = 1;
             } else if ((m_continue == "test" || m_continue == "Test") && w == 0) {
@@ -746,6 +742,7 @@ public:
             } else if(m_continue == "Clear" || m_continue == "clear") {
                 clear();
             } else if(m_continue == "Shop" || m_continue == "shop") {
+                space();
                 shop();
                 y = 1;
             }
