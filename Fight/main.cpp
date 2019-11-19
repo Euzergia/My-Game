@@ -25,6 +25,7 @@ private:
     string arrayString[10] = {"Slime", "Lizard", "Skeleton", "Dragon", "Goblin", "Troll", "Whisp", "Demon", "Ape", "Wolf"};
     int y;
     int w;
+    int x;
     int m_lvl;
     int m_exp;
     int m_maxHp;
@@ -59,6 +60,7 @@ public:
         RandIndex = rand() % 10;
         y = 0;
         w = 0;
+        x = 0;
         m_lvl = 1;
         m_exp = 0;
         m_lvlcap = 400;
@@ -122,6 +124,7 @@ public:
         }
     }
     void helpMenu(){
+        space();
         while(y == 1) {
             cout << "---------Name---------   ---------Action----------   ---------Command---------" << endl;
             cout << "God's Blessing           Restore Full HP             gb/Gb/GB" << endl;
@@ -130,6 +133,7 @@ public:
             cout << "Status Window            Open Status Win.            stat/Stat" << endl;
             cout << "Stats Up *               Use skill point/s           vit/1, int/2, str/3, end/4, agi/5" << endl;
             cout << "         * - must be used in Status Window" << endl;
+            cout << "Shop                     Open Shop                   shop/Shop" << endl;
             cout << "Clear                    Clear                       clear/Clear" << endl;
             cout << "Exit                     Exit game                   exit/Exit" << endl;
 
@@ -319,6 +323,9 @@ public:
         }else if(m_continue == "Stat" || m_continue == "stat") {
             statusWindow();
             y = 1;
+        }else if(m_continue == "Shop" || m_continue == "shop") {
+            shop();
+            y = 1;
         }else if(m_continue == "gb" || m_continue == "GB" || m_continue == "Gb"){
             godBlessing();
             cout << "You were blessed." << endl;
@@ -420,6 +427,9 @@ public:
                 clear();
         }else if(m_continue == "exit" || m_continue == "Exit") {
             exit(0);
+        }else if(m_continue == "Shop" || m_continue == "shop") {
+            shop();
+            y = 1;
         }else if (m_continue == "B" || m_continue == "b") {
             if (m_hp <= 0 && m_mhp <= 0) {
                 m_hp = 0;
@@ -504,10 +514,144 @@ public:
     }
 
     void shop(){
+        space();
         while(y == 1) {
             cout << "A: Weapons" << endl;
             cout << "B: Armors" << endl;
             cout << "C: Potions" << endl;
+            cout << endl;
+            cout << "Write Esc/esc to go back." << endl;
+            cin >> m_continue;
+            if((m_continue == "Esc" || m_continue == "esc") && m_mp <= 0){
+                space();
+                cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                potions();
+
+                line();
+                y = 0;
+            }else if(m_continue == "Esc" || m_continue == "esc"){
+                space();
+                cout << "Enemy: " << arrayString[RandIndex] << "  " << m_mhp << " hp" << endl;
+                cout << "Player: " << m_name << "  " << m_hp << " hp / " << m_mp << " mp" << endl;
+                cout << "A: Punch" << endl;
+                cout << "B: Fireball" << endl;
+                potions();
+
+                line();
+                y = 0;
+            }else if(m_continue == "Exit" || m_continue == "exit"){
+                exit(0);
+            }else if(m_continue == "A" || m_continue == "a"){
+                y = 0;
+                x = 1;
+                weaponsShop();
+            }else if(m_continue == "B" || m_continue == "b") {
+                y = 0;
+                x = 1;
+                armorsShop();
+            }else if(m_continue == "C" || m_continue == "c") {
+                y = 0;
+                x = 1;
+                potionsShop();
+            }
+        }
+    }
+
+    void weaponsShop() {
+        space();
+        string a1 = "Classic Sword";
+        string a2 = "Bloodsucking Sword";
+        string a3 = "Excalibur";
+        string a4 = "Heaven's Sword";
+        string a5 = "Hellfire Sword";
+        while (x == 1) {
+            cout << "Name:                           Price" << endl;
+            cout << "1: Classic Sword                3 golds" << endl;
+            cout << "2: Bloodsucking Sword           10 golds" << endl;
+            cout << "3: Excalibur                    20 golds" << endl;
+            cout << "4: Heaven's Sword               30 golds" << endl;
+            cout << "5: Hellfire Sword               30 golds" << endl;
+
+            cin >> m_continue;
+            if (m_continue == "1") {
+                x = 0;
+                cout << "Are you sure, you want to buy it?" << endl;
+                cout << "A: Yes" << endl;
+                cout << "B: No" << endl;
+                cin >> m_continue;
+                if (m_continue == "A" || m_continue == "a") {
+                    cout << "You have bought " << a1 << "." << endl;
+                }else {
+                    x = 1;
+                    weaponsShop();
+                }
+            }
+            if (m_continue == "2") {
+                x = 0;
+                cout << "Are you sure, you want to buy it?" << endl;
+                cout << "A: Yes" << endl;
+                cout << "B: No" << endl;
+                cin >> m_continue;
+                if (m_continue == "A" || m_continue == "a") {
+                    cout << "You have bought " << a2 << "." << endl;
+                }else {
+                    x = 1;
+                    weaponsShop();
+                }
+            }
+            if (m_continue == "3") {
+                x = 0;
+                cout << "Are you sure, you want to buy it?" << endl;
+                cout << "A: Yes" << endl;
+                cout << "B: No" << endl;
+                cin >> m_continue;
+                if (m_continue == "A" || m_continue == "a") {
+                    cout << "You have bought " << a3 << "." << endl;
+                }else {
+                    x = 1;
+                    weaponsShop();
+                }
+            }
+            if (m_continue == "4") {
+                x = 0;
+                cout << "Are you sure, you want to buy it?" << endl;
+                cout << "A: Yes" << endl;
+                cout << "B: No" << endl;
+                cin >> m_continue;
+                if (m_continue == "A" || m_continue == "a") {
+                    cout << "You have bought " << a4 << "." << endl;
+                }else {
+                    x = 1;
+                    weaponsShop();
+                }
+            }
+            if (m_continue == "5") {
+                x = 0;
+                cout << "Are you sure, you want to buy it?" << endl;
+                cout << "A: Yes" << endl;
+                cout << "B: No" << endl;
+                cin >> m_continue;
+                if (m_continue == "A" || m_continue == "a") {
+                    cout << "You have bought " << a5 << "." << endl;
+                }else {
+                    x = 1;
+                    weaponsShop();
+                }
+            }
+        }
+    }
+
+    void armorsShop(){
+        while(x == 1){
+
+        }
+    }
+
+    void potionsShop(){
+        while(x == 1){
+
         }
     }
 
@@ -601,6 +745,9 @@ public:
                 cout << "Test mode ON." << endl;
             } else if(m_continue == "Clear" || m_continue == "clear") {
                 clear();
+            } else if(m_continue == "Shop" || m_continue == "shop") {
+                shop();
+                y = 1;
             }
         }
         return m_mhp;
@@ -676,6 +823,19 @@ public:
         return m_exp;
     }
 
+};
+
+class Weaponry{
+private:
+    int a;
+    int b;
+    int c;
+    int d;
+
+public:
+    void classicSword(){
+
+    }
 };
 
 
