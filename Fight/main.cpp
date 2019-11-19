@@ -128,7 +128,7 @@ public:
             cout << "Test Mode ON             Full HP, MP, potions        test/Test" << endl;
             cout << "Test mode OFF            Cancel test mode            canc/Canc" << endl;
             cout << "Status Window            Open Status Win.            stat/Stat" << endl;
-            cout << "Stats Up *               Use skill point/s           str/1, vit/2, int/3, agi/4, end/5" << endl;
+            cout << "Stats Up *               Use skill point/s           vit/1, int/2, str/3, end/4, agi/5" << endl;
             cout << "         * - must be used in Status Window" << endl;
             cout << "Clear                    Clear                       clear/Clear" << endl;
             cout << "Exit                     Exit game                   exit/Exit" << endl;
@@ -195,11 +195,11 @@ public:
             cout << "Exp:            " << m_exp << "/" << m_lvlcap << endl;
             cout << "HP:             " << m_hp << endl;
             cout << "MP:             " << m_mp << endl;
-            cout << "Vitality:       " << m_vitality << endl;
-            cout << "Intelligence:   " << m_intelligence << endl;
-            cout << "Strength:       " << m_strength << endl;
-            cout << "Endurance:      " << m_endurance << endl;
-            cout << "Agility:        " << m_agility << endl;
+            cout << "Vitality(1):       " << m_vitality << endl;
+            cout << "Intelligence(2):   " << m_intelligence << endl;
+            cout << "Strength(3):       " << m_strength << endl;
+            cout << "Endurance(4):      " << m_endurance << endl;
+            cout << "Agility(5):        " << m_agility << endl;
             cout << endl;
             cout << "Skill point/s:  " << m_skillpoint << endl;
             cout << "Gold/s:         " << m_currency << endl;
@@ -228,21 +228,21 @@ public:
             }else if(m_continue == "Exit" || m_continue == "exit"){
                 exit(0);
             }else if(m_skillpoint > 0) {
-                if(m_continue == "str" || m_continue == "Str" || m_continue == "1")
+                if(m_continue == "str" || m_continue == "Str" || m_continue == "3")
                 {
                     m_skillpoint--;
                     m_strength++;
-                }else if (m_continue == "vit" || m_continue == "Vit" || m_continue == "2"){
+                }else if (m_continue == "vit" || m_continue == "Vit" || m_continue == "1"){
                     m_skillpoint--;
                     m_vitality++;
                     m_hp += 15;
-                } else if (m_continue == "int" || m_continue == "Int" || m_continue == "3"){
+                } else if (m_continue == "int" || m_continue == "Int" || m_continue == "2"){
                     m_skillpoint--;
                     m_intelligence++;
-                } else if (m_continue == "agi" || m_continue == "Agi" || m_continue == "4") {
+                } else if (m_continue == "agi" || m_continue == "Agi" || m_continue == "5") {
                     m_skillpoint--;
                     m_agility++;
-                } else if (m_continue == "end" || m_continue == "End" || m_continue == "5") {
+                } else if (m_continue == "end" || m_continue == "End" || m_continue == "4") {
                     m_skillpoint--;
                     m_endurance++;
                 }
@@ -504,7 +504,11 @@ public:
     }
 
     void shop(){
-        cout << "Weapons" << endl;
+        while(y == 1) {
+            cout << "A: Weapons" << endl;
+            cout << "B: Armors" << endl;
+            cout << "C: Potions" << endl;
+        }
     }
 
     void potions(){
