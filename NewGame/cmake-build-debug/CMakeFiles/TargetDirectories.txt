@@ -1,0 +1,3 @@
+/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir
+/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/edit_cache.dir
