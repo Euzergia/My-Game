@@ -575,9 +575,11 @@ public:
                 cout << "A: Yes" << endl;
                 cout << "B: No" << endl;
                 cin >> m_continue;
-                if (m_continue == "A" || m_continue == "a") {
+                if ((m_continue == "A" || m_continue == "a") && m_currency >= 3) {
                     cout << "You have bought " << a1 << "." << endl;
+                    m_currency -= 3;
                 }else {
+                    cout << " You don't have enough golds!" << endl;
                     x = 1;
                     weaponsShop();
                 }
@@ -588,9 +590,11 @@ public:
                 cout << "A: Yes" << endl;
                 cout << "B: No" << endl;
                 cin >> m_continue;
-                if (m_continue == "A" || m_continue == "a") {
+                if ((m_continue == "A" || m_continue == "a") && m_currency >= 10) {
                     cout << "You have bought " << a2 << "." << endl;
+                    m_currency -= 10;
                 }else {
+                    cout << " You don't have enough golds!" << endl;
                     x = 1;
                     weaponsShop();
                 }
@@ -601,9 +605,11 @@ public:
                 cout << "A: Yes" << endl;
                 cout << "B: No" << endl;
                 cin >> m_continue;
-                if (m_continue == "A" || m_continue == "a") {
+                if ((m_continue == "A" || m_continue == "a") && m_currency >= 20) {
                     cout << "You have bought " << a3 << "." << endl;
+                    m_currency -= 20;
                 }else {
+                    cout << " You don't have enough golds!" << endl;
                     x = 1;
                     weaponsShop();
                 }
@@ -614,9 +620,11 @@ public:
                 cout << "A: Yes" << endl;
                 cout << "B: No" << endl;
                 cin >> m_continue;
-                if (m_continue == "A" || m_continue == "a") {
+                if ((m_continue == "A" || m_continue == "a") && m_currency >= 30) {
                     cout << "You have bought " << a4 << "." << endl;
+                    m_currency -= 30;
                 }else {
+                    cout << " You don't have enough golds!" << endl;
                     x = 1;
                     weaponsShop();
                 }
@@ -627,9 +635,11 @@ public:
                 cout << "A: Yes" << endl;
                 cout << "B: No" << endl;
                 cin >> m_continue;
-                if (m_continue == "A" || m_continue == "a") {
+                if ((m_continue == "A" || m_continue == "a") && m_currency >= 30) {
                     cout << "You have bought " << a5 << "." << endl;
+                    m_currency -= 30;
                 }else {
+                    cout << " You don't have enough golds!" << endl;
                     x = 1;
                     weaponsShop();
                 }
