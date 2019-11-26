@@ -29,6 +29,8 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
@@ -61,7 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1574800391692</updated>
       <workItem from="1574800396009" duration="5000" />
-      <workItem from="1574800657040" duration="2262000" />
+      <workItem from="1574800657040" duration="2289000" />
+      <workItem from="1574803058657" duration="8543000" />
     </task>
     <servers />
   </component>
@@ -73,10 +76,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/My-Game" />
+    </ignored-roots>
   </component>
 </project>
