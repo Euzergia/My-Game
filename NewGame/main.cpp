@@ -13,10 +13,10 @@ public:
         m_dmg = dmg;
         m_name = name;
     }
-    int getDamage() {
+    int getDamage() const {
         return m_dmg;
     }
-    std::string getName() {
+    std::string getName() const {
         return m_name;
     }
 };
@@ -46,21 +46,21 @@ public:
     void setWeapon(const Weapon& weapon) {
         m_currWeapon = weapon;
     }
-    int getDamage(){
+    int getDamage() const {
         return m_dmg + m_currWeapon.getDamage();
     }
 };
 
 static void chooseWeapon(Character* character){
-        std::vector<Weapon*> m_weapons;
+        std::vector<Weapon> m_weapons;
 
-        m_weapons.push_back(new Weapon(10, "Bronze Sword"));
-        m_weapons.push_back(new Weapon(20, "Silver Sword"));
-        m_weapons.push_back(new Weapon(150, "Sword of Justice"));
+        m_weapons.push_back(Weapon(10, "Bronze Sword"));
+        m_weapons.push_back(Weapon(20, "Silver Sword"));
+        m_weapons.push_back(Weapon(150, "Sword of Justice"));
 
         std::cout << "Choose a weapon: \n";
         for (size_t i = 0; i < m_weapons.size(); ++i)
-            std::cout << i << ". " << m_weapons[i]->getName() << "\n";
+            std::cout << i << ". " << m_weapons[i].getName() << "\n";
 
         size_t choice;
         std::cin >> choice;
