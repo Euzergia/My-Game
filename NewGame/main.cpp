@@ -109,20 +109,20 @@ private:
     int m_agility;
     int m_vitality;
     int m_intelligence;
-    std::array<std::string, 5> m_monsterName;
+    std::array<std::string, 10> m_monsterName;
     int m_randIndex;
 
 public:
     Monster(){
-        std::srand(time(nullptr));
+        std::srand((unsigned)time(0));
         m_strength = std::rand () % 21;
         m_agility = std::rand () % 21;
         m_vitality = std::rand () % 21;
         m_intelligence = std::rand () % 21;
         m_hp = m_vitality * m_vitality * 3;
         m_mp = m_intelligence * m_intelligence * 3;
-        m_randIndex = rand() % 6;
-        m_monsterName = {"Goblin", "Dragon", "Joker", "Evil King", "Wyvern"};
+        m_randIndex = (rand() % 10) + 1;
+        m_monsterName = {"Warrior", "Dragon", "Joker", "Evil King", "Demon King", "Slime", "Raptor", "Divine Fox", "High Orc", "Demon Wolf"};
     }
     int setHp(int hp){
         m_hp = hp;
