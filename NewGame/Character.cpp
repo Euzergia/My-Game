@@ -22,7 +22,7 @@
     void Character::showStats() {
         const char separator = ' ';
         const int nameWidth = 15;
-        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Your stats: " << std::endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Status window: " << std::endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Name: ";
         std::cout << m_name << std::endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Level: ";
@@ -44,6 +44,9 @@
 
     }
     void Character::showInventory() {
+        const char separator = ' ';
+        const int nameWidth = 15;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: " << std:: endl;
         m_inventory.resize(10);
         for (int i = 0; i < m_inventory.size(); i++) {
             if (m_inventory[i] != nullptr) {
@@ -58,6 +61,7 @@
     void Character::showHelp() {
         const char separator = ' ';
         const int nameWidth = 15;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Help window: " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Commands: ";
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Action: " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "stats ";
@@ -66,7 +70,43 @@
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your character window " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "inv ";
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your inventory window " << std:: endl;
-}
+    }
+    void Character::showChar() {
+        m_character.resize(5);
+        const char separator = ' ';
+        const int nameWidth = 15;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Character window: " << std::endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Sword: ";
+        if(!m_character.empty()) {
+            std::cout << m_character[0] << std::endl;
+        }else{
+            std::cout << "----empty----" << std::endl;
+        }
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Helmet: ";
+        if(m_character[1] != nullptr) {
+            std::cout << m_character[1] << std::endl;
+        }else{
+            std::cout << "----empty----" << std::endl;
+        }
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Armor: ";
+        if(m_character[2] != nullptr) {
+            std::cout << m_character[2] << std::endl;
+        }else{
+            std::cout << "----empty----" << std::endl;
+        }
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Gloves: ";
+        if(m_character[3] != nullptr) {
+            std::cout << m_character[3] << std::endl;
+        }else{
+            std::cout << "----empty----" << std::endl;
+        }
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Boots: ";
+        if(m_character[4] != nullptr) {
+            std::cout << m_character[4] << std::endl;
+        }else{
+            std::cout << "----empty----" << std::endl;
+        }
+    }
     void Character::setName(){
         std::string name;
         std::cout << "Enter your nickname: \n";
@@ -79,6 +119,7 @@
     void Character::setWeapon(const Weapon& weapon) {
         m_currWeapon = weapon;
     }
+
     int Character::getDamage() const {
         return m_dmg + m_currWeapon.getDamage();
     }

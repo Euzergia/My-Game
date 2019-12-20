@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h">
+			<Option target="Game"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp">
 			<Option target="Game"/>
 		</Unit>

@@ -123,6 +123,33 @@ Game/fast:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
 .PHONY : Game/fast
 
+Armor.o: Armor.cpp.o
+
+.PHONY : Armor.o
+
+# target to build an object file
+Armor.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Armor.cpp.o
+.PHONY : Armor.cpp.o
+
+Armor.i: Armor.cpp.i
+
+.PHONY : Armor.i
+
+# target to preprocess a source file
+Armor.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Armor.cpp.i
+.PHONY : Armor.cpp.i
+
+Armor.s: Armor.cpp.s
+
+.PHONY : Armor.s
+
+# target to generate assembly for a file
+Armor.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Armor.cpp.s
+.PHONY : Armor.cpp.s
+
 Character.o: Character.cpp.o
 
 .PHONY : Character.o
@@ -321,6 +348,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Game"
 	@echo "... edit_cache"
+	@echo "... Armor.o"
+	@echo "... Armor.i"
+	@echo "... Armor.s"
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"

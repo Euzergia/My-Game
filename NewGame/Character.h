@@ -6,6 +6,7 @@
 #define GAME_CHARACTER_H
 
 #include "Weapon.h"
+#include "Armor.h"
 #include <vector>
 #include <ctime>
 #include <cstdlib>
@@ -28,6 +29,7 @@ private:
     int m_expLimit;
     int m_gold;
     std::vector<Weapon*> m_inventory;
+    std::vector<Weapon*> m_character;
 
 public:
     Character();

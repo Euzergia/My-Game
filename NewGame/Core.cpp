@@ -14,6 +14,7 @@ int Core::commands(std::string input) {
     m_commands.insert(std::pair<std::string,int>("Stats",2));
     m_commands.insert(std::pair<std::string,int>("Inv",3));
     m_commands.insert(std::pair<std::string,int>("Help",4));
+    m_commands.insert(std::pair<std::string,int>("Char",5));
     m_input = input;
     std::map<std::string, int>::iterator itr;
     for(auto itr = m_commands.find(input); itr == m_commands.find(input);){
@@ -49,6 +50,9 @@ void Core::run() {
                 break;
             case 4:
                 player->showHelp();
+                break;
+            case 5:
+                player->showChar();
                 break;
             default:
                 std::cout << "Command " << input << " does not exist." << std::endl;
