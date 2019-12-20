@@ -43,12 +43,30 @@
         std::cout << m_agility << std::endl;
 
     }
-    void Character::showChar() {
-    m_inventory.resize(10);
-        for(int i = 0; i < m_inventory.size(); i++){
+    void Character::showInventory() {
+        m_inventory.resize(10);
+        for (int i = 0; i < m_inventory.size(); i++) {
+            if (m_inventory[i] != nullptr) {
+                std::cout << m_inventory[i] << std::endl;
+            } else {
                 std::cout << "----Empty----" << std::endl;
             }
         }
+        std::cout << std::endl;
+        std::cout << "Gold/s: " << m_gold << std::endl;
+    }
+    void Character::showHelp() {
+        const char separator = ' ';
+        const int nameWidth = 15;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Commands: ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Action: " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "stats ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your status window " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "char ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your character window " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "inv ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your inventory window " << std:: endl;
+}
     void Character::setName(){
         std::string name;
         std::cout << "Enter your nickname: \n";
