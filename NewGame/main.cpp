@@ -1,4 +1,10 @@
-#include <iostream>
+#include "Weapon.h"
+#include "Monster.h"
+#include "Character.h"
+#include "Fight.h"
+#include "Dragon.h"
+
+/*#include <iostream>
 #include <vector>
 #include <ctime>
 #include <cstdlib>
@@ -114,14 +120,14 @@ private:
 
 public:
     Monster(){
-        std::srand((unsigned)time(0));
+        std::srand(time(nullptr));
         m_strength = std::rand () % 21;
         m_agility = std::rand () % 21;
         m_vitality = std::rand () % 21;
         m_intelligence = std::rand () % 21;
         m_hp = m_vitality * m_vitality * 3;
         m_mp = m_intelligence * m_intelligence * 3;
-        m_randIndex = (rand() % 10) + 1;
+        m_randIndex = std::rand() % 10;
         m_monsterName = {"Warrior", "Dragon", "Joker", "Evil King", "Demon King", "Slime", "Raptor", "Divine Fox", "High Orc", "Demon Wolf"};
     }
     int setHp(int hp){
@@ -132,6 +138,9 @@ public:
     }
     std::string getName(){
         return m_monsterName[m_randIndex];
+    }
+    int getRand(){
+        std::cout << rand() % 10;
     }
 };
 
@@ -168,17 +177,21 @@ public:
 
         return hp;
     }
-};
+};*/
 
 int main() {
+    std::srand(time(nullptr));
+    int random = rand() % 2;
     bool again = false;
     std::string input;
     std::string playerName;
     Character* player = new Character();
-    Monster* monster = new Monster();
+    switch(random){
+        case 1: return Dragon(new monster);
+    }
     Fight* fight = new Fight;
     player->setName();
-    chooseWeapon(player);
+    player->chooseWeapon(player);
     fight->getFight(monster, player);
     delete monster;
     std::cout << "Do you want to fight another monster??\n" << "A: Yes\n" << "B: No\n";
@@ -195,6 +208,7 @@ int main() {
             std::cin >> input;
             if(input == "b" || input == "B"){
                 again = false;
+                std::cout << "The game has ended." << std::endl;
             }
         }
     }else {

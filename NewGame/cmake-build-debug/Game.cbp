@@ -80,6 +80,36 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.h">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.h">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.h">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.h">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Weapon.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Weapon.h">
+			<Option target="Game"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/main.cpp">
 			<Option target="Game"/>
 		</Unit>

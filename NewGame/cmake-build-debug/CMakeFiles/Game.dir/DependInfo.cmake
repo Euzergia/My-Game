@@ -4,6 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.cpp" "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Character.cpp.o"
+  "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.cpp" "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Dragon.cpp.o"
+  "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.cpp" "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Fight.cpp.o"
+  "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.cpp" "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Monster.cpp.o"
+  "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Weapon.cpp" "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Weapon.cpp.o"
   "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/main.cpp" "/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
