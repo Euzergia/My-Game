@@ -123,6 +123,141 @@ Game/fast:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
 .PHONY : Game/fast
 
+Character.o: Character.cpp.o
+
+.PHONY : Character.o
+
+# target to build an object file
+Character.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Character.cpp.o
+.PHONY : Character.cpp.o
+
+Character.i: Character.cpp.i
+
+.PHONY : Character.i
+
+# target to preprocess a source file
+Character.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Character.cpp.i
+.PHONY : Character.cpp.i
+
+Character.s: Character.cpp.s
+
+.PHONY : Character.s
+
+# target to generate assembly for a file
+Character.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Character.cpp.s
+.PHONY : Character.cpp.s
+
+Dragon.o: Dragon.cpp.o
+
+.PHONY : Dragon.o
+
+# target to build an object file
+Dragon.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Dragon.cpp.o
+.PHONY : Dragon.cpp.o
+
+Dragon.i: Dragon.cpp.i
+
+.PHONY : Dragon.i
+
+# target to preprocess a source file
+Dragon.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Dragon.cpp.i
+.PHONY : Dragon.cpp.i
+
+Dragon.s: Dragon.cpp.s
+
+.PHONY : Dragon.s
+
+# target to generate assembly for a file
+Dragon.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Dragon.cpp.s
+.PHONY : Dragon.cpp.s
+
+Fight.o: Fight.cpp.o
+
+.PHONY : Fight.o
+
+# target to build an object file
+Fight.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Fight.cpp.o
+.PHONY : Fight.cpp.o
+
+Fight.i: Fight.cpp.i
+
+.PHONY : Fight.i
+
+# target to preprocess a source file
+Fight.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Fight.cpp.i
+.PHONY : Fight.cpp.i
+
+Fight.s: Fight.cpp.s
+
+.PHONY : Fight.s
+
+# target to generate assembly for a file
+Fight.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Fight.cpp.s
+.PHONY : Fight.cpp.s
+
+Monster.o: Monster.cpp.o
+
+.PHONY : Monster.o
+
+# target to build an object file
+Monster.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Monster.cpp.o
+.PHONY : Monster.cpp.o
+
+Monster.i: Monster.cpp.i
+
+.PHONY : Monster.i
+
+# target to preprocess a source file
+Monster.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Monster.cpp.i
+.PHONY : Monster.cpp.i
+
+Monster.s: Monster.cpp.s
+
+.PHONY : Monster.s
+
+# target to generate assembly for a file
+Monster.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Monster.cpp.s
+.PHONY : Monster.cpp.s
+
+Weapon.o: Weapon.cpp.o
+
+.PHONY : Weapon.o
+
+# target to build an object file
+Weapon.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.o
+.PHONY : Weapon.cpp.o
+
+Weapon.i: Weapon.cpp.i
+
+.PHONY : Weapon.i
+
+# target to preprocess a source file
+Weapon.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.i
+.PHONY : Weapon.cpp.i
+
+Weapon.s: Weapon.cpp.s
+
+.PHONY : Weapon.s
+
+# target to generate assembly for a file
+Weapon.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.s
+.PHONY : Weapon.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +294,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Game"
 	@echo "... edit_cache"
+	@echo "... Character.o"
+	@echo "... Character.i"
+	@echo "... Character.s"
+	@echo "... Dragon.o"
+	@echo "... Dragon.i"
+	@echo "... Dragon.s"
+	@echo "... Fight.o"
+	@echo "... Fight.i"
+	@echo "... Fight.s"
+	@echo "... Monster.o"
+	@echo "... Monster.i"
+	@echo "... Monster.s"
+	@echo "... Weapon.o"
+	@echo "... Weapon.i"
+	@echo "... Weapon.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

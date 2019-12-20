@@ -31,6 +31,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
@@ -67,7 +68,13 @@
       <workItem from="1574803058657" duration="12069000" />
       <workItem from="1575233478575" duration="11032000" />
       <workItem from="1575486512505" duration="55000" />
-      <workItem from="1575493189896" duration="2144000" />
+      <workItem from="1575493189896" duration="2243000" />
+      <workItem from="1575495471824" duration="84000" />
+      <workItem from="1575501432859" duration="374000" />
+      <workItem from="1575569183256" duration="1195000" />
+      <workItem from="1576068126950" duration="590000" />
+      <workItem from="1576344389920" duration="5895000" />
+      <workItem from="1576352665075" duration="8659000" />
     </task>
     <servers />
   </component>
