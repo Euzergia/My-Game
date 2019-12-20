@@ -150,6 +150,33 @@ Character.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Character.cpp.s
 .PHONY : Character.cpp.s
 
+Core.o: Core.cpp.o
+
+.PHONY : Core.o
+
+# target to build an object file
+Core.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Core.cpp.o
+.PHONY : Core.cpp.o
+
+Core.i: Core.cpp.i
+
+.PHONY : Core.i
+
+# target to preprocess a source file
+Core.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Core.cpp.i
+.PHONY : Core.cpp.i
+
+Core.s: Core.cpp.s
+
+.PHONY : Core.s
+
+# target to generate assembly for a file
+Core.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Core.cpp.s
+.PHONY : Core.cpp.s
+
 Dragon.o: Dragon.cpp.o
 
 .PHONY : Dragon.o
@@ -297,6 +324,9 @@ help:
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"
+	@echo "... Core.o"
+	@echo "... Core.i"
+	@echo "... Core.s"
 	@echo "... Dragon.o"
 	@echo "... Dragon.i"
 	@echo "... Dragon.s"

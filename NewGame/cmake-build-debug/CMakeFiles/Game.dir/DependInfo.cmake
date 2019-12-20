@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Character.cpp.o"
+  "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Core.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Core.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Dragon.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Dragon.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Fight.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Monster.cpp.o"
