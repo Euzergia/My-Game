@@ -9,6 +9,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <iomanip>
 
 class Character {
 private:
@@ -22,6 +23,11 @@ private:
     int m_dmg;
     std::string m_name;
     std::string m_weaponName;
+    int m_lvl;
+    int m_exp;
+    int m_expLimit;
+    int m_gold;
+    std::vector<Weapon*> m_inventory;
 
 public:
     Character();
@@ -34,6 +40,10 @@ public:
     std::string getWeaponName();
     int getHp();
     int getMp();
+    void showStats();
+    void showChar();
+    void showInventory();
+    void showHelp();
     static void chooseWeapon(Character* character);
 };
 

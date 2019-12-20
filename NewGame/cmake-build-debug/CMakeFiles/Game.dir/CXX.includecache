@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp
+Character.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+Weapon.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
+vector
+-
+ctime
+-
+cstdlib
+-
+iomanip
+-
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
+iostream
+-
+
