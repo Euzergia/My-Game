@@ -174,6 +174,45 @@ CMakeFiles/Game.dir/Items.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Items.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp" -o CMakeFiles/Game.dir/Items.cpp.s
 
+CMakeFiles/Game.dir/Helmet.cpp.o: CMakeFiles/Game.dir/flags.make
+CMakeFiles/Game.dir/Helmet.cpp.o: ../Helmet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Game.dir/Helmet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Helmet.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp"
+
+CMakeFiles/Game.dir/Helmet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Helmet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp" > CMakeFiles/Game.dir/Helmet.cpp.i
+
+CMakeFiles/Game.dir/Helmet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Helmet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp" -o CMakeFiles/Game.dir/Helmet.cpp.s
+
+CMakeFiles/Game.dir/Gloves.cpp.o: CMakeFiles/Game.dir/flags.make
+CMakeFiles/Game.dir/Gloves.cpp.o: ../Gloves.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Game.dir/Gloves.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Gloves.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp"
+
+CMakeFiles/Game.dir/Gloves.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Gloves.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp" > CMakeFiles/Game.dir/Gloves.cpp.i
+
+CMakeFiles/Game.dir/Gloves.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Gloves.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp" -o CMakeFiles/Game.dir/Gloves.cpp.s
+
+CMakeFiles/Game.dir/Boots.cpp.o: CMakeFiles/Game.dir/flags.make
+CMakeFiles/Game.dir/Boots.cpp.o: ../Boots.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Game.dir/Boots.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Boots.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp"
+
+CMakeFiles/Game.dir/Boots.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Boots.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp" > CMakeFiles/Game.dir/Boots.cpp.i
+
+CMakeFiles/Game.dir/Boots.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Boots.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp" -o CMakeFiles/Game.dir/Boots.cpp.s
+
 # Object files for target Game
 Game_OBJECTS = \
 "CMakeFiles/Game.dir/main.cpp.o" \
@@ -184,7 +223,10 @@ Game_OBJECTS = \
 "CMakeFiles/Game.dir/Dragon.cpp.o" \
 "CMakeFiles/Game.dir/Core.cpp.o" \
 "CMakeFiles/Game.dir/Armor.cpp.o" \
-"CMakeFiles/Game.dir/Items.cpp.o"
+"CMakeFiles/Game.dir/Items.cpp.o" \
+"CMakeFiles/Game.dir/Helmet.cpp.o" \
+"CMakeFiles/Game.dir/Gloves.cpp.o" \
+"CMakeFiles/Game.dir/Boots.cpp.o"
 
 # External object files for target Game
 Game_EXTERNAL_OBJECTS =
@@ -198,9 +240,12 @@ Game.exe: CMakeFiles/Game.dir/Dragon.cpp.o
 Game.exe: CMakeFiles/Game.dir/Core.cpp.o
 Game.exe: CMakeFiles/Game.dir/Armor.cpp.o
 Game.exe: CMakeFiles/Game.dir/Items.cpp.o
+Game.exe: CMakeFiles/Game.dir/Helmet.cpp.o
+Game.exe: CMakeFiles/Game.dir/Gloves.cpp.o
+Game.exe: CMakeFiles/Game.dir/Boots.cpp.o
 Game.exe: CMakeFiles/Game.dir/build.make
 Game.exe: CMakeFiles/Game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Game.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Game.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

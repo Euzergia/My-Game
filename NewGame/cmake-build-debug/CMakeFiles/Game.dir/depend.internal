@@ -5,10 +5,17 @@ CMakeFiles/Game.dir/Armor.cpp.o
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.cpp
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+CMakeFiles/Game.dir/Boots.cpp.o
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 CMakeFiles/Game.dir/Character.cpp.o
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
 CMakeFiles/Game.dir/Core.cpp.o
@@ -28,6 +35,14 @@ CMakeFiles/Game.dir/Fight.cpp.o
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.h
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
+CMakeFiles/Game.dir/Gloves.cpp.o
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+CMakeFiles/Game.dir/Helmet.cpp.o
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
+ /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 CMakeFiles/Game.dir/Items.cpp.o
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp
  /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h

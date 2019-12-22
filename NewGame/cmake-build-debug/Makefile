@@ -150,6 +150,33 @@ Armor.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Armor.cpp.s
 .PHONY : Armor.cpp.s
 
+Boots.o: Boots.cpp.o
+
+.PHONY : Boots.o
+
+# target to build an object file
+Boots.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Boots.cpp.o
+.PHONY : Boots.cpp.o
+
+Boots.i: Boots.cpp.i
+
+.PHONY : Boots.i
+
+# target to preprocess a source file
+Boots.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Boots.cpp.i
+.PHONY : Boots.cpp.i
+
+Boots.s: Boots.cpp.s
+
+.PHONY : Boots.s
+
+# target to generate assembly for a file
+Boots.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Boots.cpp.s
+.PHONY : Boots.cpp.s
+
 Character.o: Character.cpp.o
 
 .PHONY : Character.o
@@ -257,6 +284,60 @@ Fight.s: Fight.cpp.s
 Fight.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Fight.cpp.s
 .PHONY : Fight.cpp.s
+
+Gloves.o: Gloves.cpp.o
+
+.PHONY : Gloves.o
+
+# target to build an object file
+Gloves.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Gloves.cpp.o
+.PHONY : Gloves.cpp.o
+
+Gloves.i: Gloves.cpp.i
+
+.PHONY : Gloves.i
+
+# target to preprocess a source file
+Gloves.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Gloves.cpp.i
+.PHONY : Gloves.cpp.i
+
+Gloves.s: Gloves.cpp.s
+
+.PHONY : Gloves.s
+
+# target to generate assembly for a file
+Gloves.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Gloves.cpp.s
+.PHONY : Gloves.cpp.s
+
+Helmet.o: Helmet.cpp.o
+
+.PHONY : Helmet.o
+
+# target to build an object file
+Helmet.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Helmet.cpp.o
+.PHONY : Helmet.cpp.o
+
+Helmet.i: Helmet.cpp.i
+
+.PHONY : Helmet.i
+
+# target to preprocess a source file
+Helmet.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Helmet.cpp.i
+.PHONY : Helmet.cpp.i
+
+Helmet.s: Helmet.cpp.s
+
+.PHONY : Helmet.s
+
+# target to generate assembly for a file
+Helmet.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Helmet.cpp.s
+.PHONY : Helmet.cpp.s
 
 Items.o: Items.cpp.o
 
@@ -378,6 +459,9 @@ help:
 	@echo "... Armor.o"
 	@echo "... Armor.i"
 	@echo "... Armor.s"
+	@echo "... Boots.o"
+	@echo "... Boots.i"
+	@echo "... Boots.s"
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"
@@ -390,6 +474,12 @@ help:
 	@echo "... Fight.o"
 	@echo "... Fight.i"
 	@echo "... Fight.s"
+	@echo "... Gloves.o"
+	@echo "... Gloves.i"
+	@echo "... Gloves.s"
+	@echo "... Helmet.o"
+	@echo "... Helmet.i"
+	@echo "... Helmet.s"
 	@echo "... Items.o"
 	@echo "... Items.i"
 	@echo "... Items.s"

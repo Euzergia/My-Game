@@ -1,9 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Game.dir/Armor.cpp.o"
+  "CMakeFiles/Game.dir/Boots.cpp.o"
   "CMakeFiles/Game.dir/Character.cpp.o"
   "CMakeFiles/Game.dir/Core.cpp.o"
   "CMakeFiles/Game.dir/Dragon.cpp.o"
   "CMakeFiles/Game.dir/Fight.cpp.o"
+  "CMakeFiles/Game.dir/Gloves.cpp.o"
+  "CMakeFiles/Game.dir/Helmet.cpp.o"
   "CMakeFiles/Game.dir/Items.cpp.o"
   "CMakeFiles/Game.dir/Monster.cpp.o"
   "CMakeFiles/Game.dir/Weapon.cpp.o"

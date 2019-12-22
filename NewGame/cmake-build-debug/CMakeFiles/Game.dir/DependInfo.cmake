@@ -5,10 +5,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Armor.cpp.o"
+  "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Boots.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Character.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Core.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Core.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Dragon.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Dragon.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Fight.cpp.o"
+  "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Gloves.cpp.o"
+  "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Helmet.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Items.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Monster.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Weapon.cpp.o"
