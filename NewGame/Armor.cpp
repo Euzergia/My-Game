@@ -4,13 +4,13 @@
 
 #include "Armor.h"
 
-Armor::Armor(int def, const std::string& name) {
-    m_def = def;
-    m_name = name;
-}
-int Armor::getDef() const {
-    return m_def;
-}
-std::string Armor::getName() const{
-    return m_name;
-}
+    Armor::Armor(int dmg, int def, int agi, int dur, const std::string& name):Items(dmg, def, agi, dur, name) {
+        m_def = def;
+        m_name = name;
+    }
+    int Armor::getDefense() const {
+        return m_def;
+    }
+    std::string Armor::getName() const{
+        return m_name;
+    }

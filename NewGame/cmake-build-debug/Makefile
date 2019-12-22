@@ -258,6 +258,33 @@ Fight.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Fight.cpp.s
 .PHONY : Fight.cpp.s
 
+Items.o: Items.cpp.o
+
+.PHONY : Items.o
+
+# target to build an object file
+Items.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Items.cpp.o
+.PHONY : Items.cpp.o
+
+Items.i: Items.cpp.i
+
+.PHONY : Items.i
+
+# target to preprocess a source file
+Items.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Items.cpp.i
+.PHONY : Items.cpp.i
+
+Items.s: Items.cpp.s
+
+.PHONY : Items.s
+
+# target to generate assembly for a file
+Items.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Items.cpp.s
+.PHONY : Items.cpp.s
+
 Monster.o: Monster.cpp.o
 
 .PHONY : Monster.o
@@ -363,6 +390,9 @@ help:
 	@echo "... Fight.o"
 	@echo "... Fight.i"
 	@echo "... Fight.s"
+	@echo "... Items.o"
+	@echo "... Items.i"
+	@echo "... Items.s"
 	@echo "... Monster.o"
 	@echo "... Monster.i"
 	@echo "... Monster.s"

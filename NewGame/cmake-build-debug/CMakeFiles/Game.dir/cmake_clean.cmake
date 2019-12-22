@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Game.dir/Core.cpp.o"
   "CMakeFiles/Game.dir/Dragon.cpp.o"
   "CMakeFiles/Game.dir/Fight.cpp.o"
+  "CMakeFiles/Game.dir/Items.cpp.o"
   "CMakeFiles/Game.dir/Monster.cpp.o"
   "CMakeFiles/Game.dir/Weapon.cpp.o"
   "CMakeFiles/Game.dir/main.cpp.o"

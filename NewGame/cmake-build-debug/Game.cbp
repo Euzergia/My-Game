@@ -110,6 +110,12 @@
 		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.h">
 			<Option target="Game"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h">
+			<Option target="Game"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp">
 			<Option target="Game"/>
 		</Unit>

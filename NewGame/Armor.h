@@ -6,15 +6,12 @@
 #define GAME_ARMOR_H
 
 #include <iostream>
+#include "Items.h"
 
-class Armor {
-private:
-    int m_def;
-    std::string m_name;
-
+class Armor:public Items {
 public:
-    Armor(int def, const std::string& name);
-    int getDef() const;
+    Armor(int dmg, int def, int agi, int dur, const std::string& name);
+    int getDefense() const;
     std::string getName() const;
 };
 

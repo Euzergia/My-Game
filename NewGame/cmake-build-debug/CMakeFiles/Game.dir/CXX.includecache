@@ -9,16 +9,20 @@
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
 iostream
 -
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp
 Character.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
-
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
 Weapon.h
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
 Armor.h
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 vector
 -
 ctime
@@ -54,6 +58,10 @@ Character.h
 Monster.h
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
 
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+iostream
+-
+
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
 iostream
 -
@@ -67,6 +75,8 @@ cstdlib
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
 iostream
 -
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/main.cpp
 Core.h

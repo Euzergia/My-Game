@@ -5,8 +5,7 @@
 #ifndef GAME_CHARACTER_H
 #define GAME_CHARACTER_H
 
-#include "Weapon.h"
-#include "Armor.h"
+#include "Items.h"
 #include <vector>
 #include <ctime>
 #include <cstdlib>
@@ -20,26 +19,32 @@ private:
     int m_agility;
     int m_vitality;
     int m_intelligence;
-    Weapon m_currWeapon;
+    Items m_currWeapon;
+    Items m_currArmor;
     int m_dmg;
+    int m_def;
     std::string m_name;
     std::string m_weaponName;
+    std::string m_armorName;
     int m_lvl;
     int m_exp;
     int m_expLimit;
     int m_gold;
-    std::vector<Weapon*> m_inventory;
-    std::vector<Weapon*> m_character;
+    std::vector<Items> m_inventory;
+    std::vector<Items> m_character;
 
 public:
     Character();
     void setName();
     std::string getName();
-    void setWeapon(const Weapon& weapon);
+    void setWeapon(const Items& weapon);
+    void setArmor(const Items& armor);
     int getDamage() const;
     int getBaseDmg();
     void setWeaponName(std::string wName);
+    void setArmorName(std::string wName);
     std::string getWeaponName();
+    std::string getArmorName();
     int getHp();
     int getMp();
     void showStats();
@@ -47,6 +52,11 @@ public:
     void showInventory();
     void showHelp();
     static void chooseWeapon(Character* character);
+    void weapChar();
+    void armoChar();
+    Items getWeapon();
+    Items getArmor();
+    int getDef();
 };
 
 

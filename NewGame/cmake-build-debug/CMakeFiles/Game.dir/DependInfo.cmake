@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Core.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Core.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Dragon.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Dragon.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Fight.cpp.o"
+  "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Items.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Monster.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/Weapon.cpp.o"
   "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/main.cpp" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/main.cpp.o"
