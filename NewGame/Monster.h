@@ -23,8 +23,8 @@ protected:
     std::string m_monsterName;
 public:
     Monster();
-    int setHp(int hp);
-    int getHp();
+    virtual int setHp(int hp);
+    virtual int getHp();
     virtual std::string getName();
 };
 

@@ -7,6 +7,7 @@
 
 #include "Character.h"
 #include "Monster.h"
+#include "Dragon.h"
 #include "Fight.h"
 #include <map>
 
