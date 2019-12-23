@@ -219,9 +219,9 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
         if(std::cin.fail()) {
             std::cout << "You must enter a number!!" << std::endl;
             std::cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.ignore();
         }else {
-            if (choice < m_weapons.size() && (choice >= '0' && choice <= '9')) {
+            if (choice < m_weapons.size()) {
                 character->setWeapon(m_weapons[choice]);
                 weaponName = m_weapons[choice].getName();
                 character->setWeaponName(weaponName);
@@ -244,16 +244,21 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
             std::cout << i << ". " << m_armors[i].getName() << "\n";
         }
         std::cin >> choice;
-        if(choice < m_armors.size() && (choice >= '0' && choice <= '9')) {
-            character->setArmor(m_armors[choice]);
-            armorName = m_armors[choice].getName();
-            character->setArmorName(armorName);
-            again = true;
-        }else{
-            std::cout << "Wrong input!!";
-            std::cin >> choice;
+        if(std::cin.fail()) {
+            std::cout << "You must enter a number!!" << std::endl;
+            std::cin.clear();
+            std::cin.ignore();
+        }else {
+            if (choice < m_armors.size()) {
+                character->setArmor(m_armors[choice]);
+                armorName = m_armors[choice].getName();
+                character->setArmorName(armorName);
+                again = true;
+            } else {
+                std::cout << "Wrong input!!";
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
     }
     again = false;
 
@@ -267,16 +272,21 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
                 std::cout << i << ". " << m_helmets[i].getName() << "\n";
             }
             std::cin >> choice;
-            if(choice < m_helmets.size() && (choice >= '0' && choice <= '9')) {
-                character->setHelmet(m_helmets[choice]);
-                helmetName = m_helmets[choice].getName();
-                character->setHelmetName(helmetName);
-                again = true;
-            }else{
-                std::cout << "Wrong input!!";
-                std::cin >> choice;
+            if(std::cin.fail()) {
+                std::cout << "You must enter a number!!" << std::endl;
+                std::cin.clear();
+                std::cin.ignore();
+            }else {
+                if (choice < m_helmets.size()) {
+                    character->setHelmet(m_helmets[choice]);
+                    helmetName = m_helmets[choice].getName();
+                    character->setHelmetName(helmetName);
+                    again = true;
+                } else {
+                    std::cout << "Wrong input!!";
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
         }
     again = false;
 
@@ -290,16 +300,21 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
             std::cout << i << ". " << m_gloves[i].getName() << "\n";
         }
         std::cin >> choice;
-        if(choice < m_gloves.size() && (choice >= '0' && choice <= '9')) {
-            character->setGloves(m_gloves[choice]);
-            glovesName = m_gloves[choice].getName();
-            character->setGlovesName(glovesName);
-            again = true;
-        }else{
-            std::cout << "Wrong input!!";
-            std::cin >> choice;
+        if(std::cin.fail()) {
+            std::cout << "You must enter a number!!" << std::endl;
+            std::cin.clear();
+            std::cin.ignore();
+        }else {
+            if (choice < m_gloves.size()) {
+                character->setGloves(m_gloves[choice]);
+                glovesName = m_gloves[choice].getName();
+                character->setGlovesName(glovesName);
+                again = true;
+            } else {
+                std::cout << "Wrong input!!";
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
     }
     again = false;
 
@@ -313,16 +328,21 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
             std::cout << i << ". " << m_boots[i].getName() << "\n";
         }
         std::cin >> choice;
-        if(choice < m_boots.size() && (choice >= '0' && choice <= '9')) {
-            character->setBoots(m_boots[choice]);
-            bootsName = m_boots[choice].getName();
-            character->setBootsName(bootsName);
-            character->itemChar();
-            again = true;
-        }else{
-            std::cout << "Wrong input!!";
-            std::cin >> choice;
+        if(std::cin.fail()) {
+            std::cout << "You must enter a number!!" << std::endl;
+            std::cin.clear();
+            std::cin.ignore();
+        }else {
+            if (choice < m_boots.size()) {
+                character->setBoots(m_boots[choice]);
+                bootsName = m_boots[choice].getName();
+                character->setBootsName(bootsName);
+                character->itemChar();
+                again = true;
+            } else {
+                std::cout << "Wrong input!!";
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
     }
 };
