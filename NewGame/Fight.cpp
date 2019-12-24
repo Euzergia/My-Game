@@ -19,8 +19,6 @@
                 std::cout << "Name: " << character->getName() << std::endl;
                 std::cout << "HP: " << character->getHp() << std::endl;
                 std::cout << "MP: " << character->getMp() << std::endl;
-                std::cout << "Dmg: " << character->getDamage() << std::endl;
-                std::cout << "Base Dmg: " << character->getBaseDmg() << std::endl;
             }
         }
         if(hp < 0){

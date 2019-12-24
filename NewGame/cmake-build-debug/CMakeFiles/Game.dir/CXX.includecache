@@ -6,57 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp
+Monster.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
 iostream
 -
-Items.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
-Items.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp
-Character.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
-Weapon.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
-Armor.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
-Helmet.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
-Boots.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
-Gloves.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
-Items.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
-vector
+array
 -
 ctime
 -
 cstdlib
 -
-iomanip
--
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
-Items.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
-Items.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
-iostream
--
-
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
-iostream
--
-Items.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 

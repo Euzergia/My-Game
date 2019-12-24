@@ -21,6 +21,7 @@ CMakeFiles/Game.dir/Character.cpp.o: ../Weapon.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Character.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Core.cpp
 CMakeFiles/Game.dir/Core.cpp.o: ../Core.h
+CMakeFiles/Game.dir/Core.cpp.o: ../Dragon.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Fight.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Items.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Monster.h
@@ -55,6 +56,7 @@ CMakeFiles/Game.dir/Weapon.cpp.o: ../Weapon.h
 
 CMakeFiles/Game.dir/main.cpp.o: ../Character.h
 CMakeFiles/Game.dir/main.cpp.o: ../Core.h
+CMakeFiles/Game.dir/main.cpp.o: ../Dragon.h
 CMakeFiles/Game.dir/main.cpp.o: ../Fight.h
 CMakeFiles/Game.dir/main.cpp.o: ../Items.h
 CMakeFiles/Game.dir/main.cpp.o: ../Monster.h

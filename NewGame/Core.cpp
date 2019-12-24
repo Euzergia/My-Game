@@ -29,13 +29,14 @@ int Core::commands(std::string input) {
 
 void Core::run() {
     std::string input;
+    srand(time(nullptr));
     int randIndex = rand() % 10;
     Character* player = new Character();
     Fight* fight = new Fight();
     Monster* monster = new Monster();
     player->setName();
     player->chooseWeapon(player);
-    switch (randIndex){}
+    monster->randMonster();
     while(m_running){
         std::cout << std::endl;
         std::cout << "Enter your command: ";
