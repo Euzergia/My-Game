@@ -22,6 +22,7 @@ protected:
     std::string m_monsterName;
 public:
     Monster();
+    ~Monster();
     int setHp(int hp);
     int getHp();
     std::string setName(std::string name);

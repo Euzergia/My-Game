@@ -33,6 +33,7 @@ void Core::run() {
     int randIndex = rand() % 10;
     Character* player = new Character();
     Fight* fight = new Fight();
+    Monster* monster = new Monster();
     player->setName();
     player->chooseWeapon(player);
     monster->randMonster();
@@ -57,15 +58,9 @@ void Core::run() {
             case 5:
                 player->showChar();
                 break;
-            case 6: {
-                Monster* monster = new Monster();
-                if (monster->getHp() > 0) {
-                    fight->getFight(monster, player);
-                } else if (monster->getHp() <= 0) {
-                    delete monster;
-                }
+            case 6:
+                fight->getFight(monster, player);
                 break;
-            }
             default:
                 std::cout << "Command " << input << " does not exist." << std::endl;
         }

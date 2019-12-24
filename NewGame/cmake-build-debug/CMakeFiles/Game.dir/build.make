@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/cygdrive/c/Users/Nguyen Viet Hoang/.CLion2019.2/system/cygwin_cmake/bin/cmake.exe"
+CMAKE_COMMAND = /cygdrive/c/Users/Lenovo/.CLion2019.2/system/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = "/cygdrive/c/Users/Nguyen Viet Hoang/.CLion2019.2/system/cygwin_cmake/bin/cmake.exe" -E remove -f
+RM = /cygdrive/c/Users/Lenovo/.CLion2019.2/system/cygwin_cmake/bin/cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame"
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug"
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Game.dir/depend.make
@@ -59,159 +59,159 @@ include CMakeFiles/Game.dir/flags.make
 
 CMakeFiles/Game.dir/main.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Game.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/main.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Game.dir/main.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/main.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/main.cpp
 
 CMakeFiles/Game.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/main.cpp" > CMakeFiles/Game.dir/main.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/main.cpp > CMakeFiles/Game.dir/main.cpp.i
 
 CMakeFiles/Game.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/main.cpp" -o CMakeFiles/Game.dir/main.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/main.cpp -o CMakeFiles/Game.dir/main.cpp.s
 
 CMakeFiles/Game.dir/Weapon.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Weapon.cpp.o: ../Weapon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Game.dir/Weapon.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Weapon.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Game.dir/Weapon.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Weapon.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Weapon.cpp
 
 CMakeFiles/Game.dir/Weapon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Weapon.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.cpp" > CMakeFiles/Game.dir/Weapon.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Weapon.cpp > CMakeFiles/Game.dir/Weapon.cpp.i
 
 CMakeFiles/Game.dir/Weapon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Weapon.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.cpp" -o CMakeFiles/Game.dir/Weapon.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Weapon.cpp -o CMakeFiles/Game.dir/Weapon.cpp.s
 
 CMakeFiles/Game.dir/Monster.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Monster.cpp.o: ../Monster.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Game.dir/Monster.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Monster.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Game.dir/Monster.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Monster.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.cpp
 
 CMakeFiles/Game.dir/Monster.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Monster.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp" > CMakeFiles/Game.dir/Monster.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.cpp > CMakeFiles/Game.dir/Monster.cpp.i
 
 CMakeFiles/Game.dir/Monster.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Monster.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.cpp" -o CMakeFiles/Game.dir/Monster.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.cpp -o CMakeFiles/Game.dir/Monster.cpp.s
 
 CMakeFiles/Game.dir/Character.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Character.cpp.o: ../Character.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Game.dir/Character.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Character.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Game.dir/Character.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Character.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.cpp
 
 CMakeFiles/Game.dir/Character.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Character.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp" > CMakeFiles/Game.dir/Character.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.cpp > CMakeFiles/Game.dir/Character.cpp.i
 
 CMakeFiles/Game.dir/Character.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Character.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp" -o CMakeFiles/Game.dir/Character.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.cpp -o CMakeFiles/Game.dir/Character.cpp.s
 
 CMakeFiles/Game.dir/Fight.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Fight.cpp.o: ../Fight.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Game.dir/Fight.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Fight.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Game.dir/Fight.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Fight.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.cpp
 
 CMakeFiles/Game.dir/Fight.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Fight.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp" > CMakeFiles/Game.dir/Fight.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.cpp > CMakeFiles/Game.dir/Fight.cpp.i
 
 CMakeFiles/Game.dir/Fight.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Fight.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp" -o CMakeFiles/Game.dir/Fight.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.cpp -o CMakeFiles/Game.dir/Fight.cpp.s
 
 CMakeFiles/Game.dir/Dragon.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Dragon.cpp.o: ../Dragon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Game.dir/Dragon.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Dragon.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Dragon.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Game.dir/Dragon.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Dragon.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.cpp
 
 CMakeFiles/Game.dir/Dragon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Dragon.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Dragon.cpp" > CMakeFiles/Game.dir/Dragon.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.cpp > CMakeFiles/Game.dir/Dragon.cpp.i
 
 CMakeFiles/Game.dir/Dragon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Dragon.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Dragon.cpp" -o CMakeFiles/Game.dir/Dragon.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.cpp -o CMakeFiles/Game.dir/Dragon.cpp.s
 
 CMakeFiles/Game.dir/Core.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Core.cpp.o: ../Core.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Game.dir/Core.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Core.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Core.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Game.dir/Core.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Core.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Core.cpp
 
 CMakeFiles/Game.dir/Core.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Core.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Core.cpp" > CMakeFiles/Game.dir/Core.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Core.cpp > CMakeFiles/Game.dir/Core.cpp.i
 
 CMakeFiles/Game.dir/Core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Core.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Core.cpp" -o CMakeFiles/Game.dir/Core.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Core.cpp -o CMakeFiles/Game.dir/Core.cpp.s
 
 CMakeFiles/Game.dir/Armor.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Armor.cpp.o: ../Armor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Game.dir/Armor.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Armor.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Game.dir/Armor.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Armor.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Armor.cpp
 
 CMakeFiles/Game.dir/Armor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Armor.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.cpp" > CMakeFiles/Game.dir/Armor.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Armor.cpp > CMakeFiles/Game.dir/Armor.cpp.i
 
 CMakeFiles/Game.dir/Armor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Armor.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.cpp" -o CMakeFiles/Game.dir/Armor.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Armor.cpp -o CMakeFiles/Game.dir/Armor.cpp.s
 
 CMakeFiles/Game.dir/Items.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Items.cpp.o: ../Items.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/Items.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Items.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/Items.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Items.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Items.cpp
 
 CMakeFiles/Game.dir/Items.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Items.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp" > CMakeFiles/Game.dir/Items.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Items.cpp > CMakeFiles/Game.dir/Items.cpp.i
 
 CMakeFiles/Game.dir/Items.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Items.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.cpp" -o CMakeFiles/Game.dir/Items.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Items.cpp -o CMakeFiles/Game.dir/Items.cpp.s
 
 CMakeFiles/Game.dir/Helmet.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Helmet.cpp.o: ../Helmet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Game.dir/Helmet.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Helmet.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Game.dir/Helmet.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Helmet.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Helmet.cpp
 
 CMakeFiles/Game.dir/Helmet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Helmet.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp" > CMakeFiles/Game.dir/Helmet.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Helmet.cpp > CMakeFiles/Game.dir/Helmet.cpp.i
 
 CMakeFiles/Game.dir/Helmet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Helmet.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.cpp" -o CMakeFiles/Game.dir/Helmet.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Helmet.cpp -o CMakeFiles/Game.dir/Helmet.cpp.s
 
 CMakeFiles/Game.dir/Gloves.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Gloves.cpp.o: ../Gloves.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Game.dir/Gloves.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Gloves.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Game.dir/Gloves.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Gloves.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Gloves.cpp
 
 CMakeFiles/Game.dir/Gloves.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Gloves.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp" > CMakeFiles/Game.dir/Gloves.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Gloves.cpp > CMakeFiles/Game.dir/Gloves.cpp.i
 
 CMakeFiles/Game.dir/Gloves.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Gloves.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.cpp" -o CMakeFiles/Game.dir/Gloves.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Gloves.cpp -o CMakeFiles/Game.dir/Gloves.cpp.s
 
 CMakeFiles/Game.dir/Boots.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Boots.cpp.o: ../Boots.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Game.dir/Boots.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Boots.cpp.o -c "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Game.dir/Boots.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Boots.cpp.o -c /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Boots.cpp
 
 CMakeFiles/Game.dir/Boots.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Boots.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp" > CMakeFiles/Game.dir/Boots.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Boots.cpp > CMakeFiles/Game.dir/Boots.cpp.i
 
 CMakeFiles/Game.dir/Boots.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Boots.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.cpp" -o CMakeFiles/Game.dir/Boots.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Boots.cpp -o CMakeFiles/Game.dir/Boots.cpp.s
 
 # Object files for target Game
 Game_OBJECTS = \
@@ -245,7 +245,7 @@ Game.exe: CMakeFiles/Game.dir/Gloves.cpp.o
 Game.exe: CMakeFiles/Game.dir/Boots.cpp.o
 Game.exe: CMakeFiles/Game.dir/build.make
 Game.exe: CMakeFiles/Game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Game.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Game.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -258,6 +258,6 @@ CMakeFiles/Game.dir/clean:
 .PHONY : CMakeFiles/Game.dir/clean
 
 CMakeFiles/Game.dir/depend:
-	cd "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug" "/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug /cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/cmake-build-debug/CMakeFiles/Game.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Game.dir/depend
 

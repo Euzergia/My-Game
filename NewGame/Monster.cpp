@@ -13,6 +13,9 @@
         m_mp = 0;
         /*m_monsterName = "Dragon";*/
     }
+    Monster::~Monster() {
+
+    }
     int Monster::setHp(int hp){
         m_hp = hp;
     }
@@ -75,7 +78,7 @@
     }
     void Monster::wolfNames(){
             std::string WolfName[] = {"Wolf"};
-            int randIndex = 1;
+            int randIndex = 0;
             setName(WolfName[randIndex]);
     }
     void Monster::wolfNames2(){
@@ -87,13 +90,13 @@
     void Monster::wolfNames3(){
         std::srand(time(0));
         std::string WolfName[] = {"Raiga"};
-        int randIndex = 1;
+        int randIndex = 0;
         setName("Wolf BOSS - " + WolfName[randIndex]);
     }
     void Monster::goblinNames() {
         std::srand(time(0));
         std::string GoblinName[] = {"Goblin"};
-        int randIndex = 1;
+        int randIndex = 0;
         setName(GoblinName[randIndex]);
     }
     void Monster::goblinNames2() {
@@ -111,7 +114,7 @@
     void Monster::orcNames() {
         std::srand(time(0));
         std::string OrcName[] = {"Orc"};
-        int randIndex = 1;
+        int randIndex = 0;
         setName(OrcName[randIndex]);
     }
     void Monster::orcNames2() {
@@ -123,13 +126,13 @@
     void Monster::orcNames3() {
         std::srand(time(0));
         std::string OrcName[] = {"Tusk"};
-        int randIndex = 1;
+        int randIndex = 0;
         setName("Orc BOSS - " + OrcName[randIndex]);
     }
     void Monster::ogreNames() {
         std::srand(time(0));
         std::string OgreName[] = {"Ogre"};
-        int randIndex = 1;
+        int randIndex = 0;
         setName(OgreName[randIndex]);
     }
     void Monster::ogreNames2() {
@@ -141,7 +144,7 @@
     void Monster::ogreNames3() {
         std::srand(time(0));
         std::string OgreName[] = {"Greenwell"};
-        int randIndex = 1;
+        int randIndex = 0;
         setName("Ogre BOSS - " + OgreName[randIndex]);
     }
     void Monster::randMonster() {
