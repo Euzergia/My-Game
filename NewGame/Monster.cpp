@@ -82,7 +82,7 @@
         std::srand(time(0));
         std::string WolfName[] = {"Zonya", "Geros", "Gesa"};
         int randIndex = rand() % 3;
-        setName("Wolf General - " + WolfName[randIndex]);
+        setName("Wolf Leader - " + WolfName[randIndex]);
     }
     void Monster::wolfNames3(){
         std::srand(time(0));
@@ -90,11 +90,65 @@
         int randIndex = 1;
         setName("Wolf BOSS - " + WolfName[randIndex]);
     }
+    void Monster::goblinNames() {
+        std::srand(time(0));
+        std::string GoblinName[] = {"Goblin"};
+        int randIndex = 1;
+        setName(GoblinName[randIndex]);
+    }
+    void Monster::goblinNames2() {
+        std::srand(time(0));
+        std::string GoblinName[] = {"Gardnermenace", "Longgobble", "Holmesfur"};
+        int randIndex = rand() % 3;
+        setName("Goblin Captain - " + GoblinName[randIndex]);
+    }
+    void Monster::goblinNames3() {
+        std::srand(time(0));
+        std::string GoblinName[] = {"Fangwart Ballclaw", "RemEnd Clawson"};
+        int randIndex = rand() % 2;
+        setName("Goblin BOSS - " + GoblinName[randIndex]);
+    }
+    void Monster::orcNames() {
+        std::srand(time(0));
+        std::string OrcName[] = {"Orc"};
+        int randIndex = 1;
+        setName(OrcName[randIndex]);
+    }
+    void Monster::orcNames2() {
+        std::srand(time(0));
+        std::string OrcName[] = {"Azcer", "Fosterzog", "Morenorms", "Harperolg"};
+        int randIndex = rand() % 4;
+        setName("Orc General - " + OrcName[randIndex]);
+    }
+    void Monster::orcNames3() {
+        std::srand(time(0));
+        std::string OrcName[] = {"Tusk"};
+        int randIndex = 1;
+        setName("Orc BOSS - " + OrcName[randIndex]);
+    }
+    void Monster::ogreNames() {
+        std::srand(time(0));
+        std::string OgreName[] = {"Ogre"};
+        int randIndex = 1;
+        setName(OgreName[randIndex]);
+    }
+    void Monster::ogreNames2() {
+        std::srand(time(0));
+        std::string OgreName[] = {"Thudner", "Scostomp", "Sustink"};
+        int randIndex = rand() % 3;
+        setName("Ogre General - " + OgreName[randIndex]);
+    }
+    void Monster::ogreNames3() {
+        std::srand(time(0));
+        std::string OgreName[] = {"Greenwell"};
+        int randIndex = 1;
+        setName("Ogre BOSS - " + OgreName[randIndex]);
+    }
     void Monster::randMonster() {
         std::srand(time(0));
         int randIndex = 1 + (rand() % (5 - 1));
         switch (randIndex) {
-            case 1: {
+            case 1: { //DRAGON
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -110,8 +164,8 @@
                         setVitality(25 + rand() % 50);
                         setIntelligence(25 + rand() % 50);
                         setAgility(25 + rand() % 50);
-                        setHp(getVitality() * (rand() % 50) + (rand() % 200));
-                        setMp(getIntelligence() * (rand() % 50) + (rand() % 200));
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 200));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 200));
                         dragonNames();
                         break;
                     case 2:
@@ -119,8 +173,8 @@
                         setVitality(35 + rand() % 70);
                         setIntelligence(35 + rand() % 70);
                         setAgility(35 + rand() % 70);
-                        setHp(getVitality() * (rand() % 100) + (rand() % 500));
-                        setMp(getIntelligence() * (rand() % 100) + (rand() % 500));
+                        setHp(getVitality() * ( 1 + (rand() % 100)) + (rand() % 500));
+                        setMp(getIntelligence() * ( 1 + (rand() % 100)) + (rand() % 500));
                         dragonNames2();
                         break;
                     case 3:
@@ -128,8 +182,8 @@
                         setVitality(50 + rand() % 100);
                         setIntelligence(50 + rand() % 100);
                         setAgility(50 + rand() % 100);
-                        setHp(getVitality() * (rand() % 200) + (rand() % 1000));
-                        setMp(getIntelligence() * (rand() % 200) + (rand() % 1000));
+                        setHp(getVitality() * ( 1 + (rand() % 200)) + (rand() % 1000));
+                        setMp(getIntelligence() * ( 1 + (rand() % 200)) + (rand() % 1000));
                         dragonNames3();
                         break;
                     default:
@@ -137,7 +191,51 @@
                 }
                 break;
             }
-            case 2: {
+            case 2: { //WOLF
+                int choice = 0;
+                int randIndexLvl = rand() % 10;
+                if (randIndexLvl >= 0 && randIndexLvl <= 5) {
+                    choice = 1;
+                } else if (randIndexLvl > 5 && randIndexLvl <= 8) {
+                    choice = 2;
+                } else if (randIndexLvl > 8){
+                    choice = 3;
+                }
+                switch (choice) {
+                    case 1: {
+                        setStrength(15 + rand() % 10);
+                        setVitality(10 + rand() % 10);
+                        setIntelligence(0 + rand() % 10);
+                        setAgility(20 + rand() % 10);
+                        setHp(getVitality() * ( 1 + (rand() % 10)) + (rand() % 10));
+                        setMp(getIntelligence() * ( 1 + (rand() % 10)) + (rand() % 10));
+                        wolfNames();
+                        break;
+                    }
+                    case 2: {
+                        setStrength(15 + rand() % 20);
+                        setVitality(10 + rand() % 20);
+                        setIntelligence(0 + rand() % 20);
+                        setAgility(20 + rand() % 20);
+                        setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 20));
+                        setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 20));
+                        wolfNames2();
+                        break;
+                    }
+                    case 3: {
+                        setStrength(15 + rand() % 30);
+                        setVitality(10 + rand() % 30);
+                        setIntelligence(0 + rand() % 30);
+                        setAgility(20 + rand() % 30);
+                        setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 30));
+                        setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 30));
+                        wolfNames3();
+                        break;
+                    }
+                    default: std::cout << "Error occured!!" << std::endl;
+                }
+            }
+            case 3:{ //ORC
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -151,44 +249,124 @@
                     case 1: {
                         setStrength(10 + rand() % 10);
                         setVitality(10 + rand() % 10);
-                        setIntelligence(10 + rand() % 10);
-                        setAgility(10 + rand() % 10);
-                        setHp(getVitality() * (rand() % 10) + (rand() % 10));
-                        setMp(getIntelligence() * (rand() % 10) + (rand() % 10));
-                        wolfNames();
+                        setIntelligence(2 + rand() % 10);
+                        setAgility(5 + rand() % 10);
+                        setHp(getVitality() * ( 1 + (rand() % 5)) + (rand() % 10));
+                        setMp(getIntelligence() * ( 1 + (rand() % 5)) + (rand() % 10));
+                        orcNames();
                         break;
                     }
                     case 2: {
-                        setStrength(10 + rand() % 20);
-                        setVitality(10 + rand() % 20);
-                        setIntelligence(10 + rand() % 20);
-                        setAgility(10 + rand() % 20);
-                        setHp(getVitality() * (rand() % 20) + (rand() % 20));
-                        setMp(getIntelligence() * (rand() % 20) + (rand() % 20));
-                        wolfNames2();
+                        setStrength(15 + rand() % 10);
+                        setVitality(15 + rand() % 10);
+                        setIntelligence(2 + rand() % 10);
+                        setAgility(8 + rand() % 10);
+                        setHp(getVitality() * ( 1 + (rand() % 15)) + (rand() % 15));
+                        setMp(getIntelligence() * ( 1 + (rand() % 15)) + (rand() % 15));
+                        orcNames2();
                         break;
                     }
                     case 3: {
-                        setStrength(10 + rand() % 30);
-                        setVitality(10 + rand() % 30);
-                        setIntelligence(10 + rand() % 30);
-                        setAgility(10 + rand() % 30);
-                        setHp(getVitality() * (rand() % 20) + (rand() % 30));
-                        setMp(getIntelligence() * (rand() % 20) + (rand() % 30));
-                        wolfNames3();
+                        setStrength(25 + rand() % 20);
+                        setVitality(20 + rand() % 20);
+                        setIntelligence(10 + rand() % 20);
+                        setAgility(15 + rand() % 20);
+                        setHp(getVitality() * ( 1 + (rand() % 30)) + (rand() % 20));
+                        setMp(getIntelligence() * ( 1 + (rand() % 30)) + (rand() % 20));
+                        orcNames3();
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
                 }
             }
-            case 3:
-                std::cout << "case 3" << std::endl;
-                break;
-            case 4:
-                std::cout << "case 4" << std::endl;
-                break;
-            case 5:
-                std::cout << "case 5" << std::endl;
-                break;
+            case 4:{ //OGRE
+                int choice = 0;
+                int randIndexLvl = rand() % 10;
+                if (randIndexLvl >= 0 && randIndexLvl <= 5) {
+                    choice = 1;
+                } else if (randIndexLvl > 5 && randIndexLvl <= 8) {
+                    choice = 2;
+                } else if (randIndexLvl > 8){
+                    choice = 3;
+                }
+                switch (choice) {
+                    case 1: {
+                        setStrength(30 + rand() % 20);
+                        setVitality(20 + rand() % 10);
+                        setIntelligence(0 + rand() % 10);
+                        setAgility(3 + rand() % 10);
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
+                        ogreNames();
+                        break;
+                    }
+                    case 2: {
+                        setStrength(35 + rand() % 20);
+                        setVitality(20 + rand() % 20);
+                        setIntelligence(5 + rand() % 20);
+                        setAgility(10 + rand() % 20);
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
+                        ogreNames2();
+                        break;
+                    }
+                    case 3: {
+                        setStrength(40 + rand() % 30);
+                        setVitality(30 + rand() % 30);
+                        setIntelligence(10 + rand() % 30);
+                        setAgility(12 + rand() % 30);
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
+                        ogreNames3();
+                        break;
+                    }
+                    default: std::cout << "Error occured!!" << std::endl;
+                }
+            }
+            case 5:{ //GOBLIN
+                int choice = 0;
+                int randIndexLvl = rand() % 10;
+                if (randIndexLvl >= 0 && randIndexLvl <= 5) {
+                    choice = 1;
+                } else if (randIndexLvl > 5 && randIndexLvl <= 8) {
+                    choice = 2;
+                } else if (randIndexLvl > 8){
+                    choice = 3;
+                }
+                switch (choice) {
+                    case 1: {
+                        setStrength(5 + rand() % 10);
+                        setVitality(2 + rand() % 10);
+                        setIntelligence(2 + rand() % 10);
+                        setAgility(5 + rand() % 10);
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
+                        goblinNames();
+                        break;
+                    }
+                    case 2: {
+                        setStrength(10 + rand() % 20);
+                        setVitality(5 + rand() % 20);
+                        setIntelligence(5 + rand() % 20);
+                        setAgility(10 + rand() % 20);
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
+                        goblinNames2();
+                        break;
+                    }
+                    case 3: {
+                        setStrength(20 + rand() % 30);
+                        setVitality(10 + rand() % 30);
+                        setIntelligence(10 + rand() % 30);
+                        setAgility(15 + rand() % 30);
+                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
+                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
+                        goblinNames3();
+                        break;
+                    }
+                    default: std::cout << "Error occured!!" << std::endl;
+                }
+            }
+            default: std::cout << "Error occured!!" << std::endl;
         }
     }

@@ -42,6 +42,15 @@ public:
     void wolfNames();
     void wolfNames2();
     void wolfNames3();
+    void goblinNames();
+    void goblinNames2();
+    void goblinNames3();
+    void orcNames();
+    void orcNames2();
+    void orcNames3();
+    void ogreNames();
+    void ogreNames2();
+    void ogreNames3();
     void randMonster();
 };
 
