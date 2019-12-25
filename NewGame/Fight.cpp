@@ -25,7 +25,6 @@
             std::cout << monster->getName() << " " << hp << " is dead.\n";
             std::cout << "Overkill!!\n";
             monster->setHp(hp);
-            delete monster;
         }else {
             std::cout << monster->getName() << " " << hp << " is dead.\n";
             monster->setHp(hp);

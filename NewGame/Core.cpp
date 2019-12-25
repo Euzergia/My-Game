@@ -16,6 +16,9 @@ int Core::commands(std::string input) {
     m_commands.insert(std::pair<std::string,int>("Help",4));
     m_commands.insert(std::pair<std::string,int>("Char",5));
     m_commands.insert(std::pair<std::string,int>("Fight",6));
+    m_commands.insert(std::pair<std::string,int>("Set",7));
+    m_commands.insert(std::pair<std::string,int>("Get",8));
+
     m_input = input;
     std::map<std::string, int>::iterator itr;
     for(auto itr = m_commands.find(input); itr == m_commands.find(input);){
@@ -36,7 +39,6 @@ void Core::run() {
     Monster* monster = new Monster();
     player->setName();
     player->chooseWeapon(player);
-    monster->randMonster();
     while(m_running){
         std::cout << std::endl;
         std::cout << "Enter your command: ";
@@ -58,9 +60,11 @@ void Core::run() {
             case 5:
                 player->showChar();
                 break;
-            case 6:
+            case 6: {
+                monster->randMonster();
                 fight->getFight(monster, player);
                 break;
+            }
             default:
                 std::cout << "Command " << input << " does not exist." << std::endl;
         }

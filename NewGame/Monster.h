@@ -25,7 +25,7 @@ public:
     ~Monster();
     int setHp(int hp);
     int getHp();
-    std::string setName(std::string name);
+    void setName(std::string name);
     int setMp(int mp);
     int setStrength(int strength);
     int setAgility(int agility);
@@ -53,6 +53,7 @@ public:
     void ogreNames2();
     void ogreNames3();
     void randMonster();
+    void setMonsterStats();
 };
 
 
