@@ -20,6 +20,7 @@ class Core {
 public:
     Core();
     void run();
+    void restart(Monster **monster);
     int commands(std::string input);
 
 };
