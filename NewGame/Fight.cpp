@@ -12,7 +12,7 @@
         int hp = monster->getHp();
         while(hp > 0) {
             std::cout << "Weapon: " << character->getWeaponName() << std::endl;
-            std::cout << monster->getName() << " " << hp << std::endl;
+            std::cout << monster->getName() << " " << hp << " HP" << std::endl;
             std::cin >> input;
             if (input == "a" || input == "A"){
                 hp -= character->getDamage();
@@ -22,11 +22,11 @@
             }
         }
         if(hp < 0){
-            std::cout << monster->getName() << " " << hp << " is dead.\n";
+            std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             std::cout << "Overkill!!\n";
             monster->setHp(hp);
         }else {
-            std::cout << monster->getName() << " " << hp << " is dead.\n";
+            std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             monster->setHp(hp);
         }
         line();
