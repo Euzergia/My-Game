@@ -62,6 +62,7 @@ void Core::run() {
                 player->showChar();
                 break;
             case 6:
+                monster->randMonster();
                 fight->getFight(monster, player);
                 break;
             default:

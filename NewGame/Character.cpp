@@ -71,11 +71,15 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Commands: ";
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Action: " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "stats ";
-        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your status window " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "show your status window " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "char ";
-        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your character window " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "show your character window " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "inv ";
-        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "shows your inventory window " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "show your inventory window " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "exit ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "leave the game " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "fight ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "challenge a monster " << std:: endl;
     }
     void Character::showChar() {
         const char separator = ' ';
@@ -209,6 +213,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists"), m_currArmor(0,0,0,0,"")
     m_weapons.push_back(Weapon(10,0,0,15,"Bronze Sword"));
     m_weapons.push_back(Weapon(80,0,0,50, "Excalibur"));
     m_weapons.push_back(Weapon(150,0,0,100, "Heaven's Wish"));
+    m_weapons.push_back(Weapon(5000,0,0,5000, "God's Power"));
 
     while(!again) {
         std::cout << "Choose a weapon: \n";
