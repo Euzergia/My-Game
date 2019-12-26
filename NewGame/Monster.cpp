@@ -31,7 +31,7 @@
     int Monster::setAgility(int agility) {
         m_agility = agility;
     }
-    std::string Monster::setName(std::string name) {
+    void Monster::setName(std::string name) {
         m_monsterName = name;
     }
     int Monster::setIntelligence(int intelligence) {
@@ -60,92 +60,100 @@
     }
     void Monster::dragonNames() {
         std::srand(time(0));
-        std::string DragonName[] = {"Drogllis", "Annaphira", "Dracona", "Razen"};
+        std::string DragonName[4] = {"Drogllis", "Annaphira", "Dracona", "Razen"};
         int randIndex = rand() % 4;
         setName("Dragon - " + DragonName[randIndex]);
     }
     void Monster::dragonNames2() {
         std::srand(time(0));
-        std::string DragonName[] = {"Firellis", "Wikora", "Annariona", "Zologia"};
+        std::string DragonName[4] = {"Firellis", "Wikora", "Annariona", "Zologia"};
         int randIndex = rand() % 4;
         setName("Dragon Elder - " + DragonName[randIndex]);
     }
     void Monster::dragonNames3() {
         std::srand(time(0));
-        std::string DragonName[] = {"Wiseria", "Bahamut", "Doom"};
+        std::string DragonName[3] = {"Wiseria", "Bahamut", "Doom"};
         int randIndex = rand() % 3;
         setName("BOSS Dragon - " + DragonName[randIndex]);
     }
     void Monster::wolfNames(){
-            std::string WolfName[] = {"Wolf"};
+            std::string WolfName[1] = {"Wolf"};
             int randIndex = 0;
             setName(WolfName[randIndex]);
     }
     void Monster::wolfNames2(){
         std::srand(time(0));
-        std::string WolfName[] = {"Zonya", "Geros", "Gesa"};
+        std::string WolfName[3] = {"Zonya", "Geros", "Gesa"};
         int randIndex = rand() % 3;
         setName("Wolf Leader - " + WolfName[randIndex]);
     }
     void Monster::wolfNames3(){
         std::srand(time(0));
-        std::string WolfName[] = {"Raiga"};
+        std::string WolfName[1] = {"Raiga"};
         int randIndex = 0;
         setName("Wolf BOSS - " + WolfName[randIndex]);
     }
     void Monster::goblinNames() {
         std::srand(time(0));
-        std::string GoblinName[] = {"Goblin"};
+        std::string GoblinName[1] = {"Goblin"};
         int randIndex = 0;
         setName(GoblinName[randIndex]);
     }
     void Monster::goblinNames2() {
         std::srand(time(0));
-        std::string GoblinName[] = {"Gardnermenace", "Longgobble", "Holmesfur"};
+        std::string GoblinName[3] = {"Gardnermenace", "Longgobble", "Holmesfur"};
         int randIndex = rand() % 3;
         setName("Goblin Captain - " + GoblinName[randIndex]);
     }
     void Monster::goblinNames3() {
         std::srand(time(0));
-        std::string GoblinName[] = {"Fangwart Ballclaw", "RemEnd Clawson"};
+        std::string GoblinName[2] = {"Fangwart Ballclaw", "RemEnd Clawson"};
         int randIndex = rand() % 2;
         setName("Goblin BOSS - " + GoblinName[randIndex]);
     }
     void Monster::orcNames() {
         std::srand(time(0));
-        std::string OrcName[] = {"Orc"};
+        std::string OrcName[1] = {"Orc"};
         int randIndex = 0;
         setName(OrcName[randIndex]);
     }
     void Monster::orcNames2() {
         std::srand(time(0));
-        std::string OrcName[] = {"Azcer", "Fosterzog", "Morenorms", "Harperolg"};
+        std::string OrcName[4] = {"Azcer", "Fosterzog", "Morenorms", "Harperolg"};
         int randIndex = rand() % 4;
         setName("Orc General - " + OrcName[randIndex]);
     }
     void Monster::orcNames3() {
         std::srand(time(0));
-        std::string OrcName[] = {"Tusk"};
+        std::string OrcName[1] = {"Tusk"};
         int randIndex = 0;
         setName("Orc BOSS - " + OrcName[randIndex]);
     }
     void Monster::ogreNames() {
         std::srand(time(0));
-        std::string OgreName[] = {"Ogre"};
+        std::string OgreName[1] = {"Ogre"};
         int randIndex = 0;
         setName(OgreName[randIndex]);
     }
     void Monster::ogreNames2() {
         std::srand(time(0));
-        std::string OgreName[] = {"Thudner", "Scostomp", "Sustink"};
+        std::string OgreName[3] = {"Thudner", "Scostomp", "Sustink"};
         int randIndex = rand() % 3;
         setName("Ogre General - " + OgreName[randIndex]);
     }
     void Monster::ogreNames3() {
         std::srand(time(0));
-        std::string OgreName[] = {"Greenwell"};
+        std::string OgreName[1] = {"Greenwell"};
         int randIndex = 0;
         setName("Ogre BOSS - " + OgreName[randIndex]);
+    }
+    void Monster::setMonsterStats() {
+        setStrength(1);
+        setVitality(1);
+        setIntelligence(1);
+        setAgility(1);
+        setHp(100);
+        setMp(100);
     }
     void Monster::randMonster() {
         std::srand(time(0));
@@ -162,33 +170,36 @@
                     choice = 3;
                 }
                 switch (choice) {
-                    case 1:
+                    case 1: {
                         setStrength(25 + rand() % 50);
                         setVitality(25 + rand() % 50);
                         setIntelligence(25 + rand() % 50);
                         setAgility(25 + rand() % 50);
-                        setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 200));
-                        setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 200));
+                        setHp(getVitality() * (1 + (rand() % 50)) + (rand() % 200));
+                        setMp(getIntelligence() * (1 + (rand() % 50)) + (rand() % 200));
                         dragonNames();
                         break;
-                    case 2:
+                    }
+                    case 2: {
                         setStrength(35 + rand() % 70);
                         setVitality(35 + rand() % 70);
                         setIntelligence(35 + rand() % 70);
                         setAgility(35 + rand() % 70);
-                        setHp(getVitality() * ( 1 + (rand() % 100)) + (rand() % 500));
-                        setMp(getIntelligence() * ( 1 + (rand() % 100)) + (rand() % 500));
+                        setHp(getVitality() * (1 + (rand() % 100)) + (rand() % 500));
+                        setMp(getIntelligence() * (1 + (rand() % 100)) + (rand() % 500));
                         dragonNames2();
                         break;
-                    case 3:
+                    }
+                    case 3: {
                         setStrength(50 + rand() % 100);
                         setVitality(50 + rand() % 100);
                         setIntelligence(50 + rand() % 100);
                         setAgility(50 + rand() % 100);
-                        setHp(getVitality() * ( 1 + (rand() % 200)) + (rand() % 1000));
-                        setMp(getIntelligence() * ( 1 + (rand() % 200)) + (rand() % 1000));
+                        setHp(getVitality() * (1 + (rand() % 200)) + (rand() % 1000));
+                        setMp(getIntelligence() * (1 + (rand() % 200)) + (rand() % 1000));
                         dragonNames3();
                         break;
+                    }
                     default:
                         std::cout << "Error occured!!" << std::endl;
                 }
