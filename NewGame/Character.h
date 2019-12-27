@@ -51,7 +51,12 @@ public:
     void showInventory();
     void showHelp();
     static void chooseWeapon(Character* character);
-    void itemChar();
+    void weaponChar();
+    void armorChar();
+    void helmetChar();
+    void glovesChar();
+    void bootsChar();
+    void itemsChar();
     void setWeapon(const Items& weapon);
     void setWeaponName(std::string wName);
     std::string getWeaponName();
