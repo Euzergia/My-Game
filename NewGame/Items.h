@@ -22,7 +22,7 @@ public:
     virtual int getDefense() const;
     virtual int getAgility() const;
     virtual int getDurability() const;
-    virtual  int getPrice() const;
+    virtual int getPrice() const;
     virtual std::string getName() const;
 };
 

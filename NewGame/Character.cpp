@@ -169,8 +169,11 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
     std::string Character::getGlovesName(){
         return m_glovesName;
     }
+    void Character::setGold(int newGold) {
+        m_gold = newGold;
+    }
     int Character::getGold() {
-        return  m_gold;
+        return m_gold;
     }
     Items Character::getGloves(){
         return m_currGloves;
@@ -312,14 +315,15 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                         std::cin.clear();
                         std::cin.ignore();
                     } else {
-                        if (choice < m_weapons.size()) {
+                        if (choice < m_weapons.size() && m_weapons[choice].getPrice() <= character->getGold()) {
                             std::string yesOrNo;
                             std::cout << "Are you sure? Press y(yes) or n(no). " << std::endl;
-                            std::cin >> yesOrNo;;
+                            std::cin >> yesOrNo;
                             yesOrNo[0] = std::toupper(yesOrNo[0]);
-                            if (yesOrNo == "Y") {
+                            if (yesOrNo == "Y" && m_weapons[choice].getPrice() <= character->getGold()) {
                                 yesOrNo = "";
                                 std::cout << "Purchase was successful.";
+                                character->setGold(character->getGold() - m_weapons[choice].getPrice());
                                 std::cout << " Do you want to equip it? Press y(yes) or n(no)." << std::endl;
                                 std::cin >> yesOrNo;
                                 yesOrNo[0] = std::toupper(yesOrNo[0]);
@@ -340,6 +344,8 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             } else {
                                 std::cout << "Wrong input!!" << std::endl;
                             }
+                        }else if(m_weapons[choice].getPrice() > character->getGold()){
+                                std::cout << "You do not have enough gold." << std::endl;
                         } else if (choice == back) {
                             again = true;
                         } else {

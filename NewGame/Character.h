@@ -73,6 +73,7 @@ public:
     std::string getHelmetName();
     Items getHelmet();
     void setGloves(const Items& gloves);
+    void setGold(int newGold);
     int getGold();
     void setGlovesName(std::string wName);
     std::string getGlovesName();
