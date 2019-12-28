@@ -4,7 +4,7 @@
 
 #include "Armor.h"
 
-    Armor::Armor(int dmg, int def, int agi, int dur, const std::string& name):Items(dmg, def, agi, dur, name) {
+    Armor::Armor(int dmg, int def, int agi, int dur, const std::string& name, int price):Items(dmg, def, agi, dur, name, price) {
         m_def = def;
         m_name = name;
     }

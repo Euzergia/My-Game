@@ -4,7 +4,7 @@
 
 #include "Boots.h"
 
-Boots::Boots(int dmg, int def, int agi, int dur, const std::string& name):Items(dmg, def, agi, dur, name) {
+Boots::Boots(int dmg, int def, int agi, int dur, const std::string& name, int price):Items(dmg, def, agi, dur, name, price) {
 }
 int Boots::getDefense() const {
     return m_def;

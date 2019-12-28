@@ -36,7 +36,7 @@ private:
     int m_exp;
     int m_expLimit;
     int m_gold;
-    std::vector<Items*> m_inventory;
+    std::vector<Items> m_inventory;
     std::vector<Items> m_character;
 
 public:
@@ -51,11 +51,11 @@ public:
     void showInventory();
     void showHelp();
     static void chooseWeapon(Character* character);
-    void weaponChar();
-    void armorChar();
-    void helmetChar();
-    void glovesChar();
-    void bootsChar();
+    void weaponChar(int choice);
+    void armorChar(int choice);
+    void helmetChar(int choice);
+    void glovesChar(int choice);
+    void bootsChar(int choice);
     void itemsChar();
     void setWeapon(const Items& weapon);
     void setWeaponName(std::string wName);
@@ -72,12 +72,14 @@ public:
     std::string getHelmetName();
     Items getHelmet();
     void setGloves(const Items& gloves);
+    int getGold();
     void setGlovesName(std::string wName);
     std::string getGlovesName();
     Items getGloves();
     void setBoots(const Items& boots);
     void setBootsName(std::string wName);
     std::string getBootsName();
+    int getPrice(Items* item) const;
     Items getBoots();
 };
 

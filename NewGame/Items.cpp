@@ -4,12 +4,13 @@
 
 #include "Items.h"
 
-Items::Items(int dmg, int def, int agi, int dur, const std::string &name) {
+Items::Items(int dmg, int def, int agi, int dur, const std::string &name, int price) {
     m_dmg = dmg;
     m_name = name;
     m_agility = agi;
     m_durability = dur;
     m_def = def;
+    m_price = price;
 }
 int Items::getDefense() const {
     return m_def;
@@ -25,4 +26,7 @@ int Items::getDamage() const {
 }
 int Items::getDurability() const {
     return m_durability;
+}
+int Items::getPrice() const {
+    return  m_price;
 }

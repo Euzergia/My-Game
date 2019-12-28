@@ -14,13 +14,15 @@ protected:
     int m_agility;
     int m_durability;
     std::string m_name;
+    int m_price;
 
 public:
-    Items(int dmg, int def, int agi, int dur, const std::string& name);
+    Items(int dmg, int def, int agi, int dur, const std::string& name, int price);
     virtual int getDamage() const;
     virtual int getDefense() const;
     virtual int getAgility() const;
     virtual int getDurability() const;
+    virtual  int getPrice() const;
     virtual std::string getName() const;
 };
 
