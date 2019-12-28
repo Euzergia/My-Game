@@ -9,7 +9,7 @@
 #include "Boots.h"
 #include "Gloves.h"
 
-Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"",0), m_currHelmet(0,0,0,0,"",0), m_currGloves(0,0,0,0,"",0), m_currBoots(0,0,0,0,"",0){
+Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"",0), m_currHelmet(0,0,0,0,"",0), m_currGloves(0,0,0,0,"",0), m_currBoots(0,0,0,0,"",0), m_currHolder(0,0,0,0,"",0){
         std::srand(time(nullptr));
         m_strength = std::rand () % 11;
         m_agility = std::rand () % 11;
@@ -187,12 +187,18 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
     Items Character::getBoots(){
         return m_currBoots;
     }
+    void Character::setHolder(const Items& holder) {
+        m_currHolder = holder;
+    }
+    Items Character::getHolder() {
+        return m_currHolder;
+    }
     void Character::weaponChar(int choice) {
         if(choice == 0) {
             m_character.erase(m_character.begin());
             m_character.insert(m_character.begin(), getWeapon());
         }else if(choice == 1){
-            m_inventory.push_back(getWeapon());
+            m_inventory.push_back(getHolder());
         }
     }
     void Character::armorChar(int choice) {
@@ -200,7 +206,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
             m_character.erase(m_character.begin()+2);
             m_character.insert(m_character.begin()+2, getArmor());
         }else if(choice == 1){
-            m_inventory.push_back(getArmor());
+            m_inventory.push_back(getHolder());
         }
     }
     void Character::helmetChar(int choice) {
@@ -208,7 +214,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
             m_character.erase(m_character.begin()+1);
             m_character.insert(m_character.begin()+1, getHelmet());
     }else if(choice == 1){
-            m_inventory.push_back(getHelmet());
+            m_inventory.push_back(getHolder());
         }
     }
     void Character::glovesChar(int choice) {
@@ -216,7 +222,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
             m_character.erase(m_character.begin()+3);
             m_character.insert(m_character.begin()+3, getGloves());
     }else if(choice == 1){
-            m_inventory.push_back(getGloves());
+            m_inventory.push_back(getHolder());
         }
     }
     void Character::bootsChar(int choice){
@@ -224,7 +230,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
             m_character.erase(m_character.begin()+4);
             m_character.insert(m_character.begin()+4, getBoots());
     }else if(choice == 1){
-            m_inventory.push_back(getBoots());
+            m_inventory.push_back(getHolder());
         }
     }
     void Character::itemsChar() {
@@ -324,9 +330,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                                     character->weaponChar(0);
                                     again = true;
                                 } else {
-                                    character->setWeapon(m_weapons[choice]);
-                                    weaponName = m_weapons[choice].getName();
-                                    character->setWeaponName(weaponName);
+                                    character->setHolder(m_weapons[choice]);
                                     character->weaponChar(1);
                                     again = true;
                                 }
@@ -385,9 +389,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                                     character->armorChar(0);
                                     again = true;
                                 } else {
-                                    character->setArmor(m_armors[choice]);
-                                    armorName = m_armors[choice].getName();
-                                    character->setArmorName(armorName);
+                                    character->setHolder(m_armors[choice]);
                                     character->armorChar(1);
                                     again = true;
                                 }
@@ -446,9 +448,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                                     character->helmetChar(0);
                                     again = true;
                                 } else {
-                                    character->setHelmet(m_helmets[choice]);
-                                    helmetName = m_helmets[choice].getName();
-                                    character->setHelmetName(helmetName);
+                                    character->setHolder(m_helmets[choice]);
                                     character->helmetChar(1);
                                     again = true;
                                 }
@@ -507,9 +507,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                                     character->glovesChar(0);
                                     again = true;
                                 } else {
-                                    character->setGloves(m_gloves[choice]);
-                                    glovesName = m_gloves[choice].getName();
-                                    character->setGlovesName(glovesName);
+                                    character->setHolder(m_gloves[choice]);
                                     character->glovesChar(1);
                                     again = true;
                                 }
@@ -568,9 +566,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                                     character->bootsChar(0);
                                     again = true;
                                 } else {
-                                    character->setBoots(m_boots[choice]);
-                                    bootsName = m_boots[choice].getName();
-                                    character->setBootsName(bootsName);
+                                    character->setHolder(m_boots[choice]);
                                     character->bootsChar(1);
                                     again = true;
                                 }

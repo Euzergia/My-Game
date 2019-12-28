@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+iostream
+-
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp
+Character.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+Weapon.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
+Armor.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+Helmet.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
+Boots.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
+Gloves.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
+
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
 Items.h
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
@@ -18,29 +42,21 @@ cstdlib
 iomanip
 -
 
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.cpp
-Fight.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Fight.h
-iostream
--
-Character.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
-Monster.h
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
 /cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 iostream
 -
 
-/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
 iostream
 -
-array
--
-ctime
--
-cstdlib
--
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 

@@ -24,6 +24,7 @@ private:
     Items m_currGloves;
     Items m_currBoots;
     Items m_currHelmet;
+    Items m_currHolder;
     int m_dmg;
     int m_def;
     std::string m_name;
@@ -82,6 +83,8 @@ public:
     int getPrice(Items* item) const;
     Items getBoots();
     void reward();
+    void setHolder(const Items& holder);
+    Items getHolder();
 };
 
 
