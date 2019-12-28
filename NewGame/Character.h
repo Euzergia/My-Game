@@ -81,6 +81,7 @@ public:
     std::string getBootsName();
     int getPrice(Items* item) const;
     Items getBoots();
+    void reward();
 };
 
 

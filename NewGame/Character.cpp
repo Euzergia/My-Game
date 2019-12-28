@@ -92,7 +92,13 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
         std::cout << m_character[3].getName() << std::endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Boots: ";
         std::cout << m_character[4].getName() << std::endl;
-
+    }
+    void Character::reward() {
+    srand(time(0));
+        int reward = rand() % 5;
+        m_gold += reward;
+        std::cout << "You acquired this amount of gold: " << reward << std::endl;
+        std::cout << "You acquired these items: " << std::endl;
     }
     void Character::setName(){
         std::string name;
