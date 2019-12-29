@@ -271,7 +271,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
         }
         int n = 0;
         int choiceForSection;
-        int back;
+        int back = 0;
 
         std::cout << std::endl;
         std::cout << "Shop window: " << std::endl;
@@ -314,6 +314,8 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                         std::cout << "You must enter a number!!" << std::endl;
                         std::cin.clear();
                         std::cin.ignore();
+                    } else if (choice == back) {
+                        again = true;
                     } else {
                         if (choice < m_weapons.size() && m_weapons[choice].getPrice() <= character->getGold()) {
                             std::string yesOrNo;
@@ -346,8 +348,6 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             }
                         }else if(m_weapons[choice].getPrice() > character->getGold()){
                                 std::cout << "You do not have enough gold." << std::endl;
-                        } else if (choice == back) {
-                            again = true;
                         } else {
                             std::cout << "Wrong input!!";
                         }
@@ -376,15 +376,18 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                         std::cout << "You must enter a number!!" << std::endl;
                         std::cin.clear();
                         std::cin.ignore();
+                    } else if (choice == back) {
+                        again = true;
                     } else {
-                        if (choice < m_armors.size()) {
+                        if (choice < m_armors.size() && m_armors[choice].getPrice() <= character->getGold()) {
                             std::string yesOrNo;
                             std::cout << "Are you sure? Press y(yes) or n(no). " << std::endl;
-                            std::cin >> yesOrNo;;
+                            std::cin >> yesOrNo;
                             yesOrNo[0] = std::toupper(yesOrNo[0]);
-                            if (yesOrNo == "Y") {
+                            if (yesOrNo == "Y" && m_armors[choice].getPrice() <= character->getGold()) {
                                 yesOrNo = "";
                                 std::cout << "Purchase was successful.";
+                                character->setGold(character->getGold() - m_armors[choice].getPrice());
                                 std::cout << " Do you want to equip it? Press y(yes) or n(no)." << std::endl;
                                 std::cin >> yesOrNo;
                                 yesOrNo[0] = std::toupper(yesOrNo[0]);
@@ -405,8 +408,8 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             } else {
                                 std::cout << "Wrong input!!" << std::endl;
                             }
-                        } else if (choice == back) {
-                            again = true;
+                        }else if(m_armors[choice].getPrice() > character->getGold()){
+                            std::cout << "You do not have enough gold." << std::endl;
                         } else {
                             std::cout << "Wrong input!!";
                         }
@@ -435,8 +438,10 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                         std::cout << "You must enter a number!!" << std::endl;
                         std::cin.clear();
                         std::cin.ignore();
+                    } else if (choice == back) {
+                        again = true;
                     } else {
-                        if (choice < m_helmets.size()) {
+                        if (choice < m_helmets.size() && m_helmets[choice].getPrice() <= character->getGold()) {
                             std::string yesOrNo;
                             std::cout << "Are you sure? Press y(yes) or n(no). " << std::endl;
                             std::cin >> yesOrNo;;
@@ -444,6 +449,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             if (yesOrNo == "Y") {
                                 yesOrNo = "";
                                 std::cout << "Purchase was successful.";
+                                character->setGold(character->getGold() - m_helmets[choice].getPrice());
                                 std::cout << " Do you want to equip it? Press y(yes) or n(no)." << std::endl;
                                 std::cin >> yesOrNo;
                                 yesOrNo[0] = std::toupper(yesOrNo[0]);
@@ -464,8 +470,8 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             } else {
                                 std::cout << "Wrong input!!" << std::endl;
                             }
-                        } else if (choice == back) {
-                            again = true;
+                        }else if(m_helmets[choice].getPrice() > character->getGold()){
+                            std::cout << "You do not have enough gold." << std::endl;
                         } else {
                             std::cout << "Wrong input!!";
                         }
@@ -494,8 +500,10 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                         std::cout << "You must enter a number!!" << std::endl;
                         std::cin.clear();
                         std::cin.ignore();
+                    } else if (choice == back) {
+                        again = true;
                     } else {
-                        if (choice < m_gloves.size()) {
+                        if (choice < m_gloves.size() && m_gloves[choice].getPrice() <= character->getGold()) {
                             std::string yesOrNo;
                             std::cout << "Are you sure? Press y(yes) or n(no). " << std::endl;
                             std::cin >> yesOrNo;;
@@ -503,6 +511,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             if (yesOrNo == "Y") {
                                 yesOrNo = "";
                                 std::cout << "Purchase was successful.";
+                                character->setGold(character->getGold() - m_gloves[choice].getPrice());
                                 std::cout << " Do you want to equip it? Press y(yes) or n(no)." << std::endl;
                                 std::cin >> yesOrNo;
                                 yesOrNo[0] = std::toupper(yesOrNo[0]);
@@ -523,8 +532,8 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             } else {
                                 std::cout << "Wrong input!!" << std::endl;
                             }
-                        } else if (choice == back) {
-                            again = true;
+                        }else if(m_gloves[choice].getPrice() > character->getGold()){
+                            std::cout << "You do not have enough gold." << std::endl;
                         } else {
                             std::cout << "Wrong input!!";
                         }
@@ -553,8 +562,10 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                         std::cout << "You must enter a number!!" << std::endl;
                         std::cin.clear();
                         std::cin.ignore();
+                    } else if (choice == back) {
+                        again = true;
                     } else {
-                        if (choice < m_boots.size()) {
+                        if (choice < m_boots.size() && m_boots[choice].getPrice() <= character->getGold()) {
                             std::string yesOrNo;
                             std::cout << "Are you sure? Press y(yes) or n(no). " << std::endl;
                             std::cin >> yesOrNo;;
@@ -562,6 +573,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             if (yesOrNo == "Y") {
                                 yesOrNo = "";
                                 std::cout << "Purchase was successful.";
+                                character->setGold(character->getGold() - m_boots[choice].getPrice());
                                 std::cout << " Do you want to equip it? Press y(yes) or n(no)." << std::endl;
                                 std::cin >> yesOrNo;
                                 yesOrNo[0] = std::toupper(yesOrNo[0]);
@@ -582,8 +594,8 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                             } else {
                                 std::cout << "Wrong input!!" << std::endl;
                             }
-                        } else if (choice == back) {
-                            again = true;
+                        }else if(m_boots[choice].getPrice() > character->getGold()){
+                            std::cout << "You do not have enough gold." << std::endl;
                         } else {
                             std::cout << "Wrong input!!";
                         }
