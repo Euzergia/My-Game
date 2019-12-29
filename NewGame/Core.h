@@ -20,7 +20,7 @@ class Core {
 public:
     Core();
     void run();
-    void restart(Monster **monster);
+    void clear();
     int commands(std::string input);
 
 };

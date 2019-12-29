@@ -58,13 +58,12 @@
             std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             std::cout << "Overkill!!\n";
             monster->setHp(hp);
-            character->reward();
+            character->reward(monster);
         }else{
             std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             monster->setHp(hp);
-            character->reward();
+            character->reward(monster);
         }
-        line();
 
         return hp;
     }

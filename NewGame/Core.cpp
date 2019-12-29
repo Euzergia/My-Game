@@ -9,6 +9,15 @@ Core::Core() {
     m_input = "";
 }
 
+void Core::clear() {
+    std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;
+    std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;
+    std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;
+    std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;
+    std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;
+    std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;std::cout << std::endl;
+}
+
 int Core::commands(std::string input) {
     m_commands.insert(std::pair<std::string,int>("Exit",1));
     m_commands.insert(std::pair<std::string,int>("Stats",2));
@@ -17,7 +26,7 @@ int Core::commands(std::string input) {
     m_commands.insert(std::pair<std::string,int>("Char",5));
     m_commands.insert(std::pair<std::string,int>("Fight",6));
     m_commands.insert(std::pair<std::string,int>("Shop",7));
-    m_commands.insert(std::pair<std::string,int>("Get",8));
+    m_commands.insert(std::pair<std::string,int>("Clear",8));
 
     m_input = input;
     std::map<std::string, int>::iterator itr;
@@ -67,6 +76,9 @@ void Core::run() {
                 break;
             case 7:
                 player->chooseWeapon(player);
+                break;
+            case 8:
+                clear();
                 break;
             default:
                 std::cout << "Command " << input << " does not exist." << std::endl;

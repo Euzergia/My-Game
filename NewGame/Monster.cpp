@@ -11,6 +11,7 @@
         m_intelligence = 0;
         m_hp = 0;
         m_mp = 0;
+        m_value = 0;
         /*m_monsterName = "Dragon";*/
     }
     Monster::~Monster() {
@@ -147,6 +148,12 @@
         int randIndex = 0;
         setName("Ogre BOSS - " + OgreName[randIndex]);
     }
+    int Monster::getValue() {
+        return m_value;
+    }
+    void Monster::setValue(int value) {
+        m_value = value;
+    }
     void Monster::setMonsterStats() {
         setStrength(1);
         setVitality(1);
@@ -178,6 +185,7 @@
                         setHp(getVitality() * (1 + (rand() % 50)) + (rand() % 200));
                         setMp(getIntelligence() * (1 + (rand() % 50)) + (rand() % 200));
                         dragonNames();
+                        setValue(5);
                         break;
                     }
                     case 2: {
@@ -188,6 +196,7 @@
                         setHp(getVitality() * (1 + (rand() % 100)) + (rand() % 500));
                         setMp(getIntelligence() * (1 + (rand() % 100)) + (rand() % 500));
                         dragonNames2();
+                        setValue(20);
                         break;
                     }
                     case 3: {
@@ -198,6 +207,7 @@
                         setHp(getVitality() * (1 + (rand() % 200)) + (rand() % 1000));
                         setMp(getIntelligence() * (1 + (rand() % 200)) + (rand() % 1000));
                         dragonNames3();
+                        setValue(40);
                         break;
                     }
                     default:
@@ -224,6 +234,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 10)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 10)) + (rand() % 10));
                         wolfNames();
+                        setValue(5);
                         break;
                     }
                     case 2: {
@@ -234,6 +245,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 20));
                         wolfNames2();
+                        setValue(20);
                         break;
                     }
                     case 3: {
@@ -244,6 +256,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 30));
                         wolfNames3();
+                        setValue(40);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
@@ -268,6 +281,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 5)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 5)) + (rand() % 10));
                         orcNames();
+                        setValue(5);
                         break;
                     }
                     case 2: {
@@ -278,6 +292,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 15)) + (rand() % 15));
                         setMp(getIntelligence() * ( 1 + (rand() % 15)) + (rand() % 15));
                         orcNames2();
+                        setValue(20);
                         break;
                     }
                     case 3: {
@@ -288,6 +303,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 30)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 30)) + (rand() % 20));
                         orcNames3();
+                        setValue(40);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
@@ -312,6 +328,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
                         ogreNames();
+                        setValue(5);
                         break;
                     }
                     case 2: {
@@ -322,6 +339,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
                         ogreNames2();
+                        setValue(20);
                         break;
                     }
                     case 3: {
@@ -332,6 +350,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
                         ogreNames3();
+                        setValue(40);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
@@ -356,6 +375,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
                         goblinNames();
+                        setValue(5);
                         break;
                     }
                     case 2: {
@@ -366,6 +386,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
                         goblinNames2();
+                        setValue(20);
                         break;
                     }
                     case 3: {
@@ -376,6 +397,7 @@
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
                         goblinNames3();
+                        setValue(40);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;

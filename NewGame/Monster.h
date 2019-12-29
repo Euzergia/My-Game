@@ -18,6 +18,7 @@ protected:
     int m_agility;
     int m_vitality;
     int m_intelligence;
+    int m_value;
     /*std::array<std::string, 10> m_monsterName;*/
     std::string m_monsterName;
 public:
@@ -32,6 +33,7 @@ public:
     int setVitality(int vitality);
     int setIntelligence(int intelligence);
     int getMp();
+    int getValue();
     int getVitality();
     int getIntelligence();
     int getStrength();
@@ -54,6 +56,7 @@ public:
     void ogreNames3();
     void randMonster();
     void setMonsterStats();
+    void setValue(int value);
 };
 
 

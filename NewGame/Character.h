@@ -10,6 +10,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
+#include "Monster.h"
 
 class Character {
 private:
@@ -83,7 +84,7 @@ public:
     std::string getBootsName();
     int getPrice(Items* item) const;
     Items getBoots();
-    void reward();
+    void reward(Monster* monster);
     void setHolder(const Items& holder);
     Items getHolder();
 };
