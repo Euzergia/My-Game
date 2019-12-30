@@ -21,9 +21,11 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
         m_expLimit = 1000;
         m_dmg = m_strength * m_strength;
         m_def = 0;
-        m_hp = m_vitality * m_vitality;
+        m_hp = m_vitality * m_vitality * 1000;
         m_mp = m_intelligence * m_intelligence;
         m_gold = 10;
+        m_potions = 3;
+        m_potionsLimit = 3;
     }
     void Character::showStats() {
         const char separator = ' ';
@@ -106,13 +108,16 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
         std::cout << "You acquired this amount of gold: " << reward+monster->getValue() << std::endl;
         std::cout << "You acquired these items: " << std::endl;
     }
+    int Character::setHp(int hp) {
+        m_hp = hp;
+    }
     void Character::setName(){
         std::string name;
         std::cout << "Enter your nickname: \n";
         std::cin >> name;
         m_name = name;
     }
-    std::string Character::getName(){
+    std::string Character::getName() const{
         return m_name;
     }
     void Character::setWeapon(const Items& weapon) {
@@ -127,8 +132,19 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
     Items Character::getArmor() {
         return  m_currArmor;
     }
+    int Character::critDamage() const{
+        srand(time(0));
+        int crit = m_dmg / 2;
+        int critChance = rand() % 10;
+        if(critChance > 7){
+            std::cout << getName() << " managed to do a Critical hit!!" << std::endl;
+            return crit;
+        }else{
+            return 0;
+        }
+    }
     int Character::getDamage() const {
-        return m_dmg + m_currWeapon.getDamage();
+        return m_dmg + m_currWeapon.getDamage() + critDamage();
     }
     int Character::getBaseDmg(){
         return  m_dmg;
@@ -183,6 +199,9 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
     }
     Items Character::getGloves(){
         return m_currGloves;
+    }
+    void Character::setPotion(int potion) {
+        m_potions = potion;
     }
     void Character::setBoots(const Items& boots){
         m_currBoots = boots;

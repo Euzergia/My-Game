@@ -23,7 +23,7 @@
     int Monster::getHp(){
         return m_hp;
     }
-    std::string Monster::getName(){
+    std::string Monster::getName() const{
         return m_monsterName;
     }
     int Monster::setMp(int mp) {
@@ -59,94 +59,140 @@
     int Monster::getStrength() {
         return m_strength;
     }
-    void Monster::dragonNames() {
-        std::srand(time(0));
-        std::string DragonName[4] = {"Drogllis", "Annaphira", "Dracona", "Razen"};
-        int randIndex = rand() % 4;
-        setName("Dragon - " + DragonName[randIndex]);
+    void Monster::setDmg(int dmg) {
+        m_dmg = dmg;
     }
-    void Monster::dragonNames2() {
-        std::srand(time(0));
-        std::string DragonName[4] = {"Firellis", "Wikora", "Annariona", "Zologia"};
-        int randIndex = rand() % 4;
-        setName("Dragon Elder - " + DragonName[randIndex]);
+    int Monster::getDmg() {
+        critDamage();
+        return m_dmg;
     }
-    void Monster::dragonNames3() {
-        std::srand(time(0));
-        std::string DragonName[3] = {"Wiseria", "Bahamut", "Doom"};
-        int randIndex = rand() % 3;
-        setName("BOSS Dragon - " + DragonName[randIndex]);
+    int Monster::critDamage() const{
+        srand(time(0));
+        int crit = m_dmg / 2;
+        int critChance = 10 + (rand() % 100);
+        if(critChance > 95){
+            std::cout << getName() << " managed to do a Critical hit!!" << std::endl;
+            return crit;
+        }else{
+            return 0;
+        }
     }
-    void Monster::wolfNames(){
+    void Monster::setAttackName(std::string attackName) {
+        m_attackName = attackName;
+    }
+    std::string Monster::getAttackName() {
+        return m_attackName;
+    }
+    void Monster::setMonsterType(std::string type) {
+        m_monster = type;
+    }
+    std::string Monster::getMonsterType() {
+        return m_monster;
+    }
+    void Monster::dragonNames(int tier, int attType) {
+        std::srand(time(0));
+        if(tier == 1 && attType == 0){
+            std::string DragonName[4] = {"Drogllis", "Annaphira", "Dracona", "Razen"};
+            int randIndex = rand() % 4;
+            setName("Dragon - " + DragonName[randIndex]);
+        }else if(tier == 2 && attType == 0){
+            std::string DragonName[4] = {"Firellis", "Wikora", "Annariona", "Zologia"};
+            int randIndex = rand() % 4;
+            setName("Dragon Elder - " + DragonName[randIndex]);
+        }else if(tier == 3 && attType == 0){
+            std::string DragonName[3] = {"Wiseria", "Bahamut", "Doom"};
+            int randIndex = rand() % 3;
+            setName("BOSS Dragon - " + DragonName[randIndex]);
+        }
+        if(tier == 0 && attType == 1){
+            std::string AttackName[3] = {"Claw Attack", "Fire Breath"};
+            int randIndex = rand() % 2;
+            setAttackName(AttackName[randIndex]);
+        }
+    }
+    void Monster::wolfNames(int tier, int attType){
+        std::srand(time(0));
+        if(tier == 1 && attType == 0) {
             std::string WolfName[1] = {"Wolf"};
             int randIndex = 0;
             setName(WolfName[randIndex]);
+        }else if(tier == 2 && attType == 0){
+            std::string WolfName[3] = {"Zonya", "Geros", "Gesa"};
+            int randIndex = rand() % 3;
+            setName("Wolf Leader - " + WolfName[randIndex]);
+        }else if(tier == 3 && attType == 0){
+            std::string WolfName[1] = {"Raiga"};
+            int randIndex = 0;
+            setName("Wolf BOSS - " + WolfName[randIndex]);
+        }
+        if(tier == 0 && attType == 1){
+            std::string AttackName[3] = {"Claw Attack", "Bite Attack"};
+            int randIndex = rand() % 2;
+            setAttackName(AttackName[randIndex]);
+        }
     }
-    void Monster::wolfNames2(){
+    void Monster::goblinNames(int tier, int attType) {
         std::srand(time(0));
-        std::string WolfName[3] = {"Zonya", "Geros", "Gesa"};
-        int randIndex = rand() % 3;
-        setName("Wolf Leader - " + WolfName[randIndex]);
+        if(tier == 1 && attType == 0){
+            std::string GoblinName[1] = {"Goblin"};
+            int randIndex = 0;
+            setName(GoblinName[randIndex]);
+         }else if(tier == 2 && attType == 0){
+            std::string GoblinName[3] = {"Gardnermenace", "Longgobble", "Holmesfur"};
+            int randIndex = rand() % 3;
+            setName("Goblin Captain - " + GoblinName[randIndex]);
+        }else if(tier == 3 && attType == 0){
+            std::string GoblinName[2] = {"Fangwart Ballclaw", "RemEnd Clawson"};
+            int randIndex = rand() % 2;
+            setName("Goblin BOSS - " + GoblinName[randIndex]);
+        }
+        if(tier == 0 && attType == 1){
+            std::string AttackName[3] = {"Swift Attack", "Sneak Attack"};
+            int randIndex = rand() % 2;
+            setAttackName(AttackName[randIndex]);
+        }
     }
-    void Monster::wolfNames3(){
+    void Monster::orcNames(int tier, int attType) {
         std::srand(time(0));
-        std::string WolfName[1] = {"Raiga"};
-        int randIndex = 0;
-        setName("Wolf BOSS - " + WolfName[randIndex]);
-    }
-    void Monster::goblinNames() {
-        std::srand(time(0));
-        std::string GoblinName[1] = {"Goblin"};
-        int randIndex = 0;
-        setName(GoblinName[randIndex]);
-    }
-    void Monster::goblinNames2() {
-        std::srand(time(0));
-        std::string GoblinName[3] = {"Gardnermenace", "Longgobble", "Holmesfur"};
-        int randIndex = rand() % 3;
-        setName("Goblin Captain - " + GoblinName[randIndex]);
-    }
-    void Monster::goblinNames3() {
-        std::srand(time(0));
-        std::string GoblinName[2] = {"Fangwart Ballclaw", "RemEnd Clawson"};
-        int randIndex = rand() % 2;
-        setName("Goblin BOSS - " + GoblinName[randIndex]);
-    }
-    void Monster::orcNames() {
-        std::srand(time(0));
+        if(tier == 1 && attType == 0){
         std::string OrcName[1] = {"Orc"};
         int randIndex = 0;
         setName(OrcName[randIndex]);
+        }else if(tier == 2 && attType == 0){
+            std::string OrcName[4] = {"Azcer", "Fosterzog", "Morenorms", "Harperolg"};
+            int randIndex = rand() % 4;
+            setName("Orc General - " + OrcName[randIndex]);
+        }else if(tier == 3 && attType == 0){
+            std::string OrcName[1] = {"Tusk"};
+            int randIndex = 0;
+            setName("Orc BOSS - " + OrcName[randIndex]);
+        }
+        if(tier == 0 && attType == 1){
+            std::string AttackName[3] = {"Powered Attack", "Rampage Powered Attack"};
+            int randIndex = rand() % 2;
+            setAttackName(AttackName[randIndex]);
+        }
     }
-    void Monster::orcNames2() {
+    void Monster::ogreNames(int tier, int attType) {
         std::srand(time(0));
-        std::string OrcName[4] = {"Azcer", "Fosterzog", "Morenorms", "Harperolg"};
-        int randIndex = rand() % 4;
-        setName("Orc General - " + OrcName[randIndex]);
-    }
-    void Monster::orcNames3() {
-        std::srand(time(0));
-        std::string OrcName[1] = {"Tusk"};
-        int randIndex = 0;
-        setName("Orc BOSS - " + OrcName[randIndex]);
-    }
-    void Monster::ogreNames() {
-        std::srand(time(0));
+        if(tier == 1 && attType == 0){
         std::string OgreName[1] = {"Ogre"};
         int randIndex = 0;
         setName(OgreName[randIndex]);
-    }
-    void Monster::ogreNames2() {
-        std::srand(time(0));
-        std::string OgreName[3] = {"Thudner", "Scostomp", "Sustink"};
-        int randIndex = rand() % 3;
-        setName("Ogre General - " + OgreName[randIndex]);
-    }
-    void Monster::ogreNames3() {
-        std::srand(time(0));
-        std::string OgreName[1] = {"Greenwell"};
-        int randIndex = 0;
-        setName("Ogre BOSS - " + OgreName[randIndex]);
+        }else if(tier == 2 && attType == 0){
+            std::string OgreName[3] = {"Thudner", "Scostomp", "Sustink"};
+            int randIndex = rand() % 3;
+            setName("Ogre General - " + OgreName[randIndex]);
+        }else if(tier == 3 && attType == 0){
+            std::string OgreName[1] = {"Greenwell"};
+            int randIndex = 0;
+            setName("Ogre BOSS - " + OgreName[randIndex]);
+        }
+        if(tier == 0 && attType == 1){
+            std::string AttackName[3] = {"Mace Attack", "Slam Barrage"};
+            int randIndex = rand() % 2;
+            setAttackName(AttackName[randIndex]);
+        }
     }
     int Monster::getValue() {
         return m_value;
@@ -167,6 +213,7 @@
         int randIndex = 1 + (rand() % (5 - 1));
         switch (randIndex) {
             case 1: { //DRAGON
+                setMonsterType("dragon");
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -184,7 +231,8 @@
                         setAgility(25 + rand() % 50);
                         setHp(getVitality() * (1 + (rand() % 50)) + (rand() % 200));
                         setMp(getIntelligence() * (1 + (rand() % 50)) + (rand() % 200));
-                        dragonNames();
+                        dragonNames(1,0);
+                        setDmg(getStrength() * 5);
                         setValue(5);
                         break;
                     }
@@ -195,7 +243,8 @@
                         setAgility(35 + rand() % 70);
                         setHp(getVitality() * (1 + (rand() % 100)) + (rand() % 500));
                         setMp(getIntelligence() * (1 + (rand() % 100)) + (rand() % 500));
-                        dragonNames2();
+                        dragonNames(2,0);
+                        setDmg(getStrength() * 5);
                         setValue(20);
                         break;
                     }
@@ -206,7 +255,8 @@
                         setAgility(50 + rand() % 100);
                         setHp(getVitality() * (1 + (rand() % 200)) + (rand() % 1000));
                         setMp(getIntelligence() * (1 + (rand() % 200)) + (rand() % 1000));
-                        dragonNames3();
+                        dragonNames(3,0);
+                        setDmg(getStrength() * 5);
                         setValue(40);
                         break;
                     }
@@ -216,6 +266,7 @@
                 break;
             }
             case 2: { //WOLF
+                setMonsterType("wolf");
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -233,7 +284,8 @@
                         setAgility(20 + rand() % 10);
                         setHp(getVitality() * ( 1 + (rand() % 10)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 10)) + (rand() % 10));
-                        wolfNames();
+                        wolfNames(1,0);
+                        setDmg(getStrength() * 5);
                         setValue(5);
                         break;
                     }
@@ -244,7 +296,8 @@
                         setAgility(20 + rand() % 20);
                         setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 20));
-                        wolfNames2();
+                        wolfNames(2,0);
+                        setDmg(getStrength() * 5);
                         setValue(20);
                         break;
                     }
@@ -255,7 +308,8 @@
                         setAgility(20 + rand() % 30);
                         setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 30));
-                        wolfNames3();
+                        wolfNames(3,0);
+                        setDmg(getStrength() * 5);
                         setValue(40);
                         break;
                     }
@@ -263,6 +317,7 @@
                 }
             }
             case 3:{ //ORC
+                setMonsterType("orc");
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -280,7 +335,8 @@
                         setAgility(5 + rand() % 10);
                         setHp(getVitality() * ( 1 + (rand() % 5)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 5)) + (rand() % 10));
-                        orcNames();
+                        orcNames(1,0);
+                        setDmg(getStrength() * 5);
                         setValue(5);
                         break;
                     }
@@ -291,7 +347,8 @@
                         setAgility(8 + rand() % 10);
                         setHp(getVitality() * ( 1 + (rand() % 15)) + (rand() % 15));
                         setMp(getIntelligence() * ( 1 + (rand() % 15)) + (rand() % 15));
-                        orcNames2();
+                        orcNames(2,0);
+                        setDmg(getStrength() * 5);
                         setValue(20);
                         break;
                     }
@@ -302,7 +359,8 @@
                         setAgility(15 + rand() % 20);
                         setHp(getVitality() * ( 1 + (rand() % 30)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 30)) + (rand() % 20));
-                        orcNames3();
+                        orcNames(3,0);
+                        setDmg(getStrength() * 5);
                         setValue(40);
                         break;
                     }
@@ -310,6 +368,7 @@
                 }
             }
             case 4:{ //OGRE
+                setMonsterType("ogre");
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -327,7 +386,8 @@
                         setAgility(3 + rand() % 10);
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
-                        ogreNames();
+                        ogreNames(1,0);
+                        setDmg(getStrength() * 5);
                         setValue(5);
                         break;
                     }
@@ -338,7 +398,8 @@
                         setAgility(10 + rand() % 20);
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
-                        ogreNames2();
+                        ogreNames(2,0);
+                        setDmg(getStrength() * 5);
                         setValue(20);
                         break;
                     }
@@ -349,7 +410,8 @@
                         setAgility(12 + rand() % 30);
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
-                        ogreNames3();
+                        ogreNames(3,0);
+                        setDmg(getStrength() * 5);
                         setValue(40);
                         break;
                     }
@@ -357,6 +419,7 @@
                 }
             }
             case 5:{ //GOBLIN
+                setMonsterType("goblin");
                 int choice = 0;
                 int randIndexLvl = rand() % 10;
                 if (randIndexLvl >= 0 && randIndexLvl <= 5) {
@@ -374,7 +437,8 @@
                         setAgility(5 + rand() % 10);
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
-                        goblinNames();
+                        goblinNames(1,0);
+                        setDmg(getStrength() * 5);
                         setValue(5);
                         break;
                     }
@@ -385,7 +449,8 @@
                         setAgility(10 + rand() % 20);
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
-                        goblinNames2();
+                        goblinNames(2,0);
+                        setDmg(getStrength() * 5);
                         setValue(20);
                         break;
                     }
@@ -396,7 +461,8 @@
                         setAgility(15 + rand() % 30);
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
-                        goblinNames3();
+                        goblinNames(3,0);
+                        setDmg(getStrength() * 5);
                         setValue(40);
                         break;
                     }

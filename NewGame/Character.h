@@ -35,6 +35,8 @@ private:
     std::string m_glovesName;
     std::string m_bootsName;
     int m_lvl;
+    int m_potions;
+    int m_potionsLimit;
     int m_exp;
     int m_expLimit;
     int m_gold;
@@ -44,8 +46,11 @@ private:
 public:
     Character();
     void setName();
-    std::string getName();
+    void setPotion(int potion);
+    int getPotion();
+    std::string getName() const;
     int getBaseDmg();
+    int setHp(int hp);
     int getHp();
     int getMp();
     void showStats();
@@ -87,6 +92,7 @@ public:
     void reward(Monster* monster);
     void setHolder(const Items& holder);
     Items getHolder();
+    int critDamage() const;
 };
 
 

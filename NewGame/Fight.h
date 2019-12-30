@@ -14,6 +14,7 @@ class Fight {
 public:
     void line();
     int getFight(Monster* monster, Character* character);
+    void attackName(Monster* monster);
 };
 
 

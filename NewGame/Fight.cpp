@@ -8,24 +8,43 @@
     void Fight::line(){
         std::cout << "--------------------------\n";
     }
+    void Fight::attackName(Monster *monster) {
+        if(monster->getMonsterType() == "dragon"){
+            monster->dragonNames(0,1);
+        }else if(monster->getMonsterType() == "wolf"){
+            monster->wolfNames(0,1);
+        }else if(monster->getMonsterType() == "orc"){
+            monster->orcNames(0,1);
+        }else if(monster->getMonsterType() == "ogre"){
+            monster->ogreNames(0,1);
+        }else if(monster->getMonsterType() == "goblin"){
+            monster->goblinNames(0,1);
+        }
+    }
     int Fight::getFight(Monster* monster, Character* character){
         int run = 0;
         int hp = monster->getHp();
         while(hp > 0) {
             std::cout << monster->getName() << " " << hp << " HP" << std::endl;
+            std::cout << character->getName() << " " << character->getHp() << " HP" << std::endl;
             std::cout << "A: Attack" << std::endl;
             std::cout << "B: Magic" << std::endl;
             std::cout << "C: Potion" << std::endl;
             std::cin >> input;
             if (input == "a" || input == "A"){
                 hp -= character->getDamage();
-                std::cout << "Name: " << character->getName() << std::endl;
-                std::cout << "HP: " << character->getHp() << std::endl;
-                std::cout << "MP: " << character->getMp() << std::endl;
+                attackName(monster);
+                std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
+                character->setHp(character->getHp() - monster->getDmg());
             }else if(input == "b" || input == "B"){
+                hp -= character->getDamage() * 2;
+                attackName(monster);
+                std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
+                character->setHp(character->getHp() - monster->getDmg());
+            }else if(input == "c" || input == "C") {
 
             }else if(input == "exit" || input == "Exit"){
-                exit(0);
+                    exit(0);
             }else if(input == "run" || input == "Run"){
                 run = 1;
                 hp = 0;
