@@ -4,7 +4,7 @@
 
 #include "Weapon.h"
 
-    Weapon::Weapon(int dmg, int def, int agi, int dur, const std::string& name, int price):Items(dmg, def, agi, dur, name, price) {
+    Weapon::Weapon(int dmg, int def, int agi, int dur, const std::string& name, int price, int index):Items(dmg, def, agi, dur, name, price, index) {
     }
     int Weapon::getDamage() const {
         return m_dmg;

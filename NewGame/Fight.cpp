@@ -33,11 +33,13 @@
             std::cin >> input;
             if (input == "a" || input == "A"){
                 hp -= character->getDamage();
+                std::cout << std::endl;
                 attackName(monster);
                 std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
                 character->setHp(character->getHp() - monster->getDmg());
             }else if(input == "b" || input == "B"){
                 hp -= character->getDamage() * 2;
+                std::cout << std::endl;
                 attackName(monster);
                 std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
                 character->setHp(character->getHp() - monster->getDmg());
@@ -74,8 +76,8 @@
         if(run == 1 && hp == 0){
             std::cout << "You ran away." << std::endl;
         }else if(hp < 0){
-            std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             std::cout << "Overkill!!\n";
+            std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             monster->setHp(hp);
             character->reward(monster);
         }else{

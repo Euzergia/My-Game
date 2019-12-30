@@ -4,16 +4,20 @@
 
 #include "Items.h"
 
-Items::Items(int dmg, int def, int agi, int dur, const std::string &name, int price) {
+Items::Items(int dmg, int def, int agi, int dur, const std::string &name, int price, int index) {
     m_dmg = dmg;
     m_name = name;
     m_agility = agi;
     m_durability = dur;
     m_def = def;
     m_price = price;
+    m_index = index;
 }
 int Items::getDefense() const {
     return m_def;
+}
+int Items::getIndex() const {
+    return m_index;
 }
 std::string Items::getName() const {
     return m_name;

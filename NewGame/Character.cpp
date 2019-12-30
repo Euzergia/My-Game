@@ -9,7 +9,7 @@
 #include "Boots.h"
 #include "Gloves.h"
 
-Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"",0), m_currHelmet(0,0,0,0,"",0), m_currGloves(0,0,0,0,"",0), m_currBoots(0,0,0,0,"",0), m_currHolder(0,0,0,0,"",0){
+Character::Character() : m_currWeapon(5,0,0,0, "Fists",0,0), m_currArmor(0,0,0,0,"",0,0), m_currHelmet(0,0,0,0,"",0,0), m_currGloves(0,0,0,0,"",0,0), m_currBoots(0,0,0,0,"",0,0), m_currHolder(0,0,0,0,"",0,0){
         std::srand(time(nullptr));
         m_strength = std::rand () % 11;
         m_agility = std::rand () % 11;
@@ -54,16 +54,72 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
     }
     void Character::showInventory() {
     m_inventory.reserve(10);
+        int index;
+        bool again = false;
+        int n;
         const char separator = ' ';
         const int nameWidth = 15;
-        std::cout << std::endl;
-        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: " << std::endl;
-        for (int i = 0; i < m_inventory.size(); ++i) {
-                std::cout << i << ". " << m_inventory[i].getName() << std::endl;
-        }
-            std::cout << std::endl;
-            std::cout << "Gold/s: " << m_gold << std::endl;
-            std::cout << "Slots used: " << m_inventory.size() << "/" << m_inventory.capacity() << std::endl;
+        while(!again){
+            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: " << std::endl;
+            for (int i = 0; i < m_inventory.size(); ++i) {
+                    std::cout << i << ". " << m_inventory[i].getName() << std::endl;
+                    n = i+1;
+            }
+                std::cout << std::endl;
+                std::cout << n << ". Back" << std::endl;
+                std::cout << std::endl;
+                std::cout << "Gold/s: " << m_gold << std::endl;
+                std::cout << "Slots used: " << m_inventory.size() << "/" << m_inventory.capacity() << std::endl;
+
+                std::cout << std::endl;
+                std::cout << "Enter your input: " << std::endl;
+                std::cin >> index;
+                for(int j = 0; j < m_inventory.size(); j++){
+                    if(index == n) {
+                        again = true;
+                    }else if(index == j) {
+                        std::string input;
+                        std::cout << "Do you want to equip this item? Press y(yes) or n(no)." << std::endl;
+                        std::cin >> input;
+                        if (input == "y" || input == "Y") {
+                            if (m_inventory[j].getIndex() == 1) { // WEAPON
+                                setHolder(m_inventory[j]);
+                                m_inventory.erase(m_inventory.begin() + index);
+                                m_inventory.push_back(getWeapon());
+                                m_character.erase(m_character.begin());
+                                m_character.insert(m_character.begin(), getHolder());
+                            } else if (m_inventory[j].getIndex() == 2) { //ARMOR
+                                setHolder(m_inventory[j]);
+                                m_inventory.erase(m_inventory.begin() + index);
+                                m_inventory.push_back(getWeapon());
+                                m_character.erase(m_character.begin() + 2);
+                                m_character.insert(m_character.begin() + 2, getHolder());
+                            } else if (m_inventory[j].getIndex() == 3) { //HELMET
+                                setHolder(m_inventory[j]);
+                                m_inventory.erase(m_inventory.begin() + index);
+                                m_inventory.push_back(getWeapon());
+                                m_character.erase(m_character.begin() + 1);
+                                m_character.insert(m_character.begin() + 1, getHolder());
+                            }
+                            if (m_inventory[j].getIndex() == 4) { //GLOVES
+                                setHolder(m_inventory[j]);
+                                m_inventory.erase(m_inventory.begin() + index);
+                                m_inventory.push_back(getWeapon());
+                                m_character.erase(m_character.begin() + 3);
+                                m_character.insert(m_character.begin() + 3, getHolder());
+                            } else if (m_inventory[j].getIndex() == 5) { //BOOTS
+                                setHolder(m_inventory[j]);
+                                m_inventory.erase(m_inventory.begin() + index);
+                                m_inventory.push_back(getWeapon());
+                                m_character.erase(m_character.begin() + 4);
+                                m_character.insert(m_character.begin() + 4, getHolder());
+                            }
+                        } else if (input == "n" || input == "N") {
+
+                        }
+                    }
+                }
+            }
         }
     void Character::showHelp() {
         const char separator = ' ';
@@ -143,6 +199,14 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
             return 0;
         }
     }
+    /*int Character::getPositionInInventory() {
+        for(int i = 0; i < m_inventory.size(); ++i){
+
+        }
+    }
+    Items Character::equipFromInv() {
+        m_inventory.erase()
+    }*/
     int Character::getDamage() const {
         return m_dmg + m_currWeapon.getDamage() + critDamage();
     }
@@ -271,7 +335,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
     void Character::chooseWeapon(Character* character){
     bool running = true;
     while(running) {
-        Items *item = new Items(0, 0, 0, 0, "",0);
+        Items *item = new Items(0, 0, 0, 0, "",0,0);
         Weapon *weapon = dynamic_cast<Weapon *>(item);
         Armor *armor = dynamic_cast<Armor *>(item);
         Helmet *helm = dynamic_cast<Helmet *>(item);
@@ -318,16 +382,16 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
 
 
             // WEAPONS
-            m_weapons.push_back(Weapon(10, 0, 0, 15, "Silver Sword",1));
-            m_weapons.push_back(Weapon(25, 0, 0, 25, "Night's Edge",15));
-            m_weapons.push_back(Weapon(50, 0, 0, 38, "Silent Spellblade",35));
-            m_weapons.push_back(Weapon(90, 0, 0, 50, "Frost Razor",50));
-            m_weapons.push_back(Weapon(120, 0, 10, 90, "Stormbringer, Breaker of Invocation",100));
-            m_weapons.push_back(Weapon(180, 0, 5, 150, "Doomblade",160));
-            m_weapons.push_back(Weapon(380, 0, 20, 300, "Dark Heart, Breaker of Lost Worlds",300));
-            m_weapons.push_back(Weapon(800, 0, 50, 999, "Hellfire, Betrayer of Ended Dreams",500));
-            m_weapons.push_back(Weapon(1000, 0, 200, 999, "God Slayer, Breaker of Heavens",1000));
-            m_weapons.push_back(Weapon(3000, 0, 200, 999, "For Test Purpose",0));
+            m_weapons.push_back(Weapon(10, 0, 0, 15, "Silver Sword",1,1));
+            m_weapons.push_back(Weapon(25, 0, 0, 25, "Night's Edge",15,1));
+            m_weapons.push_back(Weapon(50, 0, 0, 38, "Silent Spellblade",35,1));
+            m_weapons.push_back(Weapon(90, 0, 0, 50, "Frost Razor",50,1));
+            m_weapons.push_back(Weapon(120, 0, 10, 90, "Stormbringer, Breaker of Invocation",100,1));
+            m_weapons.push_back(Weapon(180, 0, 5, 150, "Doomblade",160,1));
+            m_weapons.push_back(Weapon(380, 0, 20, 300, "Dark Heart, Breaker of Lost Worlds",300,1));
+            m_weapons.push_back(Weapon(800, 0, 50, 999, "Hellfire, Betrayer of Ended Dreams",500,1));
+            m_weapons.push_back(Weapon(1000, 0, 200, 999, "God Slayer, Breaker of Heavens",1000,1));
+            m_weapons.push_back(Weapon(3000, 0, 200, 999, "For Test Purpose",0,1));
 
             if (choiceForSection == 0) {
                 while (!again) {
@@ -390,12 +454,12 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                 again = false;
             } else if (choiceForSection == 1) {
 
-                m_armors.push_back(Armor(0, 10, 0, 20, "Silver Armor",5));
-                m_armors.push_back(Armor(0, 20, 0, 40, "Plate Armor",10));
-                m_armors.push_back(Armor(0, 30, 0, 80, "Obsidian Armor",55));
-                m_armors.push_back(Armor(0, 70, 0, 100, "Adamantite Armor",105));
-                m_armors.push_back(Armor(0, 100, 0, 150, "Armor of Distant Powers",180));
-                m_armors.push_back(Armor(0, 150, 0, 400, "Glory Armor of Pride's Fall",350));
+                m_armors.push_back(Armor(0, 10, 0, 20, "Silver Armor",5,2));
+                m_armors.push_back(Armor(0, 20, 0, 40, "Plate Armor",10,2));
+                m_armors.push_back(Armor(0, 30, 0, 80, "Obsidian Armor",55,2));
+                m_armors.push_back(Armor(0, 70, 0, 100, "Adamantite Armor",105,2));
+                m_armors.push_back(Armor(0, 100, 0, 150, "Armor of Distant Powers",180,2));
+                m_armors.push_back(Armor(0, 150, 0, 400, "Glory Armor of Pride's Fall",350,2));
 
                 while (!again) {
                     std::cout << std::endl;
@@ -457,9 +521,9 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                 again = false;
             } else if (choiceForSection == 2) {
 
-                m_helmets.push_back(Helmet(0, 10, 0, 20, "Silver Helmet",5));
-                m_helmets.push_back(Helmet(0, 30, 0, 30, "Obsidian Helmet",30));
-                m_helmets.push_back(Helmet(0, 50, 0, 100, "Adamantite Helmet",80));
+                m_helmets.push_back(Helmet(0, 10, 0, 20, "Silver Helmet",5,3));
+                m_helmets.push_back(Helmet(0, 30, 0, 30, "Obsidian Helmet",30,3));
+                m_helmets.push_back(Helmet(0, 50, 0, 100, "Adamantite Helmet",80,3));
 
                 while (!again) {
                     std::cout << std::endl;
@@ -521,9 +585,9 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                 again = false;
             } else if (choiceForSection == 3) {
 
-                m_gloves.push_back(Gloves(0, 10, 0, 20, "Silver Gloves",5));
-                m_gloves.push_back(Gloves(0, 20, 0, 30, "Obsidian Gloves",30));
-                m_gloves.push_back(Gloves(0, 50, 0, 100, "Adamantite Gloves",60));
+                m_gloves.push_back(Gloves(0, 10, 0, 20, "Silver Gloves",5,4));
+                m_gloves.push_back(Gloves(0, 20, 0, 30, "Obsidian Gloves",30,4));
+                m_gloves.push_back(Gloves(0, 50, 0, 100, "Adamantite Gloves",60,4));
 
                 while (!again) {
                     std::cout << std::endl;
@@ -585,9 +649,9 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0), m_currArmor(0,0,0,0,"
                 again = false;
             } else if (choiceForSection == 4) {
 
-                m_boots.push_back(Boots(0, 10, 0, 20, "Silver Boots",5));
-                m_boots.push_back(Boots(0, 20, 0, 40, "Obsidian Boots",30));
-                m_boots.push_back(Boots(0, 50, 0, 80, "Adamantite Boots",70));
+                m_boots.push_back(Boots(0, 10, 0, 20, "Silver Boots",5,5));
+                m_boots.push_back(Boots(0, 20, 0, 40, "Obsidian Boots",30,5));
+                m_boots.push_back(Boots(0, 50, 0, 80, "Adamantite Boots",70,5));
 
                 while (!again) {
                     std::cout << std::endl;

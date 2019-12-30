@@ -41,18 +41,18 @@ int Core::commands(std::string input) {
 
 void Core::run() {
     std::string input;
-    srand(time(nullptr));
+    srand(time(0));
     int randIndex = rand() % 10;
     Character* player = new Character();
     Fight* fight = new Fight();
     Monster* monster = new Monster();
     player->setName();
     player->itemsChar();
-    monster->randMonster();
     while(m_running){
         std::cout << std::endl;
         std::cout << "Enter your command: ";
         std::cin >> input;
+        std::cout << std::endl;
         input[0] = std::toupper(input[0]);
         switch(commands(input)){
             case 1:

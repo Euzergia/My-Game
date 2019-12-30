@@ -46,6 +46,9 @@ private:
 public:
     Character();
     void setName();
+    Items equipFromInv();
+    int getIndex();
+    int getPositionInInventory();
     void setPotion(int potion);
     int getPotion();
     std::string getName() const;

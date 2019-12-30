@@ -10,7 +10,7 @@
 
 class Armor:public Items {
 public:
-    Armor(int dmg, int def, int agi, int dur, const std::string& name, int price);
+    Armor(int dmg, int def, int agi, int dur, const std::string& name, int price, int index);
     int getDefense() const;
     std::string getName() const;
 };

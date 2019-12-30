@@ -9,7 +9,7 @@
 
 class Helmet:public Items {
 public:
-    Helmet(int dmg, int def, int agi, int dur, const std::string& name, int price);
+    Helmet(int dmg, int def, int agi, int dur, const std::string& name, int price, int index);
     int getDamage() const;
     std::string getName() const;
 };

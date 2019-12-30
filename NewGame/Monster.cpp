@@ -210,7 +210,7 @@
     }
     void Monster::randMonster() {
         std::srand(time(0));
-        int randIndex = 1 + (rand() % (5 - 1));
+        int randIndex = 1 + (rand() % 5);
         switch (randIndex) {
             case 1: { //DRAGON
                 setMonsterType("dragon");
@@ -469,6 +469,6 @@
                     default: std::cout << "Error occured!!" << std::endl;
                 }
             }
-            default: std::cout << "Error occured!!" << std::endl;
+            default: std::cout << "" << std::endl;
         }
     }
