@@ -9,7 +9,7 @@
 #include "Boots.h"
 #include "Gloves.h"
 
-Character::Character() : m_currWeapon(5,0,0,0, "Fists",0,0), m_currArmor(0,0,0,0,"",0,0), m_currHelmet(0,0,0,0,"",0,0), m_currGloves(0,0,0,0,"",0,0), m_currBoots(0,0,0,0,"",0,0), m_currHolder(0,0,0,0,"",0,0){
+Character::Character() : m_currWeapon(5,0,0,0, "",0,0), m_currArmor(0,0,0,0,"",0,0), m_currHelmet(0,0,0,0,"",0,0), m_currGloves(0,0,0,0,"",0,0), m_currBoots(0,0,0,0,"",0,0), m_currHolder(0,0,0,0,"",0,0){
         std::srand(time(nullptr));
         m_strength = std::rand () % 11;
         m_agility = std::rand () % 11;
@@ -53,74 +53,115 @@ Character::Character() : m_currWeapon(5,0,0,0, "Fists",0,0), m_currArmor(0,0,0,0
 
     }
     void Character::showInventory() {
-    m_inventory.reserve(10);
+        m_inventory.reserve(10);
         int index;
         bool again = false;
-        int n;
+        int n = 0;
+        int f;
         const char separator = ' ';
         const int nameWidth = 15;
-        while(!again){
-            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: " << std::endl;
+        while (!again) {
+            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: "
+                      << std::endl;
             for (int i = 0; i < m_inventory.size(); ++i) {
-                    std::cout << i << ". " << m_inventory[i].getName() << std::endl;
-                    n = i+1;
+                std::cout << i << ". " << m_inventory[i].getName() << std::endl;
+                n++;
             }
-                std::cout << std::endl;
-                std::cout << n << ". Back" << std::endl;
-                std::cout << std::endl;
-                std::cout << "Gold/s: " << m_gold << std::endl;
-                std::cout << "Slots used: " << m_inventory.size() << "/" << m_inventory.capacity() << std::endl;
+            f = n + 1;
+            std::cout << std::endl;
+            std::cout << f << ". Back" << std::endl;
+            std::cout << std::endl;
+            std::cout << "Gold/s: " << m_gold << std::endl;
+            std::cout << "Slots used: " << m_inventory.size() << "/" << m_inventory.capacity() << std::endl;
 
-                std::cout << std::endl;
-                std::cout << "Enter your input: " << std::endl;
-                std::cin >> index;
-                for(int j = 0; j < m_inventory.size(); j++){
-                    if(index == n) {
-                        again = true;
-                    }else if(index == j) {
+            std::cout << std::endl;
+            std::cout << "Enter your input: " << std::endl;
+            std::cin >> index;
+            if (index == f) {
+                again = true;
+            }
+            for (int j = 0; j < m_inventory.size(); j++) {
+                    if (index == j) {
                         std::string input;
-                        std::cout << "Do you want to equip this item? Press y(yes) or n(no)." << std::endl;
+                        std::cout << "A: Equip" << std::endl;
+                        std::cout << "B: Sell" << std::endl;
+                        std::cout << "C: Discard" << std::endl;
                         std::cin >> input;
-                        if (input == "y" || input == "Y") {
-                            if (m_inventory[j].getIndex() == 1) { // WEAPON
-                                setHolder(m_inventory[j]);
-                                m_inventory.erase(m_inventory.begin() + index);
-                                m_inventory.push_back(getWeapon());
-                                m_character.erase(m_character.begin());
-                                m_character.insert(m_character.begin(), getHolder());
-                            } else if (m_inventory[j].getIndex() == 2) { //ARMOR
-                                setHolder(m_inventory[j]);
-                                m_inventory.erase(m_inventory.begin() + index);
-                                m_inventory.push_back(getWeapon());
-                                m_character.erase(m_character.begin() + 2);
-                                m_character.insert(m_character.begin() + 2, getHolder());
-                            } else if (m_inventory[j].getIndex() == 3) { //HELMET
-                                setHolder(m_inventory[j]);
-                                m_inventory.erase(m_inventory.begin() + index);
-                                m_inventory.push_back(getWeapon());
-                                m_character.erase(m_character.begin() + 1);
-                                m_character.insert(m_character.begin() + 1, getHolder());
-                            }
-                            if (m_inventory[j].getIndex() == 4) { //GLOVES
-                                setHolder(m_inventory[j]);
-                                m_inventory.erase(m_inventory.begin() + index);
-                                m_inventory.push_back(getWeapon());
-                                m_character.erase(m_character.begin() + 3);
-                                m_character.insert(m_character.begin() + 3, getHolder());
-                            } else if (m_inventory[j].getIndex() == 5) { //BOOTS
-                                setHolder(m_inventory[j]);
-                                m_inventory.erase(m_inventory.begin() + index);
-                                m_inventory.push_back(getWeapon());
-                                m_character.erase(m_character.begin() + 4);
-                                m_character.insert(m_character.begin() + 4, getHolder());
-                            }
-                        } else if (input == "n" || input == "N") {
+                        if(input == "a" || input == "A"){
+                            std::cout << "Do you want to equip this item? Press y(yes) or n(no)." << std::endl;
+                            std::cin >> input;
+                            if (input == "y" || input == "Y") {
+                                if (m_inventory[j].getIndex() == 1) { // WEAPON
+                                    setHolder(m_inventory[j]);
+                                    m_inventory.erase(m_inventory.begin() + index);
+                                    if (m_character[0].getName() == "") {
+                                        m_character.erase(m_character.begin());
+                                    } else {
+                                        m_inventory.push_back(getWeapon());
+                                        m_character.erase(m_character.begin());
+                                    }
+                                    m_character.insert(m_character.begin(), getHolder());
+                                    setWeapon(getHolder());
+                                } else if (m_inventory[j].getIndex() == 2) { //ARMOR
+                                    setHolder(m_inventory[j]);
+                                    m_inventory.erase(m_inventory.begin() + index);
+                                    if (m_character[2].getName() == "") {
+                                        m_character.erase(m_character.begin() + 2);
+                                    } else {
+                                        m_inventory.push_back(getWeapon());
+                                        m_character.erase(m_character.begin() + 2);
+                                    }
+                                    m_character.insert(m_character.begin() + 2, getHolder());
+                                    setArmor(getHolder());
+                                } else if (m_inventory[j].getIndex() == 3) { //HELMET
+                                    setHolder(m_inventory[j]);
+                                    m_inventory.erase(m_inventory.begin() + index);
+                                    if (m_character[1].getName() == "") {
+                                        m_character.erase(m_character.begin() + 1);
+                                    } else {
+                                        m_inventory.push_back(getWeapon());
+                                        m_character.erase(m_character.begin() + 1);
+                                    }
+                                    m_character.insert(m_character.begin() + 1, getHolder());
+                                    setHelmet(getHolder());
+                                } else if (m_inventory[j].getIndex() == 4) { //GLOVES
+                                    setHolder(m_inventory[j]);
+                                    m_inventory.erase(m_inventory.begin() + index);
+                                    if (m_character[3].getName() == "") {
+                                        m_character.erase(m_character.begin() + 3);
+                                    } else {
+                                        m_inventory.push_back(getWeapon());
+                                        m_character.erase(m_character.begin() + 3);
+                                    }
+                                    m_character.insert(m_character.begin() + 3, getHolder());
+                                    setGloves(getHolder());
+                                } else if (m_inventory[j].getIndex() == 5) { //BOOTS
+                                    setHolder(m_inventory[j]);
+                                    m_inventory.erase(m_inventory.begin() + index);
+                                    if (m_character[4].getName() == "") {
+                                        m_character.erase(m_character.begin() + 4);
+                                    } else {
+                                        m_inventory.push_back(getWeapon());
+                                        m_character.erase(m_character.begin() + 4);
+                                    }
+                                    m_character.insert(m_character.begin() + 4, getHolder());
+                                    setBoots(getHolder());
+                                } else if (input == "n" || input == "N") {
 
-                        }
+                                }
+                            }
+                    }else if(input == "b" || input == "B"){
+                                m_inventory.erase(m_inventory.begin() + index);
+                                std::cout << "You sold it for " << (m_inventory[index].getPrice() / 2) << " golds." << std::endl;
+                                setGold(getGold() + (m_inventory[index].getPrice() / 2));
+                    }else if(input == "c" || input == "C"){
+                                m_inventory.erase(m_inventory.begin() + index);
+                                std::cout << "You discarded it successfully." << std::endl;
                     }
                 }
             }
         }
+    }
     void Character::showHelp() {
         const char separator = ' ';
         const int nameWidth = 15;
