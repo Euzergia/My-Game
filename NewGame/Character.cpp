@@ -57,19 +57,16 @@ Character::Character() : m_currWeapon(5,0,0,0, "",0,0), m_currArmor(0,0,0,0,"",0
         int index;
         bool again = false;
         int n = 0;
-        int f;
         const char separator = ' ';
         const int nameWidth = 15;
         while (!again) {
-            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: "
-                      << std::endl;
+            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Inventory window: " << std::endl;
             for (int i = 0; i < m_inventory.size(); ++i) {
                 std::cout << i << ". " << m_inventory[i].getName() << std::endl;
-                n++;
+                n = m_inventory.size();
             }
-            f = n + 1;
             std::cout << std::endl;
-            std::cout << f << ". Back" << std::endl;
+            std::cout << n << ". Back" << std::endl;
             std::cout << std::endl;
             std::cout << "Gold/s: " << m_gold << std::endl;
             std::cout << "Slots used: " << m_inventory.size() << "/" << m_inventory.capacity() << std::endl;
@@ -77,7 +74,7 @@ Character::Character() : m_currWeapon(5,0,0,0, "",0,0), m_currArmor(0,0,0,0,"",0
             std::cout << std::endl;
             std::cout << "Enter your input: " << std::endl;
             std::cin >> index;
-            if (index == f) {
+            if (index == n) {
                 again = true;
             }
             for (int j = 0; j < m_inventory.size(); j++) {
@@ -151,12 +148,20 @@ Character::Character() : m_currWeapon(5,0,0,0, "",0,0), m_currArmor(0,0,0,0,"",0
                                 }
                             }
                     }else if(input == "b" || input == "B"){
-                                m_inventory.erase(m_inventory.begin() + index);
-                                std::cout << "You sold it for " << (m_inventory[index].getPrice() / 2) << " golds." << std::endl;
-                                setGold(getGold() + (m_inventory[index].getPrice() / 2));
+                                std::cout << "Do you want to sell " << m_inventory[index].getName() << " for " << (m_inventory[index].getPrice() / 2) << " golds? Press y(yes) or n(no).\n";
+                                std::cin >> input;
+                                if(input == "y" || input == "Y") {
+                                    m_inventory.erase(m_inventory.begin() + index);
+                                    std::cout << "You sold it successfully." << std::endl;
+                                    setGold(getGold() + (m_inventory[index].getPrice() / 2));
+                                }
                     }else if(input == "c" || input == "C"){
+                            std::cout << "Do you want to discard " << m_inventory[index].getName() << "? Press y(yes) or n(no).\n";
+                            std::cin >> input;
+                            if(input == "y" || input == "Y"){
                                 m_inventory.erase(m_inventory.begin() + index);
                                 std::cout << "You discarded it successfully." << std::endl;
+                            }
                     }
                 }
             }
