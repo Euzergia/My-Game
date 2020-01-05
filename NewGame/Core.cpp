@@ -57,6 +57,9 @@ void Core::run() {
         switch(commands(input)){
             case 1:
                 m_running = false;
+                delete monster;
+                delete fight;
+                delete player;
                 break;
             case 2:
                 player->showStats();
