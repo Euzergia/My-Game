@@ -16,6 +16,8 @@ class Character {
 private:
     int m_hp;
     int m_mp;
+    int m_hpLimit;
+    int m_mpLimit;
     int m_strength;
     int m_agility;
     int m_vitality;
@@ -53,7 +55,10 @@ public:
     int getIndex();
     int getPositionInInventory();
     void setPotion(int potion);
+    int getPotionLimit();
     int getPotion();
+    void setPotionLimit(int limit);
+    void minusPotion(int type);
     std::string getName() const;
     int getBaseDmg();
     int setHp(int hp);
@@ -107,6 +112,8 @@ public:
     void exp(Monster* monster);
     void line();
     int getIntelligence();
+    int getHpLimit();
+    int getMpLimit();
 };
 
 

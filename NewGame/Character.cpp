@@ -14,7 +14,7 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         srand(time(nullptr));
         m_strength = (rand () % 11) + 1;
         m_agility = (rand () % 11) + 1;
-        m_vitality = (rand () % 11) + 1;
+        m_vitality = (rand () % 11) + 15;
         m_intelligence = (rand () % 11) + 1;
         m_name = "";
         m_lvl = 1;
@@ -33,6 +33,14 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
     }
     void Character::line(){
         std::cout << "-----------------------------" << std::endl;
+    }
+    int Character::getHpLimit() {
+        m_hpLimit = m_vitality * m_vitality;
+        return m_hpLimit;
+    }
+    int Character::getMpLimit() {
+        m_mpLimit = m_intelligence * m_intelligence;
+        return m_mpLimit;
     }
     void Character::showStats() {
     bool again = true;
@@ -530,14 +538,34 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
             return 0;
         }
     }
-    /*int Character::getPositionInInventory() {
-        for(int i = 0; i < m_inventory.size(); ++i){
-
+    void Character::minusPotion(int type) {
+    int tempHp = (m_vitality * m_vitality) - getHp();
+    int small = 50;
+    int medium = 0;
+    int large = 0;
+        if(m_potions > 0){
+            if(type == 0) {
+                m_potions--;
+                if(tempHp >= small){
+                    m_hp += small;
+                }else if(tempHp < small){
+                    m_hp += tempHp;
+                }
+            }
+        }else{
+            std::cout << std::endl;
+            std::cout << "You do not have enough potions!!" << std::endl;
         }
     }
-    Items Character::equipFromInv() {
-        m_inventory.erase()
-    }*/
+    int Character::getPotion() {
+        return m_potions;
+    }
+    int Character::getPotionLimit() {
+        return m_potionsLimit;
+    }
+    void Character::setPotionLimit(int limit) {
+        m_potionsLimit = limit;
+    }
     int Character::getDamage() const {
         return m_dmg + m_currWeapon.getDamage() + critDamage();
     }

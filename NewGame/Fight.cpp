@@ -21,80 +21,100 @@
             monster->goblinNames(0,1);
         }
     }
-    int Fight::getFight(Monster* monster, Character* character){
+    int Fight::getFight(Monster* monster, Character* character) {
         int run = 0;
         int hp = monster->getHp();
         int mpDrain = character->getMp() - (character->getMp() / 3);
-        while(hp > 0) {
+        while (hp > 0) {
             line();
+            std::cout << std::endl;
             std::cout << monster->getName() << " " << hp << " HP" << std::endl;
-            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP" << std::endl;
+            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP"
+                      << std::endl;
             std::cout << "A: Attack" << std::endl;
             std::cout << "B: Magic" << std::endl;
-            std::cout << "C: Potion" << std::endl;
+            std::cout << "C: Potion (" << character->getPotion() << "/" << character->getPotionLimit() << ")"
+                      << std::endl;
             std::cin >> input;
-            if (input == "a" || input == "A"){
+            if (input == "a" || input == "A") {
                 hp -= character->getDamage();
-                if(hp > 0) {
+                if (hp > 0) {
                     std::cout << std::endl;
                     attackName(monster);
                     std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
                     character->setHp(character->getHp() - monster->getDmg());
                 }
-                character->setMp(character->getMp() + character->getMpRecovery());
-                character->setHp(character->getHp() + character->getHpRecovery());
-            }else if((input == "b" || input == "B") && ((character->getMp() - mpDrain) > 0)){
+                if(character->getHp() < (character->getHpLimit())){
+                    character->setHp(character->getHp() + character->getHpRecovery());
+                }
+                if(character->getMp() < (character->getMpLimit())) {
+                    character->setMp(character->getMp() + character->getMpRecovery());
+                }
+            } else if ((input == "b" || input == "B") && ((character->getMp() - mpDrain) > 0)) {
                 hp -= character->getDamage() * (character->getIntelligence() - (character->getIntelligence() / 2));
                 character->setMp(mpDrain);
-                if(hp > 0) {
+                if (hp > 0) {
                     std::cout << std::endl;
                     attackName(monster);
                     std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
                     character->setHp(character->getHp() - monster->getDmg());
                 }
-                character->setMp(character->getMp() + character->getMpRecovery());
-                character->setHp(character->getHp() + character->getHpRecovery());
-            }else if(input == "c" || input == "C") {
-
-            }else if(input == "exit" || input == "Exit"){
-                    exit(0);
-            }else if(input == "run" || input == "Run"){
+                if(character->getHp() < (character->getHpLimit())){
+                    character->setHp(character->getHp() + character->getHpRecovery());
+                }
+                if(character->getMp() < (character->getMpLimit())) {
+                    character->setMp(character->getMp() + character->getMpRecovery());
+                }
+            } else if (input == "c" || input == "C") {
+                character->minusPotion(0);
+            } else if (input == "exit" || input == "Exit") {
+                exit(0);
+            } else if (input == "run" || input == "Run") {
                 run = 1;
                 hp = 0;
-            }else if(input == "help" || input == "Help"){
+            } else if (input == "help" || input == "Help") {
                 const char separator = ' ';
                 const int nameWidth = 15;
                 int switchForHelp = 1;
                 std::string inputForHelp;
-                while(switchForHelp == 1) {
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Help window:" << std::endl;
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Commands:";
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Action:" << std::endl;
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "run ";
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "run away from the fight " << std::endl;
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "exit ";
-                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "leave the game " << std::endl;
+                while (switchForHelp == 1) {
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Help window:"
+                              << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Commands:";
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Action:" << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "run ";
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "run away from the fight " << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "exit ";
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "leave the game "
+                              << std::endl;
 
-                   std::cout << std::endl;
-                   std::cout << "Write \"esc\" to leave help desk." << std::endl;
-                   std::cin >> inputForHelp;
-                   if(inputForHelp == "esc" || inputForHelp == "Esc"){
-                       switchForHelp = 0;
-                   }
-               }
+                    std::cout << std::endl;
+                    std::cout << "Write \"esc\" to leave help desk." << std::endl;
+                    std::cin >> inputForHelp;
+                    if (inputForHelp == "esc" || inputForHelp == "Esc") {
+                        switchForHelp = 0;
+                    }
+                }
             }
         }
-        if(run == 1 && hp == 0){
+        if (run == 1 && hp == 0) {
             std::cout << "You ran away." << std::endl;
-        }else if(hp < 0){
-            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP" << std::endl;
+        } else if (hp < 0) {
+            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP"
+                      << std::endl;
             std::cout << std::endl;
             std::cout << "Overkill!!\n";
             std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             monster->setHp(hp);
             character->exp(monster);
             character->reward(monster);
-        }else{
+        } else if(character->getHp() <= 0){
+            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP"
+                      << std::endl;
+            std::cout << "You died. Your adventure is over." << std::endl;
+            exit(0);
+         }else{
             std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP" << std::endl;
             std::cout << std::endl;
             std::cout << monster->getName() << " " << hp << " HP is dead.\n";
