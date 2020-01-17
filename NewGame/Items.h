@@ -16,9 +16,11 @@ protected:
     std::string m_name;
     int m_price;
     int m_index;
+    int m_mpRecovery;
+    int m_hpRecovery;
 
 public:
-    Items(int dmg, int def, int agi, int dur, const std::string& name, int price, int index);
+    Items(int dmg, int def, int agi, int dur, int mpRecovery, int hpRecovery, const std::string& name, int price, int index);
     virtual int getDamage() const;
     virtual int getDefense() const;
     virtual int getAgility() const;
@@ -26,6 +28,8 @@ public:
     virtual int getPrice() const;
     virtual std::string getName() const;
     virtual int getIndex() const;
+    virtual int getMpRecovery();
+    virtual int getHpRecovery();
 };
 
 

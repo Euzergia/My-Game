@@ -6,7 +6,7 @@
 
 
     void Fight::line(){
-        std::cout << "--------------------------\n";
+        std::cout << "-----------------------------\n";
     }
     void Fight::attackName(Monster *monster) {
         if(monster->getMonsterType() == "dragon"){
@@ -24,25 +24,36 @@
     int Fight::getFight(Monster* monster, Character* character){
         int run = 0;
         int hp = monster->getHp();
+        int mpDrain = character->getMp() - (character->getMp() / 3);
         while(hp > 0) {
+            line();
             std::cout << monster->getName() << " " << hp << " HP" << std::endl;
-            std::cout << character->getName() << " " << character->getHp() << " HP" << std::endl;
+            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP" << std::endl;
             std::cout << "A: Attack" << std::endl;
             std::cout << "B: Magic" << std::endl;
             std::cout << "C: Potion" << std::endl;
             std::cin >> input;
             if (input == "a" || input == "A"){
                 hp -= character->getDamage();
-                std::cout << std::endl;
-                attackName(monster);
-                std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
-                character->setHp(character->getHp() - monster->getDmg());
-            }else if(input == "b" || input == "B"){
-                hp -= character->getDamage() * 2;
-                std::cout << std::endl;
-                attackName(monster);
-                std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
-                character->setHp(character->getHp() - monster->getDmg());
+                if(hp > 0) {
+                    std::cout << std::endl;
+                    attackName(monster);
+                    std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
+                    character->setHp(character->getHp() - monster->getDmg());
+                }
+                character->setMp(character->getMp() + character->getMpRecovery());
+                character->setHp(character->getHp() + character->getHpRecovery());
+            }else if((input == "b" || input == "B") && ((character->getMp() - mpDrain) > 0)){
+                hp -= character->getDamage() * (character->getIntelligence() - (character->getIntelligence() / 2));
+                character->setMp(mpDrain);
+                if(hp > 0) {
+                    std::cout << std::endl;
+                    attackName(monster);
+                    std::cout << monster->getName() << " used " << monster->getAttackName() << std::endl;
+                    character->setHp(character->getHp() - monster->getDmg());
+                }
+                character->setMp(character->getMp() + character->getMpRecovery());
+                character->setHp(character->getHp() + character->getHpRecovery());
             }else if(input == "c" || input == "C") {
 
             }else if(input == "exit" || input == "Exit"){
@@ -76,13 +87,19 @@
         if(run == 1 && hp == 0){
             std::cout << "You ran away." << std::endl;
         }else if(hp < 0){
+            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP" << std::endl;
+            std::cout << std::endl;
             std::cout << "Overkill!!\n";
             std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             monster->setHp(hp);
+            character->exp(monster);
             character->reward(monster);
         }else{
+            std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP" << std::endl;
+            std::cout << std::endl;
             std::cout << monster->getName() << " " << hp << " HP is dead.\n";
             monster->setHp(hp);
+            character->exp(monster);
             character->reward(monster);
         }
 

@@ -194,19 +194,19 @@
             setAttackName(AttackName[randIndex]);
         }
     }
-    int Monster::getValue() {
-        return m_value;
+    int Monster::getValue(int type) {
+        if(type == 0) {
+            return m_value;
+        }else if(type == 1){
+            return m_expValue;
+        }
     }
-    void Monster::setValue(int value) {
-        m_value = value;
-    }
-    void Monster::setMonsterStats() {
-        setStrength(1);
-        setVitality(1);
-        setIntelligence(1);
-        setAgility(1);
-        setHp(100);
-        setMp(100);
+    void Monster::setValue(int value, int type) {
+        if(type == 0) {
+            m_value = value + (rand() % value);
+        }else if(type == 1){
+            m_expValue = value + (rand() % value);
+        }
     }
     void Monster::randMonster() {
         std::srand(time(0));
@@ -233,7 +233,8 @@
                         setMp(getIntelligence() * (1 + (rand() % 50)) + (rand() % 200));
                         dragonNames(1,0);
                         setDmg(getStrength() * 5);
-                        setValue(5);
+                        setValue(5,0);
+                        setValue(1200,1);
                         break;
                     }
                     case 2: {
@@ -245,7 +246,8 @@
                         setMp(getIntelligence() * (1 + (rand() % 100)) + (rand() % 500));
                         dragonNames(2,0);
                         setDmg(getStrength() * 5);
-                        setValue(20);
+                        setValue(20,0);
+                        setValue(2600,1);
                         break;
                     }
                     case 3: {
@@ -257,7 +259,8 @@
                         setMp(getIntelligence() * (1 + (rand() % 200)) + (rand() % 1000));
                         dragonNames(3,0);
                         setDmg(getStrength() * 5);
-                        setValue(40);
+                        setValue(40,0);
+                        setValue(5600,1);
                         break;
                     }
                     default:
@@ -286,7 +289,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 10)) + (rand() % 10));
                         wolfNames(1,0);
                         setDmg(getStrength() * 5);
-                        setValue(5);
+                        setValue(5,0);
+                        setValue(200,1);
                         break;
                     }
                     case 2: {
@@ -298,7 +302,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 20));
                         wolfNames(2,0);
                         setDmg(getStrength() * 5);
-                        setValue(20);
+                        setValue(20,0);
+                        setValue(500,1);
                         break;
                     }
                     case 3: {
@@ -310,7 +315,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 30));
                         wolfNames(3,0);
                         setDmg(getStrength() * 5);
-                        setValue(40);
+                        setValue(40,0);
+                        setValue(1300,1);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
@@ -337,7 +343,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 5)) + (rand() % 10));
                         orcNames(1,0);
                         setDmg(getStrength() * 5);
-                        setValue(5);
+                        setValue(5,0);
+                        setValue(200,1);
                         break;
                     }
                     case 2: {
@@ -349,7 +356,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 15)) + (rand() % 15));
                         orcNames(2,0);
                         setDmg(getStrength() * 5);
-                        setValue(20);
+                        setValue(20,0);
+                        setValue(600,1);
                         break;
                     }
                     case 3: {
@@ -361,7 +369,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 30)) + (rand() % 20));
                         orcNames(3,0);
                         setDmg(getStrength() * 5);
-                        setValue(40);
+                        setValue(40,0);
+                        setValue(1000,1);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
@@ -388,7 +397,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
                         ogreNames(1,0);
                         setDmg(getStrength() * 5);
-                        setValue(5);
+                        setValue(5,0);
+                        setValue(350,1);
                         break;
                     }
                     case 2: {
@@ -400,7 +410,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
                         ogreNames(2,0);
                         setDmg(getStrength() * 5);
-                        setValue(20);
+                        setValue(20,0);
+                        setValue(700,1);
                         break;
                     }
                     case 3: {
@@ -412,7 +423,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
                         ogreNames(3,0);
                         setDmg(getStrength() * 5);
-                        setValue(40);
+                        setValue(40,0);
+                        setValue(1100,1);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;
@@ -439,7 +451,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
                         goblinNames(1,0);
                         setDmg(getStrength() * 5);
-                        setValue(5);
+                        setValue(5,0);
+                        setValue(250,1);
                         break;
                     }
                     case 2: {
@@ -451,7 +464,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
                         goblinNames(2,0);
                         setDmg(getStrength() * 5);
-                        setValue(20);
+                        setValue(20,0);
+                        setValue(450,1);
                         break;
                     }
                     case 3: {
@@ -463,7 +477,8 @@
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
                         goblinNames(3,0);
                         setDmg(getStrength() * 5);
-                        setValue(40);
+                        setValue(40,0);
+                        setValue(850,1);
                         break;
                     }
                     default: std::cout << "Error occured!!" << std::endl;

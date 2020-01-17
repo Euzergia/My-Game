@@ -20,6 +20,7 @@ protected:
     int m_intelligence;
     int m_value;
     int m_dmg;
+    int m_expValue;
     std::string m_monster;
     std::string m_attackName;
     /*std::array<std::string, 10> m_monsterName;*/
@@ -39,7 +40,7 @@ public:
     int setVitality(int vitality);
     int setIntelligence(int intelligence);
     int getMp();
-    int getValue();
+    int getValue(int type);
     int getVitality();
     int getIntelligence();
     int getStrength();
@@ -55,8 +56,7 @@ public:
     void orcNames(int tier, int attType);
     void ogreNames(int tier, int attType);
     void randMonster();
-    void setMonsterStats();
-    void setValue(int value);
+    void setValue(int value, int type);
 };
 
 

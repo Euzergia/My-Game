@@ -4,7 +4,7 @@
 
 #include "Gloves.h"
 
-Gloves::Gloves(int dmg, int def, int agi, int dur, const std::string& name, int price, int index):Items(dmg, def, agi, dur, name, price, index) {
+Gloves::Gloves(int dmg, int def, int agi, int dur, int mpRecovery, int hpRecovery, const std::string& name, int price, int index):Items(dmg, def, agi, dur, mpRecovery, hpRecovery, name, price, index) {
 }
 int Gloves::getDefense() const {
     return m_def;

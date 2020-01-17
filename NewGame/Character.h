@@ -20,6 +20,8 @@ private:
     int m_agility;
     int m_vitality;
     int m_intelligence;
+    int m_mpRecovery;
+    int m_hpRecovery;
     Items m_currWeapon;
     Items m_currArmor;
     Items m_currGloves;
@@ -40,6 +42,7 @@ private:
     int m_exp;
     int m_expLimit;
     int m_gold;
+    int m_skillPoints;
     std::vector<Items> m_inventory;
     std::vector<Items> m_character;
 
@@ -54,13 +57,14 @@ public:
     std::string getName() const;
     int getBaseDmg();
     int setHp(int hp);
+    int setMp(int mp);
     int getHp();
     int getMp();
     void showStats();
     void showChar();
     void showInventory();
     void showHelp();
-    static void chooseWeapon(Character* character);
+    void chooseWeapon(Character* character);
     void weaponChar(int choice);
     void armorChar(int choice);
     void helmetChar(int choice);
@@ -71,6 +75,10 @@ public:
     void setWeaponName(std::string wName);
     std::string getWeaponName();
     Items getWeapon();
+    int setMpRecovery(int mpRecovery);
+    int setHpRecovery(int hpRecovery);
+    int getMpRecovery();
+    int getHpRecovery();
     int getDamage() const;
     void setArmor(const Items& armor);
     void setArmorName(std::string wName);
@@ -96,6 +104,9 @@ public:
     void setHolder(const Items& holder);
     Items getHolder();
     int critDamage() const;
+    void exp(Monster* monster);
+    void line();
+    int getIntelligence();
 };
 
 

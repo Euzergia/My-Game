@@ -6,9 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+iostream
+-
 Items.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.cpp
+algorithm
+-
+Character.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+Weapon.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
+Armor.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Armor.h
+Helmet.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
+Boots.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Boots.h
+Gloves.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Character.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 vector
 -
 ctime
@@ -18,41 +44,21 @@ cstdlib
 iomanip
 -
 Monster.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
 
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Core.cpp
-Core.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Core.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Gloves.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Core.h
-Character.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.h
-Monster.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.h
-Dragon.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.h
-Fight.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.h
-map
--
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Helmet.h
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Dragon.h
-Monster.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.h
-
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Fight.h
-iostream
--
-Character.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Character.h
-Monster.h
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.h
-
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 iostream
 -
 
-/cygdrive/c/Users/Lenovo/Desktop/Game/My-Game/NewGame/Monster.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Monster.h
 iostream
 -
 array
@@ -61,4 +67,10 @@ ctime
 -
 cstdlib
 -
+
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Weapon.h
+iostream
+-
+Items.h
+/cygdrive/c/Users/Nguyen Viet Hoang/My-Game/NewGame/Items.h
 
