@@ -45,6 +45,9 @@ private:
     int m_expLimit;
     int m_gold;
     int m_skillPoints;
+    bool m_testMode;
+    int m_temporaryHp;
+    int m_temporaryGold;
     std::vector<Items> m_inventory;
     std::vector<Items> m_character;
 
@@ -108,6 +111,7 @@ public:
     void reward(Monster* monster);
     void setHolder(const Items& holder);
     Items getHolder();
+    void testMode(int type);
     int critDamage() const;
     void exp(Monster* monster);
     void line();

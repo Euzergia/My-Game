@@ -27,6 +27,7 @@ int Core::commands(std::string input) {
     m_commands.insert(std::pair<std::string,int>("Fight",6));
     m_commands.insert(std::pair<std::string,int>("Shop",7));
     m_commands.insert(std::pair<std::string,int>("Clear",8));
+    m_commands.insert(std::pair<std::string,int>("Test",9));
 
     m_input = input;
     std::map<std::string, int>::iterator itr;
@@ -40,6 +41,7 @@ int Core::commands(std::string input) {
 }
 
 void Core::run() {
+    bool onOff = false;
     std::string input;
     srand(time(0));
     int randIndex = rand() % 10;
@@ -83,6 +85,16 @@ void Core::run() {
             case 8:
                 clear();
                 break;
+            case 9: {
+                if(!onOff) {
+                    player->testMode(0);
+                    onOff = true;
+                }else if(onOff){
+                    player->testMode(1);
+                    onOff = false;
+                }
+                break;
+            }
             default:
                 std::cout << "Command " << input << " does not exist." << std::endl;
         }

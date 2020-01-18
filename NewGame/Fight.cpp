@@ -58,7 +58,7 @@
                 std::cout << std::endl;
                 if(((character->getMp() - mpDrain) > 0)) {
                     hp -= character->getDamage() * (character->getIntelligence() - (character->getIntelligence() / 2));
-                    character->setMp(mpDrain);
+                    character->setMp(character->getMp() - mpDrain);
                     if (hp > 0) {
                         std::cout << std::endl;
                         attackName(monster);
@@ -115,8 +115,10 @@
         } else if(character->getHp() <= 0 && hp == 0){
             bool rip = true;
             int cin;
+            std::cout << std::endl;
             std::cout << character->getName() << " " << character->getHp() << " HP | " << character->getMp() << " MP"
                       << std::endl;
+            std::cout << std::endl;
             std::cout << "You died. Your adventure is over." << std::endl;
             while(rip){
                 std::cout << "Restart the game!!" << std::endl;

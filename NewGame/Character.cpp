@@ -30,6 +30,8 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         m_inventory.reserve(10);
         m_mpRecovery = 2;
         m_hpRecovery = 2;
+        m_temporaryGold = 0;
+        m_temporaryHp = 0;
     }
     void Character::line(){
         std::cout << "-----------------------------" << std::endl;
@@ -196,6 +198,7 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
                         std::cout << "A: Equip" << std::endl;
                         std::cout << "B: Sell" << std::endl;
                         std::cout << "C: Discard" << std::endl;
+                        std::cout << "D: Show Stats" << std::endl;
                         std::cin >> input;
                         if (input == "a" || input == "A") {
                             std::cout << "Do you want to equip this item? Press y(yes) or n(no)." << std::endl;
@@ -277,10 +280,45 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
                                 m_inventory.erase(m_inventory.begin() + index);
                                 std::cout << "You discarded it successfully." << std::endl;
                             }
+                        }else if (input == "d" || input == "D"){
+                            std::cout << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Weapon stats: " << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Name: ";
+                            std::cout << m_inventory[index].getName() << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Damage: ";
+                            std::cout << m_inventory[index].getDamage() << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Defense: ";
+                            std::cout << m_inventory[index].getDefense() << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Agility: ";
+                            std::cout << m_inventory[index].getAgility() << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "HP Recovery: ";
+                            std::cout << m_inventory[index].getHpRecovery() << std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "MP Recovery: ";
+                            std::cout<< m_inventory[index].getMpRecovery()<< std::endl;
+                            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Durability: ";
+                            std::cout << m_inventory[index].getDurability() << std::endl;
+
+                            std::cout << "Back (0)" << std::endl;
+                            std::cin >> input;
                         }
                     }
                 }
             }
+        }
+    }
+    void Character::testMode(int type) {
+        if(type == 0) {
+            m_testMode = true;
+            m_temporaryHp = m_hp;
+            m_temporaryGold = m_gold;
+            m_hp = 10000;
+            m_gold = 10000;
+            std::cout << "Test mode activated." << std::endl;
+        }else if(type == 1){
+            m_testMode = false;
+            m_hp = m_temporaryHp;
+            m_gold = m_temporaryGold;
+            std::cout << "Test mode deactivated." << std::endl;
         }
     }
     void Character::showHelp() {
@@ -303,6 +341,8 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "challenge a monster " << std:: endl;
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "clear ";
         std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "clear the terminal " << std:: endl;
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "test ";
+        std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "activate test mode (HP = 10000) " << std:: endl;
     }
     void Character::showChar() {
         int input;
@@ -311,7 +351,7 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         bool moreAgain;
         const char separator = ' ';
         const int nameWidth = 15;
-        while(again) {
+        while (again) {
             line();
             if (std::cin.fail()) {
                 std::cout << std::endl;
@@ -320,7 +360,8 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
                 std::cin.ignore();
             } else {
                 std::cout << std::endl;
-                std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Character window: " << std::endl;
+                std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Character window: "
+                          << std::endl;
                 std::cout << 0;
                 std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << ". Weapon: ";
                 std::cout << m_character[0].getName() << std::endl;
@@ -342,139 +383,336 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
                 std::cout << std::endl;
                 std::cout << "Enter your input: " << std::endl;
                 std::cin >> input;
-                moreAgain = true;
-                switch (input) {
-                    case 0: {
-                        while (moreAgain) {
-                            std::cout << "Do you want to unequip this item? Press y(yes) or n(no)." << std::endl;
-                            std::cin >> YesOrNo;
-                            moreAgain = false;
-                        }
-                        if (YesOrNo == "y" || YesOrNo == "Y") {
-                            if (m_inventory.size() < m_inventory.capacity()) {
-                                if (m_character[0].getName() == "") {
-                                    std::cout << "You do not have equipped weapon." << std::endl;
-                                    m_character.erase(m_character.begin());
-                                } else {
-                                    m_inventory.push_back(getWeapon());
-                                    m_character.erase(m_character.begin());
+                if (std::cin.fail()) {
+                    std::cout << std::endl;
+                    std::cout << "You must enter a number!!" << std::endl;
+                    std::cin.clear();
+                    std::cin.ignore();
+                } else {
+                    moreAgain = true;
+                    switch (input) {
+                        case 0: {
+                            while (moreAgain) {
+                                std::cout << "A: Unequip" << std::endl;
+                                std::cout << "B: Show Stats" << std::endl;
+                                std::cin >> YesOrNo;
+                                if (YesOrNo == "a" || YesOrNo == "A") {
+                                    std::cout << "Do you want to unequip this item? Press y(yes) or n(no)."
+                                              << std::endl;
+                                    std::cin >> YesOrNo;
+                                    if (YesOrNo == "y" || YesOrNo == "Y") {
+                                        moreAgain = false;
+                                        if (m_inventory.size() < m_inventory.capacity()) {
+                                            if (m_character[0].getName() == "") {
+                                                std::cout << "You do not have equipped weapon." << std::endl;
+                                                m_character.erase(m_character.begin());
+                                            } else {
+                                                m_inventory.push_back(getWeapon());
+                                                m_character.erase(m_character.begin());
+                                            }
+                                            setWeapon(Weapon(5, 0, 0, 0, 0, 0, "", 0, 0));
+                                            m_character.insert(m_character.begin(), getWeapon());
+                                        } else {
+                                            std::cout << "There is not enough space in the inventory." << std::endl;
+                                            std::cout << "Inventory space: " << m_inventory.size() << "/"
+                                                      << m_inventory.capacity()
+                                                      << std::endl;
+                                        }
+                                    } else {
+                                        moreAgain = false;
+                                    }
+                                } else if (YesOrNo == "B" || YesOrNo == "b") {
+                                    moreAgain = false;
+                                    std::cout << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Weapon stats: " << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Name: ";
+                                    std::cout << m_character[0].getName() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Damage: ";
+                                    std::cout << m_character[0].getDamage() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Defense: ";
+                                    std::cout << m_character[0].getDefense() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Agility: ";
+                                    std::cout << m_character[0].getAgility() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "HP Recovery: ";
+                                    std::cout << m_character[0].getHpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "MP Recovery: ";
+                                    std::cout << m_character[0].getMpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Durability: ";
+                                    std::cout << m_character[0].getDurability() << std::endl;
+
+                                    std::cout << "Back (0)" << std::endl;
+                                    std::cin >> input;
                                 }
-                                setWeapon(Weapon(5, 0, 0, 0, 0, 0, "", 0, 0));
-                                m_character.insert(m_character.begin(), getWeapon());
-                            } else {
-                                std::cout << "There is not enough space in the inventory." << std::endl;
-                                std::cout << "Inventory space: " << m_inventory.size() << "/" << m_inventory.capacity()
-                                          << std::endl;
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case 1: {
-                        while (moreAgain) {
-                            std::cout << "Do you want to unequip this item? Press y(yes) or n(no)." << std::endl;
-                            std::cin >> YesOrNo;
-                            moreAgain = false;
-                        }
-                        if (m_character.size() < m_character.capacity()) {
-                            if (YesOrNo == "y" || YesOrNo == "Y") {
-                                if (m_character[1].getName() == "") {
-                                    std::cout << "You do not have equipped helmet." << std::endl;
-                                    m_character.erase(m_character.begin() + 1);
-                                } else {
-                                    m_inventory.push_back(getHelmet());
-                                    m_character.erase(m_character.begin() + 1);
+                        case 1: {
+                            while (moreAgain) {
+                                std::cout << "A: Unequip" << std::endl;
+                                std::cout << "B: Show Stats" << std::endl;
+                                std::cin >> YesOrNo;
+                                if (YesOrNo == "a" || YesOrNo == "A") {
+                                    std::cout << "Do you want to unequip this item? Press y(yes) or n(no)."
+                                              << std::endl;
+                                    std::cin >> YesOrNo;
+                                    if (YesOrNo == "y" || YesOrNo == "Y") {
+                                        moreAgain = false;
+                                        if (m_character.size() < m_character.capacity()) {
+                                            if (m_character[1].getName() == "") {
+                                                std::cout << "You do not have equipped helmet." << std::endl;
+                                                m_character.erase(m_character.begin() + 1);
+                                            } else {
+                                                m_inventory.push_back(getHelmet());
+                                                m_character.erase(m_character.begin() + 1);
+                                            }
+                                            setHelmet(Helmet(0, 0, 0, 0, 0, 0, "", 0, 0));
+                                            m_character.insert(m_character.begin() + 1, getHelmet());
+                                        } else {
+                                            std::cout << "There is not enough space in the inventory." << std::endl;
+                                            std::cout << "Inventory space: " << m_inventory.size() << "/"
+                                                      << m_inventory.capacity()
+                                                      << std::endl;
+                                        }
+                                    } else {
+                                        moreAgain = false;
+                                    }
+                                } else if (YesOrNo == "B" || YesOrNo == "b") {
+                                    moreAgain = false;
+                                    std::cout << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Weapon stats: " << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Name: ";
+                                    std::cout << m_character[1].getName() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Damage: ";
+                                    std::cout << m_character[1].getDamage() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Defense: ";
+                                    std::cout << m_character[1].getDefense() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Agility: ";
+                                    std::cout << m_character[1].getAgility() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "HP Recovery: ";
+                                    std::cout << m_character[1].getHpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "MP Recovery: ";
+                                    std::cout << m_character[1].getMpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Durability: ";
+                                    std::cout << m_character[1].getDurability() << std::endl;
+
+                                    std::cout << "Back (0)" << std::endl;
+                                    std::cin >> input;
                                 }
-                                setHelmet(Helmet(0, 0, 0, 0, 0, 0, "", 0, 0));
-                                m_character.insert(m_character.begin() + 1, getHelmet());
-                            } else {
-                                std::cout << "There is not enough space in the inventory." << std::endl;
-                                std::cout << "Inventory space: " << m_inventory.size() << "/" << m_inventory.capacity()
-                                          << std::endl;
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case 2: {
-                        while (moreAgain) {
-                            std::cout << "Do you want to unequip this item? Press y(yes) or n(no)." << std::endl;
-                            std::cin >> YesOrNo;
-                            moreAgain = false;
-                        }
-                        if (YesOrNo == "y" || YesOrNo == "Y") {
-                            if (m_inventory.size() < m_inventory.capacity()) {
-                                if (m_character[2].getName() == "") {
-                                    std::cout << "You do not have equipped armor." << std::endl;
-                                    m_character.erase(m_character.begin() + 2);
-                                } else {
-                                    m_inventory.push_back(getArmor());
-                                    m_character.erase(m_character.begin() + 2);
+                        case 2: {
+                            while (moreAgain) {
+                                std::cout << "A: Unequip" << std::endl;
+                                std::cout << "B: Show Stats" << std::endl;
+                                std::cin >> YesOrNo;
+                                if (YesOrNo == "a" || YesOrNo == "A") {
+                                    std::cout << "Do you want to unequip this item? Press y(yes) or n(no)."
+                                              << std::endl;
+                                    std::cin >> YesOrNo;
+                                    if (YesOrNo == "y" || YesOrNo == "Y") {
+                                        moreAgain = false;
+                                        if (m_inventory.size() < m_inventory.capacity()) {
+                                            if (m_character[2].getName() == "") {
+                                                std::cout << "You do not have equipped armor." << std::endl;
+                                                m_character.erase(m_character.begin() + 2);
+                                            } else {
+                                                m_inventory.push_back(getArmor());
+                                                m_character.erase(m_character.begin() + 2);
+                                            }
+                                            setArmor(Armor(0, 0, 0, 0, 0, 0, "", 0, 0));
+                                            m_character.insert(m_character.begin() + 2, getArmor());
+                                        } else {
+                                            std::cout << "There is not enough space in the inventory." << std::endl;
+                                            std::cout << "Inventory space: " << m_inventory.size() << "/"
+                                                      << m_inventory.capacity()
+                                                      << std::endl;
+                                        }
+                                    } else {
+                                        moreAgain = false;
+                                    }
+                                } else if (YesOrNo == "B" || YesOrNo == "b") {
+                                    moreAgain = false;
+                                    std::cout << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Weapon stats: " << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Name: ";
+                                    std::cout << m_character[2].getName() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Damage: ";
+                                    std::cout << m_character[2].getDamage() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Defense: ";
+                                    std::cout << m_character[2].getDefense() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Agility: ";
+                                    std::cout << m_character[2].getAgility() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "HP Recovery: ";
+                                    std::cout << m_character[2].getHpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "MP Recovery: ";
+                                    std::cout << m_character[2].getMpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Durability: ";
+                                    std::cout << m_character[2].getDurability() << std::endl;
+
+                                    std::cout << "Back (0)" << std::endl;
+                                    std::cin >> input;
                                 }
-                                setArmor(Armor(0, 0, 0, 0, 0, 0, "", 0, 0));
-                                m_character.insert(m_character.begin() + 2, getArmor());
-                            } else {
-                                std::cout << "There is not enough space in the inventory." << std::endl;
-                                std::cout << "Inventory space: " << m_inventory.size() << "/" << m_inventory.capacity()
-                                          << std::endl;
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case 3: {
-                        while (moreAgain) {
-                            std::cout << "Do you want to unequip this item? Press y(yes) or n(no)." << std::endl;
-                            std::cin >> YesOrNo;
-                            moreAgain = false;
-                        }
-                        if (YesOrNo == "y" || YesOrNo == "Y") {
-                            if (m_inventory.size() < m_inventory.capacity()) {
-                                if (m_character[3].getName() == "") {
-                                    std::cout << "You do not have equipped gloves." << std::endl;
-                                    m_character.erase(m_character.begin() + 3);
-                                } else {
-                                    m_inventory.push_back(getGloves());
-                                    m_character.erase(m_character.begin() + 3);
+                        case 3: {
+                            while (moreAgain) {
+                                std::cout << "A: Unequip" << std::endl;
+                                std::cout << "B: Show Stats" << std::endl;
+                                std::cin >> YesOrNo;
+                                if (YesOrNo == "a" || YesOrNo == "A") {
+                                    std::cout << "Do you want to unequip this item? Press y(yes) or n(no)."
+                                              << std::endl;
+                                    std::cin >> YesOrNo;
+                                    if (YesOrNo == "y" || YesOrNo == "Y") {
+                                        moreAgain = false;
+                                        if (m_inventory.size() < m_inventory.capacity()) {
+                                            if (m_character[3].getName() == "") {
+                                                std::cout << "You do not have equipped gloves." << std::endl;
+                                                m_character.erase(m_character.begin() + 3);
+                                            } else {
+                                                m_inventory.push_back(getGloves());
+                                                m_character.erase(m_character.begin() + 3);
+                                            }
+                                            setGloves(Gloves(0, 0, 0, 0, 0, 0, "", 0, 0));
+                                            m_character.insert(m_character.begin() + 3, getGloves());
+                                        } else {
+                                            std::cout << "There is not enough space in the inventory." << std::endl;
+                                            std::cout << "Inventory space: " << m_inventory.size() << "/"
+                                                      << m_inventory.capacity()
+                                                      << std::endl;
+                                        }
+                                    } else {
+                                        moreAgain = false;
+                                    }
+                                } else if (YesOrNo == "B" || YesOrNo == "b") {
+                                    moreAgain = false;
+                                    std::cout << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Weapon stats: " << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Name: ";
+                                    std::cout << m_character[3].getName() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Damage: ";
+                                    std::cout << m_character[3].getDamage() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Defense: ";
+                                    std::cout << m_character[3].getDefense() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Agility: ";
+                                    std::cout << m_character[3].getAgility() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "HP Recovery: ";
+                                    std::cout << m_character[3].getHpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "MP Recovery: ";
+                                    std::cout << m_character[3].getMpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Durability: ";
+                                    std::cout << m_character[3].getDurability() << std::endl;
+
+                                    std::cout << "Back (0)" << std::endl;
+                                    std::cin >> input;
                                 }
-                                setGloves(Gloves(0, 0, 0, 0, 0, 0, "", 0, 0));
-                                m_character.insert(m_character.begin() + 3, getGloves());
-                            } else {
-                                std::cout << "There is not enough space in the inventory." << std::endl;
-                                std::cout << "Inventory space: " << m_inventory.size() << "/" << m_inventory.capacity()
-                                          << std::endl;
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case 4: {
-                        while (moreAgain) {
-                            std::cout << "Do you want to unequip this item? Press y(yes) or n(no)." << std::endl;
-                            std::cin >> YesOrNo;
-                            moreAgain = false;
-                        }
-                        if (YesOrNo == "y" || YesOrNo == "Y") {
-                            if (m_inventory.size() < m_inventory.capacity()) {
-                                if (m_character[4].getName() == "") {
-                                    std::cout << "You do not have equipped boots." << std::endl;
-                                    m_character.erase(m_character.begin() + 4);
-                                } else {
-                                    m_inventory.push_back(getBoots());
-                                    m_character.erase(m_character.begin() + 4);
+                        case 4: {
+                            while (moreAgain) {
+                                std::cout << "A: Unequip" << std::endl;
+                                std::cout << "B: Show Stats" << std::endl;
+                                std::cin >> YesOrNo;
+                                if (YesOrNo == "a" || YesOrNo == "A") {
+                                    std::cout << "Do you want to unequip this item? Press y(yes) or n(no)."
+                                              << std::endl;
+                                    std::cin >> YesOrNo;
+                                    if (YesOrNo == "y" || YesOrNo == "Y") {
+                                        moreAgain = false;
+                                        if (m_inventory.size() < m_inventory.capacity()) {
+                                            if (m_character[4].getName() == "") {
+                                                std::cout << "You do not have equipped boots." << std::endl;
+                                                m_character.erase(m_character.begin() + 4);
+                                            } else {
+                                                m_inventory.push_back(getBoots());
+                                                m_character.erase(m_character.begin() + 4);
+                                            }
+                                            setBoots(Boots(5, 0, 0, 0, 0, 0, "", 0, 0));
+                                            m_character.insert(m_character.begin() + 4, getBoots());
+                                        } else {
+                                            std::cout << "There is not enough space in the inventory." << std::endl;
+                                            std::cout << "Inventory space: " << m_inventory.size() << "/"
+                                                      << m_inventory.capacity()
+                                                      << std::endl;
+                                        }
+                                    } else {
+                                        moreAgain = false;
+                                    }
+                                } else if (YesOrNo == "B" || YesOrNo == "b") {
+                                    moreAgain = false;
+                                    std::cout << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Weapon stats: " << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Name: ";
+                                    std::cout << m_character[4].getName() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Damage: ";
+                                    std::cout << m_character[4].getDamage() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Defense: ";
+                                    std::cout << m_character[4].getDefense() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Agility: ";
+                                    std::cout << m_character[4].getAgility() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "HP Recovery: ";
+                                    std::cout << m_character[4].getHpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "MP Recovery: ";
+                                    std::cout << m_character[4].getMpRecovery() << std::endl;
+                                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                                              << "Durability: ";
+                                    std::cout << m_character[4].getDurability() << std::endl;
+
+                                    std::cout << "Back (0)" << std::endl;
+                                    std::cin >> input;
                                 }
-                                setBoots(Boots(5, 0, 0, 0, 0, 0, "", 0, 0));
-                                m_character.insert(m_character.begin() + 4, getBoots());
-                            } else {
-                                std::cout << "There is not enough space in the inventory." << std::endl;
-                                std::cout << "Inventory space: " << m_inventory.size() << "/" << m_inventory.capacity()
-                                          << std::endl;
                             }
+                            break;
                         }
-                        break;
+                        case 5: {
+                            again = false;
+                            break;
+                        }
+                        default:
+                            std::cout << "Wrong input!!" << std::endl;
                     }
-                    case 5: {
-                        again = false;
-                        break;
-                    }
-                    default:
-                        std::cout << "Wrong input!!" << std::endl;
                 }
             }
         }
@@ -539,17 +777,30 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         }
     }
     void Character::minusPotion(int type) {
-    int tempHp = (m_vitality * m_vitality) - getHp();
+        int tempHp;
+    if(!m_testMode){
+        tempHp = getHpLimit() - getHp();
+    }else if(m_testMode){
+        tempHp = 10000 - getHp();
+    }
     int small = 50;
     int medium = 0;
     int large = 0;
         if(m_potions > 0){
             if(type == 0) {
-                m_potions--;
-                if(tempHp >= small){
-                    m_hp += small;
-                }else if(tempHp < small){
-                    m_hp += tempHp;
+                if(m_testMode){
+                    if (tempHp >= small) {
+                        m_hp += small;
+                    } else if (tempHp < small) {
+                        m_hp += tempHp;
+                    }
+                }else {
+                    m_potions--;
+                    if (tempHp >= small) {
+                        m_hp += small;
+                    } else if (tempHp < small) {
+                        m_hp += tempHp;
+                    }
                 }
             }
         }else{
