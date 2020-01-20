@@ -12,6 +12,8 @@
         m_hp = 0;
         m_mp = 0;
         m_value = 0;
+        m_lvl = 1;
+        m_defense = 0;
         /*m_monsterName = "Dragon";*/
     }
     Monster::~Monster() {
@@ -63,8 +65,10 @@
         m_dmg = dmg;
     }
     int Monster::getDmg() {
-        critDamage();
-        return m_dmg;
+        return m_dmg + critDamage();
+    }
+    int Monster::getLevel() {
+        return m_lvl;
     }
     int Monster::critDamage() const{
         srand(time(0));
@@ -201,12 +205,21 @@
             return m_expValue;
         }
     }
+    void Monster::setDefense(int defense) {
+        m_defense = defense;
+    }
+    int Monster::getDefense() {
+        return m_defense;
+    }
     void Monster::setValue(int value, int type) {
         if(type == 0) {
             m_value = value + (rand() % value);
         }else if(type == 1){
             m_expValue = value + (rand() % value);
         }
+    }
+    void Monster::setLevel(int level) {
+        m_lvl = level;
     }
     void Monster::randMonster() {
         std::srand(time(0));
@@ -225,10 +238,12 @@
                 }
                 switch (choice) {
                     case 1: {
-                        setStrength(25 + rand() % 50);
-                        setVitality(25 + rand() % 50);
-                        setIntelligence(25 + rand() % 50);
-                        setAgility(25 + rand() % 50);
+                        setLevel((rand() % 30) + 1);
+                        setStrength( getLevel() + 25 + rand() % 50);
+                        setVitality(getLevel() + 25 + rand() % 50);
+                        setIntelligence(getLevel() + 25 + rand() % 50);
+                        setAgility(getLevel() + 25 + rand() % 50);
+                        setDefense(getLevel() + 25 + rand() % 50);
                         setHp(getVitality() * (1 + (rand() % 50)) + (rand() % 200));
                         setMp(getIntelligence() * (1 + (rand() % 50)) + (rand() % 200));
                         dragonNames(1,0);
@@ -238,10 +253,12 @@
                         break;
                     }
                     case 2: {
-                        setStrength(35 + rand() % 70);
-                        setVitality(35 + rand() % 70);
-                        setIntelligence(35 + rand() % 70);
-                        setAgility(35 + rand() % 70);
+                        setLevel((rand() % 40) + 31);
+                        setStrength(getLevel() + 35 + rand() % 70);
+                        setVitality(getLevel() + 35 + rand() % 70);
+                        setIntelligence(getLevel() + 35 + rand() % 70);
+                        setAgility(getLevel() + 35 + rand() % 70);
+                        setDefense(getLevel() + 35 + rand() % 70);
                         setHp(getVitality() * (1 + (rand() % 100)) + (rand() % 500));
                         setMp(getIntelligence() * (1 + (rand() % 100)) + (rand() % 500));
                         dragonNames(2,0);
@@ -251,10 +268,12 @@
                         break;
                     }
                     case 3: {
-                        setStrength(50 + rand() % 100);
-                        setVitality(50 + rand() % 100);
-                        setIntelligence(50 + rand() % 100);
-                        setAgility(50 + rand() % 100);
+                        setLevel((rand() % 30) + 71);
+                        setStrength(getLevel() + 50 + rand() % 100);
+                        setVitality(getLevel() + 50 + rand() % 100);
+                        setIntelligence(getLevel() + 50 + rand() % 100);
+                        setAgility(getLevel() + 50 + rand() % 100);
+                        setDefense(getLevel() + 50 + rand() % 100);
                         setHp(getVitality() * (1 + (rand() % 200)) + (rand() % 1000));
                         setMp(getIntelligence() * (1 + (rand() % 200)) + (rand() % 1000));
                         dragonNames(3,0);
@@ -281,10 +300,12 @@
                 }
                 switch (choice) {
                     case 1: {
-                        setStrength(15 + rand() % 10);
-                        setVitality(10 + rand() % 10);
-                        setIntelligence(0 + rand() % 10);
-                        setAgility(20 + rand() % 10);
+                        setLevel((rand() % 30) + 1);
+                        setStrength(getLevel() + 15 + rand() % 10);
+                        setVitality(getLevel() + 10 + rand() % 10);
+                        setIntelligence(getLevel() + 0 + rand() % 10);
+                        setAgility(getLevel() + 20 + rand() % 10);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 10)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 10)) + (rand() % 10));
                         wolfNames(1,0);
@@ -294,10 +315,12 @@
                         break;
                     }
                     case 2: {
-                        setStrength(15 + rand() % 20);
-                        setVitality(10 + rand() % 20);
-                        setIntelligence(0 + rand() % 20);
-                        setAgility(20 + rand() % 20);
+                        setLevel((rand() % 30) + 31);
+                        setStrength(getLevel() + 15 + rand() % 20);
+                        setVitality(getLevel() + 10 + rand() % 20);
+                        setIntelligence(getLevel() + 0 + rand() % 20);
+                        setAgility(getLevel() + 20 + rand() % 20);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 20));
                         wolfNames(2,0);
@@ -307,10 +330,12 @@
                         break;
                     }
                     case 3: {
-                        setStrength(15 + rand() % 30);
-                        setVitality(10 + rand() % 30);
-                        setIntelligence(0 + rand() % 30);
-                        setAgility(20 + rand() % 30);
+                        setLevel((rand() % 30) + 71);
+                        setStrength(getLevel() + 15 + rand() % 30);
+                        setVitality(getLevel() + 10 + rand() % 30);
+                        setIntelligence(getLevel() + 0 + rand() % 30);
+                        setAgility(getLevel() + 20 + rand() % 30);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 20)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 20)) + (rand() % 30));
                         wolfNames(3,0);
@@ -335,10 +360,12 @@
                 }
                 switch (choice) {
                     case 1: {
-                        setStrength(10 + rand() % 10);
-                        setVitality(10 + rand() % 10);
-                        setIntelligence(2 + rand() % 10);
-                        setAgility(5 + rand() % 10);
+                        setLevel((rand() % 30) + 1);
+                        setStrength(getLevel() + 10 + rand() % 10);
+                        setVitality(getLevel() + 10 + rand() % 10);
+                        setIntelligence(getLevel() + 2 + rand() % 10);
+                        setAgility(getLevel() + 5 + rand() % 10);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 5)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 5)) + (rand() % 10));
                         orcNames(1,0);
@@ -348,10 +375,12 @@
                         break;
                     }
                     case 2: {
-                        setStrength(15 + rand() % 10);
-                        setVitality(15 + rand() % 10);
-                        setIntelligence(2 + rand() % 10);
-                        setAgility(8 + rand() % 10);
+                        setLevel((rand() % 30) + 31);
+                        setStrength(getLevel() + 15 + rand() % 10);
+                        setVitality(getLevel() + 15 + rand() % 10);
+                        setIntelligence(getLevel() + 2 + rand() % 10);
+                        setAgility(getLevel() + 8 + rand() % 10);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 15)) + (rand() % 15));
                         setMp(getIntelligence() * ( 1 + (rand() % 15)) + (rand() % 15));
                         orcNames(2,0);
@@ -361,10 +390,12 @@
                         break;
                     }
                     case 3: {
-                        setStrength(25 + rand() % 20);
-                        setVitality(20 + rand() % 20);
-                        setIntelligence(10 + rand() % 20);
-                        setAgility(15 + rand() % 20);
+                        setLevel((rand() % 30) + 71);
+                        setStrength(getLevel() + 25 + rand() % 20);
+                        setVitality(getLevel() + 20 + rand() % 20);
+                        setIntelligence(getLevel() + 10 + rand() % 20);
+                        setAgility(getLevel() + 15 + rand() % 20);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 30)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 30)) + (rand() % 20));
                         orcNames(3,0);
@@ -389,10 +420,12 @@
                 }
                 switch (choice) {
                     case 1: {
-                        setStrength(30 + rand() % 20);
-                        setVitality(20 + rand() % 10);
-                        setIntelligence(0 + rand() % 10);
-                        setAgility(3 + rand() % 10);
+                        setLevel((rand() % 30) + 1);
+                        setStrength(getLevel() + 30 + rand() % 20);
+                        setVitality(getLevel() + 20 + rand() % 10);
+                        setIntelligence(getLevel() + 0 + rand() % 10);
+                        setAgility(getLevel() + 3 + rand() % 10);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
                         ogreNames(1,0);
@@ -402,10 +435,12 @@
                         break;
                     }
                     case 2: {
-                        setStrength(35 + rand() % 20);
-                        setVitality(20 + rand() % 20);
-                        setIntelligence(5 + rand() % 20);
-                        setAgility(10 + rand() % 20);
+                        setLevel((rand() % 30) + 31);
+                        setStrength(getLevel() + 35 + rand() % 20);
+                        setVitality(getLevel() + 20 + rand() % 20);
+                        setIntelligence(getLevel() + 5 + rand() % 20);
+                        setAgility(getLevel() + 10 + rand() % 20);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
                         ogreNames(2,0);
@@ -415,10 +450,12 @@
                         break;
                     }
                     case 3: {
-                        setStrength(40 + rand() % 30);
-                        setVitality(30 + rand() % 30);
-                        setIntelligence(10 + rand() % 30);
-                        setAgility(12 + rand() % 30);
+                        setLevel((rand() % 30) + 71);
+                        setStrength(getLevel() + 40 + rand() % 30);
+                        setVitality(getLevel() + 30 + rand() % 30);
+                        setIntelligence(getLevel() + 10 + rand() % 30);
+                        setAgility(getLevel() + 12 + rand() % 30);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
                         ogreNames(3,0);
@@ -443,10 +480,12 @@
                 }
                 switch (choice) {
                     case 1: {
-                        setStrength(5 + rand() % 10);
-                        setVitality(2 + rand() % 10);
-                        setIntelligence(2 + rand() % 10);
-                        setAgility(5 + rand() % 10);
+                        setLevel((rand() % 30) + 1);
+                        setStrength(getLevel() + 5 + rand() % 10);
+                        setVitality(getLevel() + 2 + rand() % 10);
+                        setIntelligence(getLevel() + 2 + rand() % 10);
+                        setAgility(getLevel() + 5 + rand() % 10);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 10));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 10));
                         goblinNames(1,0);
@@ -456,10 +495,12 @@
                         break;
                     }
                     case 2: {
-                        setStrength(10 + rand() % 20);
-                        setVitality(5 + rand() % 20);
-                        setIntelligence(5 + rand() % 20);
-                        setAgility(10 + rand() % 20);
+                        setLevel((rand() % 30) + 31);
+                        setStrength(getLevel() + 10 + rand() % 20);
+                        setVitality(getLevel() + 5 + rand() % 20);
+                        setIntelligence(getLevel() + 5 + rand() % 20);
+                        setAgility(getLevel() + 10 + rand() % 20);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 20));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 20));
                         goblinNames(2,0);
@@ -469,10 +510,12 @@
                         break;
                     }
                     case 3: {
-                        setStrength(20 + rand() % 30);
-                        setVitality(10 + rand() % 30);
-                        setIntelligence(10 + rand() % 30);
-                        setAgility(15 + rand() % 30);
+                        setLevel((rand() % 30) + 71);
+                        setStrength(getLevel() + 20 + rand() % 30);
+                        setVitality(getLevel() + 10 + rand() % 30);
+                        setIntelligence(getLevel() + 10 + rand() % 30);
+                        setAgility(getLevel() + 15 + rand() % 30);
+                        setDefense(getLevel());
                         setHp(getVitality() * ( 1 + (rand() % 50)) + (rand() % 30));
                         setMp(getIntelligence() * ( 1 + (rand() % 50)) + (rand() % 30));
                         goblinNames(3,0);

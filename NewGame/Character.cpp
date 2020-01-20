@@ -76,6 +76,9 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
             std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Agility (5): ";
             std::cout << m_agility << std::endl;
             std::cout << std::endl;
+            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Total defense: ";
+            std::cout << m_currArmor.getDefense() + m_currBoots.getDefense() + m_currGloves.getDefense() + m_currHelmet.getDefense() << std::endl;
+            std::cout << std::endl;
             std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Skill points: ";
             std::cout << m_skillPoints << std::endl;
             std::cout << std::endl;

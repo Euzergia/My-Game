@@ -38,7 +38,11 @@
             std::cin >> input;
             if (input == "a" || input == "A") {
                 std::cout << std::endl;
-                hp -= character->getDamage();
+                //if(monster->getDefense() >= character->getDamage()){
+                   // std::cout << "Monster's defense is too high. You did not deal any damage." << std::endl;
+              //  }else{
+                    hp -= character->getDamage() - monster->getDefense();
+                //}
                 if (hp > 0) {
                     std::cout << std::endl;
                     attackName(monster);
@@ -56,9 +60,15 @@
                 }
             } else if ((input == "b" || input == "B")) {
                 std::cout << std::endl;
-                if(((character->getMp() - mpDrain) > 0)) {
-                    hp -= character->getDamage() * (character->getIntelligence() - (character->getIntelligence() / 2));
-                    character->setMp(character->getMp() - mpDrain);
+                if(monster->getDefense() >= (character->getDamage() * (character->getIntelligence() - (character->getIntelligence() / 2)))){
+                    std::cout << "Monster's defense is too high. You did not deal any damage." << std::endl;
+                }else{
+                    if(((character->getMp() - mpDrain) > 0)) {
+                        hp -= (character->getDamage() * (character->getIntelligence() - (character->getIntelligence() / 2))) - monster->getDefense();
+                        character->setMp(character->getMp() - mpDrain);
+                    }else{
+                        std::cout << "You do not have enough mp!!" << std::endl;
+                    }
                     if (hp > 0) {
                         std::cout << std::endl;
                         attackName(monster);
@@ -74,8 +84,6 @@
                     if (character->getMp() < (character->getMpLimit())) {
                         character->setMp(character->getMp() + character->getMpRecovery());
                     }
-                }else{
-                    std::cout << "You do not have enough mp!!" << std::endl;
                 }
             } else if (input == "c" || input == "C") {
                 character->minusPotion(0);
@@ -106,6 +114,47 @@
                     std::cin >> inputForHelp;
                     if (inputForHelp == "esc" || inputForHelp == "Esc") {
                         switchForHelp = 0;
+                    }
+                }
+            }else if(input == "info" || input == "Info") {
+                const char separator = ' ';
+                const int nameWidth = 15;
+                bool moreAgain = true;
+                while(moreAgain) {
+                    std::cout << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Monster stats: " << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Name: ";
+                    std::cout << monster->getName() << std::endl;
+                   std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Level: ";
+                    std::cout << monster->getLevel() << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "HP: ";
+                    std::cout << monster->getHp() << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "MP: ";
+                    std::cout << monster->getMp() << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Vitality: ";
+                    std::cout << monster->getVitality() << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Intelligence: ";
+                    std::cout << monster->getIntelligence() << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Strength: ";
+                    std::cout << monster->getStrength() << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator)
+                              << "Agility: ";
+                    std::cout << monster->getAgility() << std::endl;
+                    std::cout << std::endl;
+                    std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Total defense: ";
+                    std::cout << monster->getDefense() << std::endl;
+
+                    std::cout << "Back (0)" << std::endl;
+                    if(std::cin >> input){
+                        moreAgain = false;
                     }
                 }
             }

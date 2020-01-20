@@ -18,9 +18,11 @@ protected:
     int m_agility;
     int m_vitality;
     int m_intelligence;
+    int m_defense;
     int m_value;
     int m_dmg;
     int m_expValue;
+    int m_lvl;
     std::string m_monster;
     std::string m_attackName;
     /*std::array<std::string, 10> m_monsterName;*/
@@ -45,6 +47,10 @@ public:
     int getIntelligence();
     int getStrength();
     int getAgility();
+    int getDefense();
+    void setDefense(int defense);
+    int getLevel();
+    void setLevel(int level);
     void setDmg(int dmg);
     int getDmg();
     std::string getName() const;
