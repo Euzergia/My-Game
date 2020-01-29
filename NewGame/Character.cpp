@@ -28,6 +28,7 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         m_potions = 3;
         m_potionsLimit = 3;
         m_inventory.reserve(10);
+        m_quests.reserve(3);
         m_mpRecovery = 2;
         m_hpRecovery = 2;
         m_temporaryGold = 0;
@@ -88,7 +89,6 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
             std::cout << "Enter input: " << std::endl;
             std::cin >> input;
             if (std::cin.fail()) {
-                line();
                 std::cout << std::endl;
                 std::cout << "You must enter a number!!" << std::endl;
                 std::cin.clear();
@@ -168,7 +168,6 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         const int nameWidth = 15;
         while (!again) {
             if (std::cin.fail()) {
-                line();
                 std::cout << std::endl;
                 std::cout << "You must enter a number!!" << std::endl;
                 std::cin.clear();
@@ -355,13 +354,13 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
         const char separator = ' ';
         const int nameWidth = 15;
         while (again) {
-            line();
             if (std::cin.fail()) {
                 std::cout << std::endl;
                 std::cout << "You must enter a number!!" << std::endl;
                 std::cin.clear();
                 std::cin.ignore();
             } else {
+                line();
                 std::cout << std::endl;
                 std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << "Character window: "
                           << std::endl;
@@ -743,6 +742,73 @@ Character::Character() : m_currWeapon(5,0,0,0,0,0, "",0,0), m_currArmor(0,0,0,0,
             m_skillPoints += count;
         }
         std::cout << "You acquired this amount of exp: " << monster->getValue(1) << std::endl;
+    }
+    void Character::quest() {
+        int random;
+        for(int i = 0; i < (m_quests.capacity()-m_quests.size());) {
+            random = rand() % 5;
+            switch (random) {
+                case 0: {
+                    Quest q0;
+                    q0.m_text = "Kill 5 monsters.";
+                    q0.m_expectedNumber = 5;
+                    q0.m_goldReward = 25;
+                    q0.m_count = 0;
+                    m_quests.push_back(q0);
+                    break;
+                }
+                case 1: {
+                    Quest q1;
+                    q1.m_text = "Spend 25 golds.";
+                    q1.m_expectedNumber = 25;
+                    q1.m_goldReward = 40;
+                    q1.m_count = 0;
+                    m_quests.push_back(q1);
+                    break;
+                }
+                case 2:{
+                    Quest q2;
+                    q2.m_text = "Kill 10 monsters.";
+                    q2.m_expectedNumber = 10;
+                    q2.m_goldReward = 50;
+                    q2.m_count = 0;
+                    m_quests.push_back(q2);
+                    break;
+                }
+                case 3:{
+                    Quest q3;
+                    q3.m_text = "Use potion 3 times.";
+                    q3.m_expectedNumber = 3;
+                    q3.m_goldReward = 10;
+                    q3.m_count = 0;
+                    m_quests.push_back(q3);
+                    break;
+                }
+                case 4:{
+                    Quest q4;
+                    q4.m_text = "Kill 15 monsters.";
+                    q4.m_expectedNumber = 15;
+                    q4.m_goldReward = 75;
+                    q4.m_count = 0;
+                    m_quests.push_back(q4);
+                    break;
+                }
+                default:
+                    std::cout << "Error!!" << std::endl;
+            }
+        }
+    }
+    void Character::showQuests() {
+        const char separator = ' ';
+        const int nameWidth = 5;
+        std::string text;
+    std::cout << "Quests:" << std::endl;
+    std::cout << std::endl;
+        for(int i = 0; i < m_quests.size(); i++){
+            std::cout << m_quests[i].m_count << "/";
+            std::cout << std::setw(nameWidth) << std::left << std::setfill(separator) << m_quests[i].m_expectedNumber;
+            std::cout <<  m_quests[i].m_text << std::endl;
+        }
     }
     int Character::setHp(int hp) {
         m_hp = hp;

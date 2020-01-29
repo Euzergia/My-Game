@@ -28,6 +28,7 @@ int Core::commands(std::string input) {
     m_commands.insert(std::pair<std::string,int>("Shop",7));
     m_commands.insert(std::pair<std::string,int>("Clear",8));
     m_commands.insert(std::pair<std::string,int>("Test",9));
+    m_commands.insert(std::pair<std::string,int>("Quest",10));
 
     m_input = input;
     std::map<std::string, int>::iterator itr;
@@ -95,6 +96,10 @@ void Core::run() {
                 }
                 break;
             }
+            case 10:
+                player->quest();
+                player->showQuests();
+                break;
             default:
                 std::cout << "Command " << input << " does not exist." << std::endl;
         }

@@ -17,6 +17,7 @@ CMakeFiles/Game.dir/Character.cpp.o: ../Gloves.h
 CMakeFiles/Game.dir/Character.cpp.o: ../Helmet.h
 CMakeFiles/Game.dir/Character.cpp.o: ../Items.h
 CMakeFiles/Game.dir/Character.cpp.o: ../Monster.h
+CMakeFiles/Game.dir/Character.cpp.o: ../Quest.h
 CMakeFiles/Game.dir/Character.cpp.o: ../Weapon.h
 
 CMakeFiles/Game.dir/Core.cpp.o: ../Character.h
@@ -26,6 +27,7 @@ CMakeFiles/Game.dir/Core.cpp.o: ../Dragon.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Fight.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Items.h
 CMakeFiles/Game.dir/Core.cpp.o: ../Monster.h
+CMakeFiles/Game.dir/Core.cpp.o: ../Quest.h
 
 CMakeFiles/Game.dir/Dragon.cpp.o: ../Dragon.cpp
 CMakeFiles/Game.dir/Dragon.cpp.o: ../Dragon.h
@@ -36,6 +38,7 @@ CMakeFiles/Game.dir/Fight.cpp.o: ../Fight.cpp
 CMakeFiles/Game.dir/Fight.cpp.o: ../Fight.h
 CMakeFiles/Game.dir/Fight.cpp.o: ../Items.h
 CMakeFiles/Game.dir/Fight.cpp.o: ../Monster.h
+CMakeFiles/Game.dir/Fight.cpp.o: ../Quest.h
 
 CMakeFiles/Game.dir/Gloves.cpp.o: ../Gloves.cpp
 CMakeFiles/Game.dir/Gloves.cpp.o: ../Gloves.h
@@ -61,5 +64,6 @@ CMakeFiles/Game.dir/main.cpp.o: ../Dragon.h
 CMakeFiles/Game.dir/main.cpp.o: ../Fight.h
 CMakeFiles/Game.dir/main.cpp.o: ../Items.h
 CMakeFiles/Game.dir/main.cpp.o: ../Monster.h
+CMakeFiles/Game.dir/main.cpp.o: ../Quest.h
 CMakeFiles/Game.dir/main.cpp.o: ../main.cpp
 

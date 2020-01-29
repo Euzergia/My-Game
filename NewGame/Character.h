@@ -10,6 +10,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
+#include "Quest.h"
 #include "Monster.h"
 
 class Character {
@@ -50,6 +51,7 @@ private:
     int m_temporaryGold;
     std::vector<Items> m_inventory;
     std::vector<Items> m_character;
+    std::vector<Quest> m_quests;
 
 public:
     Character();
@@ -57,7 +59,9 @@ public:
     Items equipFromInv();
     int getIndex();
     int getPositionInInventory();
+    void showQuests();
     void setPotion(int potion);
+    void quest();
     int getPotionLimit();
     int getPotion();
     void setPotionLimit(int limit);
